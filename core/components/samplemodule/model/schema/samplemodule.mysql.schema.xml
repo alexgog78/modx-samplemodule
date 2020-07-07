@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="samplemodule_" version="1.1">
+    <object class="sampleCollection" table="collections" extends="AbstractSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="description" dbtype="text" phptype="string" null="true"/>
+        <field key="image" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
+        <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
+        <field key="created_on" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <!--Indexes-->
+        <index alias="parent_id" name="parent_id" primary="false" unique="false" type="BTREE">
+            <column key="parent_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
+            <column key="menuindex" length="" collation="A" null="false"/>
+        </index>
+        <index alias="is_active" name="is_active" primary="false" unique="false" type="BTREE">
+            <column key="is_active" length="" collation="A" null="false"/>
+        </index>
+        <!--Validation-->
+        <validation>
+            <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+            <!--<rule field="name" name="unique" type="xPDOValidationRule" rule="validation.ms2ExtendValidatorUnique" excludeFields="" message="ms2extend.err_ae"/>-->
+        </validation>
+        <!--Links-->
+        <composite alias="Items" class="sampleItem" local="id" foreign="collection_id" cardinality="many" owner="local"/>
+    </object>
+
+    <object class="sampleItem" table="items" extends="AbstractSimpleObject">
+        <field key="collection_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="description" dbtype="text" phptype="string" null="true"/>
+        <field key="richtext" dbtype="text" phptype="string" null="true"/>
+        <field key="code" dbtype="text" phptype="string" null="true"/>
+        <field key="options" dbtype="text" phptype="json" null="true"/>
+        <field key="type_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
+        <field key="status_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="template_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
+        <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
+        <field key="created_on" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <!--Indexes-->
+        <index alias="collection_id" name="collection_id" primary="false" unique="false" type="BTREE">
+            <column key="collection_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="type_id" name="type_id" primary="false" unique="false" type="BTREE">
+            <column key="type_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="status_id" name="status_id" primary="false" unique="false" type="BTREE">
+            <column key="status_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="template_id" name="template_id" primary="false" unique="false" type="BTREE">
+            <column key="template_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
+            <column key="menuindex" length="" collation="A" null="false"/>
+        </index>
+        <index alias="is_active" name="is_active" primary="false" unique="false" type="BTREE">
+            <column key="is_active" length="" collation="A" null="false"/>
+        </index>
+        <!--Validation-->
+        <validation>
+            <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+        </validation>
+        <!--Links-->
+        <composite alias="CategoriesIds" class="sampleItemCategory" local="id" foreign="item_id" cardinality="many" owner="local"/>
+        <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign"/>
+    </object>
+
+    <object class="sampleCategory" table="categories" extends="AbstractSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
+        <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
+        <!--Indexes-->
+        <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
+            <column key="menuindex" length="" collation="A" null="false"/>
+        </index>
+        <index alias="is_active" name="is_active" primary="false" unique="false" type="BTREE">
+            <column key="is_active" length="" collation="A" null="false"/>
+        </index>
+        <!--Validation-->
+        <validation>
+            <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+        </validation>
+        <!--Links-->
+        <composite alias="ItemsIds" class="sampleItemCategory" local="id" foreign="category_id" cardinality="many" owner="local"/>
+    </object>
+
+    <object class="sampleItemCategory" table="item_categories" extends="AbstractObject">
+        <field key="item_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
+        <field key="category_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
+        <!--Links-->
+        <aggregate alias="Item" class="sampleItem" local="item_id" foreign="id" cardinality="one" owner="foreign"/>
+        <aggregate alias="Category" class="sampleCategory" local="category_id" foreign="id" cardinality="one" owner="foreign"/>
+        <!--Indexes-->
+        <index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE">
+            <column key="item_id" length="" collation="A" null="false"/>
+            <column key="category_id" length="" collation="A" null="false"/>
+        </index>
+    </object>
+
+    <object class="sampleType" table="types" extends="AbstractSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
+        <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
+        <!--Indexes-->
+        <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
+            <column key="menuindex" length="" collation="A" null="false"/>
+        </index>
+        <index alias="is_active" name="is_active" primary="false" unique="false" type="BTREE">
+            <column key="is_active" length="" collation="A" null="false"/>
+        </index>
+        <!--Validation-->
+        <validation>
+            <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+        </validation>
+        <!--Links-->
+        <composite alias="Item" class="sampleItem" local="id" foreign="type_id" cardinality="many" owner="local"/>
+    </object>
+
+    <object class="sampleStatus" table="statuses" extends="AbstractSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
+        <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
+        <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
+        <!--Indexes-->
+        <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
+            <column key="menuindex" length="" collation="A" null="false"/>
+        </index>
+        <index alias="is_active" name="is_active" primary="false" unique="false" type="BTREE">
+            <column key="is_active" length="" collation="A" null="false"/>
+        </index>
+        <!--Validation-->
+        <validation>
+            <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+        </validation>
+        <!--Links-->
+        <composite alias="Item" class="sampleItem" local="id" foreign="status_id" cardinality="many" owner="local"/>
+    </object>
+</model>
