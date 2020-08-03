@@ -1,0 +1,147 @@
+{
+    "sampleCollection": [
+        {"name": "Коллекция 1", "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere."},
+        {"name": "Коллекция 2", "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere."},
+        {"name": "Коллекция 3", "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere."},
+        {"name": "Коллекция 4", "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere."}
+    ],
+    "sampleItem": [
+        {
+            "collection_id": 1, "type_id": 1, "status_id": 1, "template_id": 1,
+            "name": "Предмет 1",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 2, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 2",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 1, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 3",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 2, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 4",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 3, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 5",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 3, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 6",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 4, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 7",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        },
+        {
+            "collection_id": 4, "type_id": 2, "status_id": 2, "template_id": 1,
+            "name": "Предмет 8",
+            "description": "Ut sit blanditiis ducimus accusamus molestiae saepe facere.",
+            "richtext": "<p>Sint rerum molestiae ea accusamus aut explicabo aut sed. Ducimus reiciendis cum accusamus dicta ipsa quia veniam. Explicabo cumque in non et amet explicabo. Perferendis animi consequatur est aspernatur consequatur et eius.</p><p>In tenetur nihil quam possimus quam a accusamus. Amet repudiandae nemo iure quibusdam odio eaque. Modi ipsa facilis fugiat sunt vel similique necessitatibus. Totam delectus voluptatem est incidunt voluptatem sint explicabo eligendi. Sunt voluptas nobis eligendi quia aspernatur eligendi.</p><p>Est est quod dolore facilis eum fuga. Quia eius aut earum labore. Eos id aut quisquam illum. Adipisci nobis quod laborum corrupti quis qui.</p><p>Earum et et repellendus ea odio. Dolor sapiente sed molestiae perferendis autem ducimus nobis. Laboriosam quibusdam aperiam omnis. Architecto ea quos vel vel distinctio.</p><p>Distinctio rerum quas esse quia dicta. Aut amet consequatur quos est voluptatem architecto. Dolorum officiis et facere quasi deserunt.</p>",
+            "code": "<div><a href=\"#\" target=\"_blank\">Ссылка</a></div>",
+            "options": [
+                {"option_1": 1},
+                {"option_2": 1},
+                {"option_3": 1},
+                {"option_4": 1}
+            ]
+        }
+    ],
+    "sampleCategory": [
+        {"name": "Категория 1", "is_active":  1},
+        {"name": "Категория 2", "is_active":  1},
+        {"name": "Категория 3", "is_active":  1}
+    ],
+    "sampleItemCategory": [
+        {"item_id": 1, "category_id": 1},
+        {"item_id": 1, "category_id": 2},
+        {"item_id": 2, "category_id": 1},
+        {"item_id": 2, "category_id": 3},
+        {"item_id": 3, "category_id": 2},
+        {"item_id": 3, "category_id": 3},
+        {"item_id": 4, "category_id": 1},
+        {"item_id": 4, "category_id": 2},
+        {"item_id": 5, "category_id": 1},
+        {"item_id": 5, "category_id": 3},
+        {"item_id": 6, "category_id": 2},
+        {"item_id": 6, "category_id": 3},
+        {"item_id": 7, "category_id": 1},
+        {"item_id": 7, "category_id": 2},
+        {"item_id": 8, "category_id": 1},
+        {"item_id": 8, "category_id": 3}
+    ],
+    "sampleType": [
+        {"name": "Тип 1", "is_active":  1},
+        {"name": "Тип 2", "is_active":  1},
+        {"name": "Тип 3", "is_active":  1}
+    ],
+    "sampleStatus": [
+        {"name": "Статус 1", "is_active":  1},
+        {"name": "Статус 2", "is_active":  1},
+        {"name": "Статус 3", "is_active":  1}
+    ]
+}

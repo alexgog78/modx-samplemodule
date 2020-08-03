@@ -80,19 +80,6 @@ $xpdo_meta_map['sampleCollection'] = [
         ],
     ],
     'indexes' => [
-        'parent_id' => [
-            'alias' => 'parent_id',
-            'primary' => false,
-            'unique' => false,
-            'type' => 'BTREE',
-            'columns' => [
-                'parent_id' => [
-                    'length' => '',
-                    'collation' => 'A',
-                    'null' => false,
-                ],
-            ],
-        ],
         'menuindex' => [
             'alias' => 'menuindex',
             'primary' => false,

@@ -14,10 +14,11 @@ $xpdo_meta_map['sampleItem'] = [
         'description' => NULL,
         'richtext' => NULL,
         'code' => NULL,
-        'options' => NULL,
         'type_id' => NULL,
         'status_id' => 0,
         'template_id' => 0,
+        'tags' => NULL,
+        'options' => NULL,
         'menuindex' => 0,
         'is_active' => 0,
         'created_on' => NULL,
@@ -54,11 +55,6 @@ $xpdo_meta_map['sampleItem'] = [
             'phptype' => 'string',
             'null' => true,
         ],
-        'options' => [
-            'dbtype' => 'text',
-            'phptype' => 'json',
-            'null' => true,
-        ],
         'type_id' => [
             'dbtype' => 'int',
             'precision' => '10',
@@ -81,6 +77,16 @@ $xpdo_meta_map['sampleItem'] = [
             'phptype' => 'integer',
             'null' => false,
             'default' => 0,
+        ],
+        'tags' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
+            'null' => true,
+        ],
+        'options' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
+            'null' => true,
         ],
         'menuindex' => [
             'dbtype' => 'int',

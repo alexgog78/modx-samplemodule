@@ -1,9 +1,9 @@
 <?php
 
-$this->modx->loadClass('AbstractManagerController', MODX_CORE_PATH . 'components/abstractmodule/controllers/mgr/', true, true);
+$this->modx->loadClass('AbstractMgrController', MODX_CORE_PATH . 'components/abstractmodule/controllers/mgr/', true, true);
 
-abstract class SampleModuleManagerController extends AbstractManagerController
+abstract class SampleMgrController extends AbstractMgrController
 {
     /** @var string\bool */
-    protected $moduleClass = 'SampleModule';
+    //protected $moduleClass = 'SampleModule';
 }

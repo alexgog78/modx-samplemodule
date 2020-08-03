@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="samplemodule_" version="1.1">
+    <!--default="NULL"-->
     <object class="sampleCollection" table="collections" extends="AbstractSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
@@ -11,9 +12,6 @@
         <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <!--Indexes-->
-        <index alias="parent_id" name="parent_id" primary="false" unique="false" type="BTREE">
-            <column key="parent_id" length="" collation="A" null="false"/>
-        </index>
         <index alias="menuindex" name="menuindex" primary="false" unique="false" type="BTREE">
             <column key="menuindex" length="" collation="A" null="false"/>
         </index>
@@ -35,15 +33,17 @@
         <field key="description" dbtype="text" phptype="string" null="true"/>
         <field key="richtext" dbtype="text" phptype="string" null="true"/>
         <field key="code" dbtype="text" phptype="string" null="true"/>
-        <field key="options" dbtype="text" phptype="json" null="true"/>
         <field key="type_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
         <field key="status_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="template_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="tags" dbtype="text" phptype="json" null="true"/>
+        <field key="options" dbtype="text" phptype="json" null="true"/>
         <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
         <field key="created_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
+        <!--attributes="ON UPDATE CURRENT_TIMESTAMP"-->
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <!--Indexes-->
         <index alias="collection_id" name="collection_id" primary="false" unique="false" type="BTREE">
