@@ -1,9 +1,9 @@
 <?php
 
-$xpdo_meta_map['sampleStatus'] = [
+$xpdo_meta_map['sampleOptionOne'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
-    'table' => 'statuses',
+    'table' => 'option_one',
     'extends' => 'AbstractSimpleObject',
     'tableMeta' => [
         'engine' => 'MyISAM',
@@ -65,10 +65,10 @@ $xpdo_meta_map['sampleStatus'] = [
         ],
     ],
     'composites' => [
-        'Item' => [
-            'class' => 'sampleItem',
+        'Collection' => [
+            'class' => 'sampleCollection',
             'local' => 'id',
-            'foreign' => 'status_id',
+            'foreign' => 'option_one_id',
             'cardinality' => 'many',
             'owner' => 'local',
         ],

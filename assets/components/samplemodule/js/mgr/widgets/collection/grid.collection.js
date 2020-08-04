@@ -23,11 +23,11 @@ SampleModule.grid.collection = function (config) {
             'updated_by',
         ],
         columns: [
-            {dataIndex: 'id', header: _('id'), sortable: true, width: 0.05},
-            {dataIndex: 'name', header: _('name'), sortable: true, width: 0.5, editor: {xtype: 'textfield'}},
-            {dataIndex: 'is_active', header: _('samplemodule.field.active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean},
-            {dataIndex: 'created_on', header: _('samplemodule.field.created_on'), sortable: true, width: 0.2},
-            {dataIndex: 'updated_on', header: _('samplemodule.field.updated_on'), sortable: true, width: 0.2},
+            this.getGridColumn('id', {header: _('id'), width: 0.05}),
+            this.getGridColumn('name', {header: _('name'), width: 0.5, editor: {xtype: 'textfield'}}),
+            this.getGridColumn('is_active', {header: _('samplemodule.field.active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('created_on', {header: _('samplemodule.field.created_on'), width: 0.2}),
+            this.getGridColumn('updated_on', {header: _('samplemodule.field.updated_on'), width: 0.2}),
         ],
         recordActions: {
             create: {
@@ -71,7 +71,6 @@ Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
 
     getToolbar: function () {
         return [
-            this.getQuickCreateButton(),
             this.getCreateButton(),
             '->',
             this.getSearchPanel()

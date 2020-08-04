@@ -2,6 +2,6 @@
 
 $this->loadClass('AbstractObject', MODX_CORE_PATH . 'components/abstractmodule/model/abstractmodule/', true, true);
 
-class sampleItemCategory extends AbstractObject
+class sampleCollectionCategory extends AbstractObject
 {
 }

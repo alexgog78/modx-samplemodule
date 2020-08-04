@@ -1,13 +1,13 @@
 'use strict';
 
-SampleModule.window.collection = function (config) {
+SampleModule.window.item = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         url: SampleModule.config.connectorUrl,
     });
-    SampleModule.window.collection.superclass.constructor.call(this, config);
+    SampleModule.window.item.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
+Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
@@ -25,4 +25,4 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
         ];
     },
 });
-Ext.reg('samplemodule-window-collection', SampleModule.window.collection);
+Ext.reg('samplemodule-window-item', SampleModule.window.item);

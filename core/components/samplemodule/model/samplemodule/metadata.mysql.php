@@ -5,10 +5,10 @@ $xpdo_meta_map = [
         0 => 'sampleCollection',
         1 => 'sampleItem',
         2 => 'sampleCategory',
-        3 => 'sampleType',
-        4 => 'sampleStatus',
+        3 => 'sampleOptionOne',
+        4 => 'sampleOptionTwo',
     ],
     'AbstractObject' => [
-        0 => 'sampleItemCategory',
+        0 => 'sampleCollectionCategory',
     ],
 ];

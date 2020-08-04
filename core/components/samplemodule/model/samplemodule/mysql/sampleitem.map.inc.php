@@ -9,31 +9,18 @@ $xpdo_meta_map['sampleItem'] = [
         'engine' => 'MyISAM',
     ],
     'fields' => [
-        'collection_id' => NULL,
         'name' => NULL,
         'description' => NULL,
-        'richtext' => NULL,
-        'code' => NULL,
-        'type_id' => NULL,
-        'status_id' => 0,
-        'template_id' => 0,
-        'tags' => NULL,
-        'options' => NULL,
+        'image' => NULL,
         'menuindex' => 0,
         'is_active' => 0,
         'created_on' => NULL,
         'created_by' => 0,
         'updated_on' => NULL,
         'updated_by' => 0,
+        'options' => NULL,
     ],
     'fieldMeta' => [
-        'collection_id' => [
-            'dbtype' => 'int',
-            'precision' => '10',
-            'attributes' => 'unsigned',
-            'phptype' => 'integer',
-            'null' => false,
-        ],
         'name' => [
             'dbtype' => 'varchar',
             'precision' => '255',
@@ -45,47 +32,10 @@ $xpdo_meta_map['sampleItem'] = [
             'phptype' => 'string',
             'null' => true,
         ],
-        'richtext' => [
-            'dbtype' => 'text',
+        'image' => [
+            'dbtype' => 'varchar',
+            'precision' => '255',
             'phptype' => 'string',
-            'null' => true,
-        ],
-        'code' => [
-            'dbtype' => 'text',
-            'phptype' => 'string',
-            'null' => true,
-        ],
-        'type_id' => [
-            'dbtype' => 'int',
-            'precision' => '10',
-            'attributes' => 'unsigned',
-            'phptype' => 'integer',
-            'null' => false,
-        ],
-        'status_id' => [
-            'dbtype' => 'int',
-            'precision' => '10',
-            'attributes' => 'unsigned',
-            'phptype' => 'integer',
-            'null' => false,
-            'default' => 0,
-        ],
-        'template_id' => [
-            'dbtype' => 'int',
-            'precision' => '10',
-            'attributes' => 'unsigned',
-            'phptype' => 'integer',
-            'null' => false,
-            'default' => 0,
-        ],
-        'tags' => [
-            'dbtype' => 'text',
-            'phptype' => 'json',
-            'null' => true,
-        ],
-        'options' => [
-            'dbtype' => 'text',
-            'phptype' => 'json',
             'null' => true,
         ],
         'menuindex' => [
@@ -120,6 +70,7 @@ $xpdo_meta_map['sampleItem'] = [
             'dbtype' => 'datetime',
             'phptype' => 'datetime',
             'null' => true,
+            'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
         ],
         'updated_by' => [
             'dbtype' => 'int',
@@ -128,6 +79,11 @@ $xpdo_meta_map['sampleItem'] = [
             'phptype' => 'integer',
             'null' => false,
             'default' => 0,
+        ],
+        'options' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
+            'null' => true,
         ],
     ],
     'indexes' => [
@@ -138,45 +94,6 @@ $xpdo_meta_map['sampleItem'] = [
             'type' => 'BTREE',
             'columns' => [
                 'collection_id' => [
-                    'length' => '',
-                    'collation' => 'A',
-                    'null' => false,
-                ],
-            ],
-        ],
-        'type_id' => [
-            'alias' => 'type_id',
-            'primary' => false,
-            'unique' => false,
-            'type' => 'BTREE',
-            'columns' => [
-                'type_id' => [
-                    'length' => '',
-                    'collation' => 'A',
-                    'null' => false,
-                ],
-            ],
-        ],
-        'status_id' => [
-            'alias' => 'status_id',
-            'primary' => false,
-            'unique' => false,
-            'type' => 'BTREE',
-            'columns' => [
-                'status_id' => [
-                    'length' => '',
-                    'collation' => 'A',
-                    'null' => false,
-                ],
-            ],
-        ],
-        'template_id' => [
-            'alias' => 'template_id',
-            'primary' => false,
-            'unique' => false,
-            'type' => 'BTREE',
-            'columns' => [
-                'template_id' => [
                     'length' => '',
                     'collation' => 'A',
                     'null' => false,
@@ -208,15 +125,6 @@ $xpdo_meta_map['sampleItem'] = [
                     'null' => false,
                 ],
             ],
-        ],
-    ],
-    'composites' => [
-        'CategoriesIds' => [
-            'class' => 'sampleItemCategory',
-            'local' => 'id',
-            'foreign' => 'item_id',
-            'cardinality' => 'many',
-            'owner' => 'local',
         ],
     ],
     'aggregates' => [

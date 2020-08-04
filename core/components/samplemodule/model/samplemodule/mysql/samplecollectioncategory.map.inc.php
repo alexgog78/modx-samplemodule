@@ -1,19 +1,19 @@
 <?php
 
-$xpdo_meta_map['sampleItemCategory'] = [
+$xpdo_meta_map['sampleCollectionCategory'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
-    'table' => 'item_categories',
+    'table' => 'collection_categories',
     'extends' => 'AbstractObject',
     'tableMeta' => [
         'engine' => 'MyISAM',
     ],
     'fields' => [
-        'item_id' => NULL,
+        'collection_id' => NULL,
         'category_id' => NULL,
     ],
     'fieldMeta' => [
-        'item_id' => [
+        'collection_id' => [
             'dbtype' => 'int',
             'precision' => '10',
             'attributes' => 'unsigned',
@@ -37,7 +37,7 @@ $xpdo_meta_map['sampleItemCategory'] = [
             'unique' => true,
             'type' => 'BTREE',
             'columns' => [
-                'item_id' => [
+                'collection_id' => [
                     'length' => '',
                     'collation' => 'A',
                     'null' => false,
@@ -51,9 +51,9 @@ $xpdo_meta_map['sampleItemCategory'] = [
         ],
     ],
     'aggregates' => [
-        'Item' => [
-            'class' => 'sampleItem',
-            'local' => 'item_id',
+        'Collection' => [
+            'class' => 'sampleCollection',
+            'local' => 'collection_id',
             'foreign' => 'id',
             'cardinality' => 'one',
             'owner' => 'foreign',

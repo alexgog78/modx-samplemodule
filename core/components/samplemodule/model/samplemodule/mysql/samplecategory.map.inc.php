@@ -65,8 +65,8 @@ $xpdo_meta_map['sampleCategory'] = [
         ],
     ],
     'composites' => [
-        'ItemsIds' => [
-            'class' => 'sampleItemCategory',
+        'CollectionIds' => [
+            'class' => 'sampleCollectionCategory',
             'local' => 'id',
             'foreign' => 'category_id',
             'cardinality' => 'many',

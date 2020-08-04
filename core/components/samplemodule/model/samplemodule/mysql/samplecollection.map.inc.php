@@ -3,7 +3,7 @@
 $xpdo_meta_map['sampleCollection'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
-    'table' => 'collections',
+    'table' => 'items',
     'extends' => 'AbstractSimpleObject',
     'tableMeta' => [
         'engine' => 'MyISAM',
@@ -11,13 +11,18 @@ $xpdo_meta_map['sampleCollection'] = [
     'fields' => [
         'name' => NULL,
         'description' => NULL,
-        'image' => NULL,
+        'richtext' => NULL,
+        'code' => NULL,
+        'option_one_id' => NULL,
+        'option_two_id' => 0,
+        'tags' => NULL,
         'menuindex' => 0,
         'is_active' => 0,
         'created_on' => NULL,
         'created_by' => 0,
         'updated_on' => NULL,
         'updated_by' => 0,
+        'options' => NULL,
     ],
     'fieldMeta' => [
         'name' => [
@@ -31,10 +36,34 @@ $xpdo_meta_map['sampleCollection'] = [
             'phptype' => 'string',
             'null' => true,
         ],
-        'image' => [
-            'dbtype' => 'varchar',
-            'precision' => '255',
+        'richtext' => [
+            'dbtype' => 'text',
             'phptype' => 'string',
+            'null' => true,
+        ],
+        'code' => [
+            'dbtype' => 'text',
+            'phptype' => 'string',
+            'null' => true,
+        ],
+        'option_one_id' => [
+            'dbtype' => 'int',
+            'precision' => '10',
+            'attributes' => 'unsigned',
+            'phptype' => 'integer',
+            'null' => false,
+        ],
+        'option_two_id' => [
+            'dbtype' => 'int',
+            'precision' => '10',
+            'attributes' => 'unsigned',
+            'phptype' => 'integer',
+            'null' => false,
+            'default' => 0,
+        ],
+        'tags' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
             'null' => true,
         ],
         'menuindex' => [
@@ -69,6 +98,7 @@ $xpdo_meta_map['sampleCollection'] = [
             'dbtype' => 'datetime',
             'phptype' => 'datetime',
             'null' => true,
+            'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
         ],
         'updated_by' => [
             'dbtype' => 'int',
@@ -78,8 +108,39 @@ $xpdo_meta_map['sampleCollection'] = [
             'null' => false,
             'default' => 0,
         ],
+        'options' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
+            'null' => true,
+        ],
     ],
     'indexes' => [
+        'option_one_id' => [
+            'alias' => 'option_one_id',
+            'primary' => false,
+            'unique' => false,
+            'type' => 'BTREE',
+            'columns' => [
+                'option_one_id' => [
+                    'length' => '',
+                    'collation' => 'A',
+                    'null' => false,
+                ],
+            ],
+        ],
+        'option_two_id' => [
+            'alias' => 'option_two_id',
+            'primary' => false,
+            'unique' => false,
+            'type' => 'BTREE',
+            'columns' => [
+                'option_two_id' => [
+                    'length' => '',
+                    'collation' => 'A',
+                    'null' => false,
+                ],
+            ],
+        ],
         'menuindex' => [
             'alias' => 'menuindex',
             'primary' => false,
@@ -113,6 +174,29 @@ $xpdo_meta_map['sampleCollection'] = [
             'local' => 'id',
             'foreign' => 'collection_id',
             'cardinality' => 'many',
+            'owner' => 'local',
+        ],
+        'CategoriesIds' => [
+            'class' => 'sampleCollectionCategory',
+            'local' => 'id',
+            'foreign' => 'collection_id',
+            'cardinality' => 'many',
+            'owner' => 'local',
+        ],
+    ],
+    'aggregates' => [
+        'optionOne' => [
+            'class' => 'sampleOptionOne',
+            'local' => 'option_one_id',
+            'foreign' => 'id',
+            'cardinality' => 'one',
+            'owner' => 'local',
+        ],
+        'optionTwo' => [
+            'class' => 'sampleOptionTwo',
+            'local' => 'option_two_id',
+            'foreign' => 'id',
+            'cardinality' => 'one',
             'owner' => 'local',
         ],
     ],

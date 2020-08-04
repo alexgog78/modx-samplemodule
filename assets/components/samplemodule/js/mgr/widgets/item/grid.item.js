@@ -30,6 +30,22 @@ SampleModule.grid.item = function (config) {
             'updated_on',
             'updated_by',
         ],
+        columns: [
+
+        ],
+        recordActions: {
+            create: {
+                xtype: 'samplemodule-window-item',
+                action: 'mgr/item/create',
+            },
+            update: {
+                xtype: 'samplemodule-window-item',
+                action: 'mgr/item/update',
+            },
+            remove: {
+                action: 'mgr/collection/remove'
+            }
+        }
     });
     SampleModule.grid.item.superclass.constructor.call(this, config);
 };
