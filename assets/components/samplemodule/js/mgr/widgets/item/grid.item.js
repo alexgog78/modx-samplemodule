@@ -14,24 +14,25 @@ SampleModule.grid.item = function (config) {
         fields: [
             'id',
             'collection_id',
+            'collection_name',
             'name',
             'description',
-            'richtext',
-            'code',
-            'type_id',
-            'status_id',
-            'template_id',
-            'tags',
-            'options',
+            'image',
             'menuindex',
             'is_active',
             'created_on',
             'created_by',
             'updated_on',
             'updated_by',
+            'options',
         ],
         columns: [
-
+            this.getGridColumn('id', {header: _('id'), width: 0.05}),
+            this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.4, editor: {xtype: 'textfield'}}),
+            this.getGridColumn('collection_name', {header: _('samplemodule_record_collection'), width: 0.2}),
+            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
+            this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
         recordActions: {
             create: {

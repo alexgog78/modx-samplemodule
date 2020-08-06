@@ -2,7 +2,7 @@
 
 require_once(dirname(__FILE__) . '/update.class.php');
 
-class sampleTypeUpdateFromGridProcessor extends sampleTypeUpdateProcessor
+class sampleOptionOneUpdateFromGridProcessor extends sampleOptionOneUpdateProcessor
 {
     /**
      * @return bool|string|null
@@ -26,4 +26,4 @@ class sampleTypeUpdateFromGridProcessor extends sampleTypeUpdateProcessor
     }
 }
 
-return 'sampleTypeUpdateFromGridProcessor';
+return 'sampleOptionOneUpdateFromGridProcessor';

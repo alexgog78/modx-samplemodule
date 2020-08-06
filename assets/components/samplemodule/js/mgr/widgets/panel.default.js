@@ -7,26 +7,22 @@ SampleModule.panel.default = function (config) {
     }
     Ext.applyIf(config, {
         title: _('samplemodule'),
-        /*pageHeader: 'AAA',
-        components: [
-            {html: namespace + '-grid-producttab'}
-        ]*/
     });
     SampleModule.panel.default.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.panel.default, SampleModule.panel.abstract, {
-    getContent: function () {
+    getComponents: function () {
         return [{
             title: _('samplemodule_collections'),
             items: [
-                this.renderDescription(_('samplemodule_collections_management')),
-                this.renderContent([{xtype: 'samplemodule-grid-collection'}])
+                this.getDescription(_('samplemodule_collections_management')),
+                this.getContent([{xtype: 'samplemodule-grid-collection'}])
             ]
         }, {
             title: _('samplemodule_items'),
             items: [
-                this.renderDescription(_('samplemodule_items_management')),
-                this.renderContent([{xtype: 'samplemodule-grid-item'}])
+                this.getDescription(_('samplemodule_items_management')),
+                this.getContent([{xtype: 'samplemodule-grid-item'}])
             ]
         }];
     }

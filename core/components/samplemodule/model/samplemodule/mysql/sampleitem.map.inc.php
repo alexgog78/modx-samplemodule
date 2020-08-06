@@ -9,6 +9,7 @@ $xpdo_meta_map['sampleItem'] = [
         'engine' => 'MyISAM',
     ],
     'fields' => [
+        'collection_id' => NULL,
         'name' => NULL,
         'description' => NULL,
         'image' => NULL,
@@ -21,6 +22,13 @@ $xpdo_meta_map['sampleItem'] = [
         'options' => NULL,
     ],
     'fieldMeta' => [
+        'collection_id' => [
+            'dbtype' => 'int',
+            'precision' => '10',
+            'attributes' => 'unsigned',
+            'phptype' => 'integer',
+            'null' => false,
+        ],
         'name' => [
             'dbtype' => 'varchar',
             'precision' => '255',
@@ -70,7 +78,6 @@ $xpdo_meta_map['sampleItem'] = [
             'dbtype' => 'datetime',
             'phptype' => 'datetime',
             'null' => true,
-            'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
         ],
         'updated_by' => [
             'dbtype' => 'int',

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="samplemodule_" version="1.1">
-    <object class="sampleCollection" table="items" extends="AbstractSimpleObject">
+    <object class="sampleCollection" table="collections" extends="AbstractSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
         <field key="richtext" dbtype="text" phptype="string" null="true"/>
@@ -12,7 +12,7 @@
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
         <field key="created_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
-        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true" attributes="ON UPDATE CURRENT_TIMESTAMP"/><!--TODO: check-->
+        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="options" dbtype="text" phptype="json" null="true"/>
         <!--Indexes-->
@@ -41,6 +41,7 @@
     </object>
 
     <object class="sampleItem" table="items" extends="AbstractSimpleObject">
+        <field key="collection_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
         <field key="image" dbtype="varchar" precision="255" phptype="string" null="true"/>
@@ -48,7 +49,7 @@
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
         <field key="created_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
-        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true" attributes="ON UPDATE CURRENT_TIMESTAMP"/>
+        <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="options" dbtype="text" phptype="json" null="true"/>
         <!--Indexes-->
@@ -64,6 +65,19 @@
         <!--Validation-->
         <validation>
             <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+
+
+            <rule field="collection_id"
+                  name="preventBlank"
+                  type="xPDOValidationRule"
+                  rule="xPDOForeignKeyConstraint"
+                  foreign="id"
+                  local="collection_id"
+                  alias="Collection"
+                  class="sampleCollection"
+                  message="The category specified does not exist."
+            />
+
         </validation>
         <!--Links-->
         <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign"/>

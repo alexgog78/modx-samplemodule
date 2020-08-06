@@ -6,19 +6,18 @@ SampleModule.panel.items = function (config) {
         config.id = 'samplemodule-panel-items';
     }
     Ext.applyIf(config, {
-        title:  _('samplemodule_items')
+        title: _('samplemodule_items')
     });
     SampleModule.panel.items.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.panel.items, SampleModule.panel.abstract, {
-    getContent: function () {
+    getComponents: function () {
         return [{
             items: [
-                this.renderDescription(_('samplemodule_items_management')),
-                this.renderContent([{xtype: 'samplemodule-grid-item'}])
+                this.getDescription(_('samplemodule_items_management')),
+                this.getContent([{xtype: 'samplemodule-grid-item'}])
             ]
         }];
     }
 });
 Ext.reg('samplemodule-panel-items', SampleModule.panel.items);
-

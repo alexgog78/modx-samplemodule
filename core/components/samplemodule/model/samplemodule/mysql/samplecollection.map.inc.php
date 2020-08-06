@@ -3,7 +3,7 @@
 $xpdo_meta_map['sampleCollection'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
-    'table' => 'items',
+    'table' => 'collections',
     'extends' => 'AbstractSimpleObject',
     'tableMeta' => [
         'engine' => 'MyISAM',
@@ -98,7 +98,6 @@ $xpdo_meta_map['sampleCollection'] = [
             'dbtype' => 'datetime',
             'phptype' => 'datetime',
             'null' => true,
-            'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
         ],
         'updated_by' => [
             'dbtype' => 'int',

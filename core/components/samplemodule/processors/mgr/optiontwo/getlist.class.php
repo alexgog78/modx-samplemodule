@@ -2,13 +2,13 @@
 
 $this->loadClass('AbstractObjectGetListProcessor', MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/object/', true, true);
 
-class sampleTypeGetListProcessor extends AbstractObjectGetListProcessor
+class sampleOptionTwoGetListProcessor extends AbstractObjectGetListProcessor
 {
     /** @var string */
-    public $classKey = 'sampleType';
+    public $classKey = 'sampleOptionTwo';
 
     /** @var string */
     public $objectType = 'samplemodule';
 }
 
-return 'sampleTypeGetListProcessor';
+return 'sampleOptionTwoGetListProcessor';

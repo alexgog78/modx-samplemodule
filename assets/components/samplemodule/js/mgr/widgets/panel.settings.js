@@ -6,19 +6,27 @@ SampleModule.panel.settings = function (config) {
         config.id = 'samplemodule-panel-settings';
     }
     Ext.applyIf(config, {
-        title:  _('samplemodule_settings')
+        title: _('samplemodule_settings')
     });
     SampleModule.panel.settings.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.panel.settings, SampleModule.panel.abstract, {
-    getContent: function () {
+    getComponents: function () {
         return [{
             items: [
-                this.renderDescription(_('samplemodule_items_management')),
-                //this.renderContent([{xtype: 'samplemodule-grid-item'}])
+                this.getDescription(_('samplemodule_settings_management')),
+                SampleModule.component.verticalTabs([{
+                    title: _('samplemodule_categories'),
+                    items: [{xtype: 'samplemodule-grid-category'}]
+                }, {
+                    title: _('samplemodule_optionsone'),
+                    items: [{xtype: 'samplemodule-grid-optionone'}]
+                }, {
+                    title: _('samplemodule_optionstwo'),
+                    items: [{xtype: 'samplemodule-grid-optiontwo'}]
+                }])
             ]
         }];
     }
 });
 Ext.reg('samplemodule-panel-settings', SampleModule.panel.settings);
-
