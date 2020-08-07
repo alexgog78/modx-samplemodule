@@ -31,6 +31,9 @@
         <!--Validation-->
         <validation>
             <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
+            <rule field="option_one_id" name="checkOptionOne" type="xPDOValidationRule" rule="xPDOForeignKeyConstraint"
+                  foreign="id" local="option_one_id" alias="optionOne" class="sampleOptionOne"
+                  message="no_records_found"/>
             <!--TODO: <rule field="name" name="unique" type="xPDOValidationRule" rule="validation.ms2ExtendValidatorUnique" excludeFields="" message="ms2extend.err_ae"/>-->
         </validation>
         <!--Links-->
@@ -65,19 +68,7 @@
         <!--Validation-->
         <validation>
             <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
-
-
-            <rule field="collection_id"
-                  name="preventBlank"
-                  type="xPDOValidationRule"
-                  rule="xPDOForeignKeyConstraint"
-                  foreign="id"
-                  local="collection_id"
-                  alias="Collection"
-                  class="sampleCollection"
-                  message="The category specified does not exist."
-            />
-
+            <rule field="collection_id" name="checkCollection" type="xPDOValidationRule" rule="xPDOForeignKeyConstraint" foreign="id" local="collection_id" alias="Collection" class="sampleCollection" message="no_records_found"/>
         </validation>
         <!--Links-->
         <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign"/>

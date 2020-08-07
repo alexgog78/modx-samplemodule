@@ -20,6 +20,7 @@ SampleModule.grid.collection = function (config) {
             'option_one_id',
             'option_two_id',
             'tags',
+            'tags_combo',
             'menuindex',
             'is_active',
             'created_on',
@@ -61,7 +62,7 @@ SampleModule.grid.collection = function (config) {
 Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
     getMenu: function () {
         return [{
-            text: _('view'),
+            text: _('quick_update'),
             handler: this._quickUpdateRecord,
             scope: this
         }, {
@@ -78,6 +79,7 @@ Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
     getToolbar: function () {
         return [
             this.getCreateButton(),
+            this.getQuickCreateButton({text: _('quick_create'), cls: ''}),
             '->',
             this.getSearchPanel()
         ];

@@ -12,34 +12,20 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
         is_active: 1,
     },
 
-    /*
-    'id',
-    'collection_id',
-    'name',
-    'description',
-    'image',
-    'menuindex',
-    'is_active',
-    'created_on',
-    'created_by',
-    'updated_on',
-    'updated_by',
-    'options',
-    */
-
     getFields: function(config) {
         return SampleModule.component.tabs([
             {
-                title: _('samplemodule_record_general'),
+                title: _('samplemodule_tab_general'),
                 items: [
                     {xtype: 'hidden', name: 'id'},
                     this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
-                    this.getFormInput('collection_id'),
+                    this.getCollectionIdField(config),
                     this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_record_description')}),
-                    this.getFormInput('image'),
+                    this.getFormInput('image', {xtype: 'samplemodule-combo-browser-image', fieldLabel: _('samplemodule_record_image')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
                     {
-                        //xtype: 'fieldset',
+                        html: '<hr />',
+                    }, {
                         layout: 'column',
                         defaults: {msgTarget: 'under', border: false, anchor: '100%'},
                         items: [{
@@ -62,9 +48,13 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
                     }
                 ],
             }, {
-                title: _('samplemodule_record_options'),
+                title: _('samplemodule_tab_options'),
             }
         ]);
     },
+
+    getCollectionIdField: function (config) {
+        return this.getFormInput('collection_id', {xtype: 'ms2colors-combo-select-collection', fieldLabel: _('samplemodule_record_collection')});
+    }
 });
 Ext.reg('samplemodule-window-item', SampleModule.window.item);

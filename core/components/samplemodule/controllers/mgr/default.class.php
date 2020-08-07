@@ -6,6 +6,9 @@ if (!class_exists('SampleMgrController')) {
 
 class SampleModuleMgrDefaultManagerController extends SampleMgrController
 {
+    /** @var bool */
+    protected $loadRichText = true;
+
     /** @return string */
     public function getPageTitle()
     {

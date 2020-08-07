@@ -26,7 +26,7 @@ class sampleItemGetListProcessor extends AbstractObjectGetListProcessor
      */
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
-        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name']));
+        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active']));
         return parent::prepareQueryAfterCount($c);
     }
 }

@@ -153,6 +153,17 @@ $xpdo_meta_map['sampleItem'] = [
                     'message' => 'field_required',
                 ],
             ],
+            'collection_id' => [
+                'checkCollection' => [
+                    'type' => 'xPDOValidationRule',
+                    'rule' => 'xPDOForeignKeyConstraint',
+                    'foreign' => 'id',
+                    'local' => 'collection_id',
+                    'alias' => 'Collection',
+                    'class' => 'sampleCollection',
+                    'message' => 'no_records_found',
+                ],
+            ],
         ],
     ],
 ];

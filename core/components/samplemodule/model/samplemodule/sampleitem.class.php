@@ -5,7 +5,7 @@ $this->loadClass('AbstractSimpleObject', MODX_CORE_PATH . 'components/abstractmo
 class sampleItem extends AbstractSimpleObject
 {
     /** @var array */
-    protected $searchableFields = [
+    public static $searchableFields = [
         'name',
     ];
 }

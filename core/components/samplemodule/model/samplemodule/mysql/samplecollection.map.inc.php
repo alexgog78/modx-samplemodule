@@ -209,6 +209,17 @@ $xpdo_meta_map['sampleCollection'] = [
                     'message' => 'field_required',
                 ],
             ],
+            'option_one_id' => [
+                'checkOptionOne' => [
+                    'type' => 'xPDOValidationRule',
+                    'rule' => 'xPDOForeignKeyConstraint',
+                    'foreign' => 'id',
+                    'local' => 'option_one_id',
+                    'alias' => 'optionOne',
+                    'class' => 'sampleOptionOne',
+                    'message' => 'no_records_found',
+                ],
+            ],
         ],
     ],
 ];
