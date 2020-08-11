@@ -9,7 +9,7 @@ class SampleModuleMgrSettingsManagerController extends SampleMgrController
     /** @return string */
     public function getPageTitle()
     {
-        return $this->getLexicon('settings');
+        return $this->getLexiconTopic('settings') . ' | ' . $this->modx->lexicon($this->namespace);
     }
 
     public function loadCustomCssJs()
@@ -26,6 +26,6 @@ class SampleModuleMgrSettingsManagerController extends SampleMgrController
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/optiontwo/grid.optiontwo.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/optiontwo/window.optiontwo.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/settings.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.add("samplemodule-page-settings"); });</script>');
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-settings"}); });</script>');
     }
 }

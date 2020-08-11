@@ -1,13 +1,15 @@
 'use strict';
 
-SampleModule.page.items = function (config) {
+Ext.namespace('SampleModule.page.item');
+
+SampleModule.page.item.list = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         components: [{
             xtype: 'samplemodule-panel-items'
         }]
     });
-    SampleModule.page.items.superclass.constructor.call(this, config);
+    SampleModule.page.item.list.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.page.items, SampleModule.page.abstract, {});
-Ext.reg('samplemodule-page-items', SampleModule.page.items);
+Ext.extend(SampleModule.page.item.list, SampleModule.page.abstract, {});
+Ext.reg('samplemodule-page-item-list', SampleModule.page.item.list);

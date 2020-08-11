@@ -20,20 +20,31 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     {xtype: 'hidden', name: 'id'},
                     this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
                     this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_record_description')}),
-                    this.getFormInput('richtext', {_id: 'richtext', fieldLabel: _('samplemodule_record_content')}),
-                    this.getFormInput('code', {
-                        xtype: Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea',
-                        mimeType: 'text/html',
-                        fieldLabel: _('samplemodule_record_code'),
-                        height: 150,
-                    }),
-                    this.getFormInput('option_one_id', {xtype: 'samplemodule-combo-select-optionone', fieldLabel: _('samplemodule_record_optionone')}),
-                    this.getFormInput('option_two_id', {xtype: 'samplemodule-combo-select-optiontwo', fieldLabel: _('samplemodule_record_optiontwo')}),
+                    {
+                        layout: 'column',
+                        defaults: {msgTarget: 'under', border: false, anchor: '100%'},
+                        items: [{
+                            columnWidth: .5,
+                            layout: 'form',
+                            defaults: {msgTarget: 'under', border: false, anchor: '100%'},
+                            items: [
+                                this.getFormInput('option_one_id', {xtype: 'samplemodule-combo-select-optionone', fieldLabel: _('samplemodule_record_optionone')})
+                            ]
+                        }, {
+                            columnWidth: .5,
+                            layout: 'form',
+                            defaults: {msgTarget: 'under', border: false, anchor: '100%'},
+                            items: [
+                                this.getFormInput('option_two_id', {xtype: 'samplemodule-combo-select-optiontwo', fieldLabel: _('samplemodule_record_optiontwo')})
+                            ]
+                        }]
+                    },
                     this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_record_tags')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
                     {
                         html: '<hr />',
-                    }, {
+                    },
+                    {
                         layout: 'column',
                         defaults: {msgTarget: 'under', border: false, anchor: '100%'},
                         items: [{
@@ -56,18 +67,32 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     }
                 ],
             }, {
+                title: _('samplemodule_tab_content'),
+                items: [
+                    this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_record_content')}),
+                    this.getFormInput('code', {
+                        xtype: Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea',
+                        mimeType: 'text/html',
+                        fieldLabel: _('samplemodule_record_code'),
+                        height: 150,
+                    })
+                ]
+            }, {
                 title: _('samplemodule_tab_options'),
             }
         ]);
     },
 
     beforeshow: function () {
-        console.log(111);
-        let richtextField = this.fp.getForm().findField('richtext');
-        console.log(richtextField);
-        //richtextField.TinyRTE();
-        //MODx.loadRTE(richtextField);
-        SampleModule.window.collection.superclass.beforeshow.call(this);;
+        MODx.loadRTE('richtext');
+        SampleModule.window.collection.superclass.beforeshow.call(this);
+    },
+
+    onhide: function () {
+        if (tinymce) {
+            tinymce.get('richtext').remove();
+        }
+        SampleModule.window.collection.superclass.onhide.call(this);
     },
 });
 Ext.reg('samplemodule-window-collection', SampleModule.window.collection);

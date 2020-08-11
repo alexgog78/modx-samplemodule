@@ -48,7 +48,6 @@ SampleModule.grid.collection = function (config) {
                 xtype: 'samplemodule-window-collection',
                 action: 'mgr/collection/update',
                 loadPage: function () {
-                    console.log(this);
                     MODx.loadPage('mgr/collection/update', 'namespace=samplemodule&id=' + this.menu.record.id);
                 }
             },

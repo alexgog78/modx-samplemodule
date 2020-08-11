@@ -26,6 +26,6 @@ class SampleModuleMgrDefaultManagerController extends SampleMgrController
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/grid.item.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/window.item.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/default.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.add("samplemodule-page-default"); });</script>');
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-default"}); });</script>');
     }
 }

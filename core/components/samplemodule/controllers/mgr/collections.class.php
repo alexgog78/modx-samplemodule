@@ -12,7 +12,7 @@ class SampleModuleMgrCollectionsManagerController extends SampleMgrController
     /** @return string */
     public function getPageTitle()
     {
-        return $this->getLexicon('collections');
+        return $this->getLexiconTopic('collections') . ' | ' . $this->modx->lexicon($this->namespace);
     }
 
     public function loadCustomCssJs()
@@ -22,6 +22,6 @@ class SampleModuleMgrCollectionsManagerController extends SampleMgrController
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.collection.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/window.collection.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/list.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.add("samplemodule-page-collections"); });</script>');
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-collection-list"}); });</script>');
     }
 }
