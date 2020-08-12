@@ -13,8 +13,8 @@ class SampleModuleMgrCollectionCreateManagerController extends SampleMgrControll
     public function getPageTitle()
     {
         return $this->getLexiconTopic('creating', [
-            'record' => $this->getLexiconTopic('collection')
-        ]) . ' | ' . $this->modx->lexicon($this->namespace);
+                'record' => $this->getLexiconTopic('collection'),
+            ]) . ' | ' . $this->modx->lexicon($this->namespace);
     }
 
     public function loadCustomCssJs()
@@ -22,6 +22,10 @@ class SampleModuleMgrCollectionCreateManagerController extends SampleMgrControll
         parent::loadCustomCssJs();
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/formpanel.collection.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/create.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-collection-create"}); });</script>');
+
+        $configJs = $this->modx->toJSON([
+            'xtype' => 'samplemodule-page-collection-create',
+        ]);
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function () {MODx.load(' . $configJs . ');});</script>');
     }
 }

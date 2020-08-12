@@ -15,7 +15,7 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
     getFields: function(config) {
         return SampleModule.component.tabs([
             {
-                title: _('samplemodule_tab_general'),
+                title: _('samplemodule_collection'),
                 items: [
                     {xtype: 'hidden', name: 'id'},
                     this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
@@ -67,7 +67,7 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     }
                 ],
             }, {
-                title: _('samplemodule_tab_content'),
+                title: _('samplemodule_content'),
                 items: [
                     this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_record_content')}),
                     this.getFormInput('code', {
@@ -78,7 +78,7 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     })
                 ]
             }, {
-                title: _('samplemodule_tab_options'),
+                title: _('samplemodule_user_options'),
             }
         ]);
     },

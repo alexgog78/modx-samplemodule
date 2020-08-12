@@ -16,7 +16,13 @@ class sampleItemGetListProcessor extends AbstractObjectGetListProcessor
      */
     public function prepareQueryBeforeCount(xPDOQuery $c)
     {
-        $c->leftJoin('sampleCollection','Collection');
+        $collectionId = $this->getProperty('collection_id');
+        if ($collectionId) {
+            $c->where([
+                'collection_id' => $collectionId,
+            ]);
+        }
+        $c->leftJoin('sampleCollection', 'Collection');
         return parent::prepareQueryBeforeCount($c);
     }
 
@@ -26,7 +32,7 @@ class sampleItemGetListProcessor extends AbstractObjectGetListProcessor
      */
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
-        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active']));
+        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active',]));
         return parent::prepareQueryAfterCount($c);
     }
 }

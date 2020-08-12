@@ -11,8 +11,8 @@ SampleModule.panel.default = function (config) {
     SampleModule.panel.default.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.panel.default, SampleModule.panel.abstract, {
-    getComponents: function () {
-        return [{
+    getComponents: function (config) {
+        return this.renderTabsPanel([{
             title: _('samplemodule_collections'),
             items: [
                 this.getDescription(_('samplemodule_collections_management')),
@@ -24,7 +24,7 @@ Ext.extend(SampleModule.panel.default, SampleModule.panel.abstract, {
                 this.getDescription(_('samplemodule_items_management')),
                 this.getContent([{xtype: 'samplemodule-grid-item'}])
             ]
-        }];
+        }]);
     }
 });
 Ext.reg('samplemodule-panel-default', SampleModule.panel.default);

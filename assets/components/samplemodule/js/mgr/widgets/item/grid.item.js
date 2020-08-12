@@ -8,7 +8,8 @@ SampleModule.grid.item = function (config) {
     Ext.applyIf(config, {
         url: SampleModule.config.connectorUrl,
         baseParams: {
-            action: 'mgr/item/getlist'
+            action: 'mgr/item/getlist',
+            collection_id: config.collection_id || 0,
         },
         save_action: 'mgr/item/updatefromgrid',
         fields: [

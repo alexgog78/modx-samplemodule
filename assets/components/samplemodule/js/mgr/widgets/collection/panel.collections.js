@@ -11,13 +11,11 @@ SampleModule.panel.collections = function (config) {
     SampleModule.panel.collections.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.panel.collections, SampleModule.panel.abstract, {
-    getComponents: function () {
-        return [{
-            items: [
-                this.getDescription(_('samplemodule_collections_management')),
-                this.getContent([{xtype: 'samplemodule-grid-collection'}])
-            ]
-        }];
+    getComponents: function (config) {
+        return this.renderPlainPanel([
+            this.getDescription(_('samplemodule_collections_management')),
+            this.getContent([{xtype: 'samplemodule-grid-collection'}]),
+        ]);
     }
 });
 Ext.reg('samplemodule-panel-collections', SampleModule.panel.collections);

@@ -15,7 +15,7 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
     getFields: function(config) {
         return SampleModule.component.tabs([
             {
-                title: _('samplemodule_tab_general'),
+                title: _('samplemodule_item'),
                 items: [
                     {xtype: 'hidden', name: 'id'},
                     this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
@@ -48,7 +48,7 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
                     }
                 ],
             }, {
-                title: _('samplemodule_tab_options'),
+                title: _('samplemodule_user_options'),
             }
         ]);
     },
