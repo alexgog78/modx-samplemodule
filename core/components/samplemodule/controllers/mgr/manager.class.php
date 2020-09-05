@@ -13,5 +13,6 @@ abstract class SampleMgrController extends AbstractMgrController
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/select.optiontwo.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/multiselect.tag.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/multiselect.category.js');
+        $this->addJavascript($this->service->jsUrl . 'mgr/misc/component.list.js');
     }
 }

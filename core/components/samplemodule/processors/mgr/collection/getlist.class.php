@@ -26,27 +26,20 @@ class sampleCollectionGetListProcessor extends AbstractObjectGetListProcessor
      */
     public function prepareRow(xPDOObject $object)
     {
-        $objectArray = parent::prepareRow($object);
-        $objectArray['tags_combo'] = $this->getTagsCombo($object);
-        return $objectArray;
+        if (!$object->option_two_id) {
+            $object->set('option_two_id', null);
+        }
+        $this->getCategories($object);
+        return parent::prepareRow($object);
     }
 
     /**
      * @param xPDOObject $object
-     * @return array
      */
-    private function getTagsCombo(xPDOObject $object)
+    private function getCategories(xPDOObject $object)
     {
-        $xtypes = [];
-        foreach ($object->get('tags') ?? [] as $value) {
-            if ($value === '') {
-                continue;
-            }
-            $xtypes[] = [
-                'value' => $value,
-            ];
-        }
-        return $xtypes;
+        $categories = $object->getCategories();
+        $object->set('categoryids', $categories);
     }
 }
 

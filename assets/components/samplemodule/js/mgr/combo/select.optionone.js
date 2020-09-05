@@ -6,7 +6,7 @@ SampleModule.combo.selectRemote.optionone = function (config) {
         url: SampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/optionone/getlist',
-            combo: true
+            combo: true,
         },
         fields: ['id', 'name'],
         displayField: 'name',

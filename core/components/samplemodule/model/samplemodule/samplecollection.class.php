@@ -8,4 +8,21 @@ class sampleCollection extends AbstractSimpleObject
     public static $searchableFields = [
         'name',
     ];
+
+    /**
+     * @return array
+     */
+    public function getCategories()
+    {
+        $categories = [];
+        $categoryIdsCollection = $this->getMany('CategoryIds');
+        foreach ($categoryIdsCollection as $categoryItem) {
+            $category = $categoryItem->getOne('Category');
+            if (!$category) {
+                continue;
+            }
+            $categories[] = $category->toArray();
+        }
+        return $categories;
+    }
 }

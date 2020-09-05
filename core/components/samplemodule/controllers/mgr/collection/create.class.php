@@ -21,6 +21,7 @@ class SampleModuleMgrCollectionCreateManagerController extends SampleMgrControll
     {
         parent::loadCustomCssJs();
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/formpanel.collection.js');
+        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.property.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/create.js');
 
         $configJs = $this->modx->toJSON([

@@ -6,7 +6,7 @@
         <field key="richtext" dbtype="text" phptype="string" null="true"/>
         <field key="code" dbtype="text" phptype="string" null="true"/>
         <field key="option_one_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
-        <field key="option_two_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="option_two_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="true" default="0"/>
         <field key="tags" dbtype="text" phptype="json" null="true"/>
         <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
@@ -14,7 +14,7 @@
         <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
-        <field key="options" dbtype="text" phptype="json" null="true"/>
+        <field key="properties" dbtype="text" phptype="json" null="true"/>
         <!--Indexes-->
         <index alias="option_one_id" name="option_one_id" primary="false" unique="false" type="BTREE">
             <column key="option_one_id" length="" collation="A" null="false"/>
@@ -31,16 +31,18 @@
         <!--Validation-->
         <validation>
             <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
-            <rule field="option_one_id" name="checkOptionOne" type="xPDOValidationRule" rule="xPDOForeignKeyConstraint"
-                  foreign="id" local="option_one_id" alias="optionOne" class="sampleOptionOne"
-                  message="no_records_found"/>
+            <rule field="option_one_id" name="checkOptionOne" type="xPDOValidationRule" rule="xPDOForeignKeyConstraint" foreign="id" local="option_one_id" alias="optionOne" class="sampleOptionOne" message="no_records_found"/>
             <!--TODO: <rule field="name" name="unique" type="xPDOValidationRule" rule="validation.ms2ExtendValidatorUnique" excludeFields="" message="ms2extend.err_ae"/>-->
         </validation>
         <!--Links-->
         <composite alias="Items" class="sampleItem" local="id" foreign="collection_id" cardinality="many" owner="local"/>
-        <composite alias="CategoriesIds" class="sampleCollectionCategory" local="id" foreign="collection_id" cardinality="many" owner="local"/>
-        <aggregate alias="optionOne" class="sampleOptionOne" local="option_one_id" foreign="id" cardinality="one" owner="local"/>
-        <aggregate alias="optionTwo" class="sampleOptionTwo" local="option_two_id" foreign="id" cardinality="one" owner="local"/>
+        <composite alias="CategoryIds" class="sampleCollectionCategory" local="id" foreign="collection_id" cardinality="many" owner="local"/>
+        <aggregate alias="optionOne" class="sampleOptionOne" local="option_one_id" foreign="id" cardinality="one" owner="local">
+            <criteria target="foreign"><![CDATA[{"is_active": 1}]]></criteria>
+        </aggregate>
+        <aggregate alias="optionTwo" class="sampleOptionTwo" local="option_two_id" foreign="id" cardinality="one" owner="local">
+            <criteria target="foreign"><![CDATA[{"is_active": 1}]]></criteria>
+        </aggregate>
     </object>
 
     <object class="sampleItem" table="items" extends="AbstractSimpleObject">
@@ -54,7 +56,7 @@
         <field key="created_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
         <field key="updated_on" dbtype="datetime" phptype="datetime" null="true"/>
         <field key="updated_by" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0"/>
-        <field key="options" dbtype="text" phptype="json" null="true"/>
+        <field key="properties" dbtype="text" phptype="json" null="true"/>
         <!--Indexes-->
         <index alias="collection_id" name="collection_id" primary="false" unique="false" type="BTREE">
             <column key="collection_id" length="" collation="A" null="false"/>
@@ -97,8 +99,12 @@
         <field key="collection_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
         <field key="category_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
         <!--Links-->
-        <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign"/>
-        <aggregate alias="Category" class="sampleCategory" local="category_id" foreign="id" cardinality="one" owner="foreign"/>
+        <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign">
+            <criteria target="foreign"><![CDATA[{"is_active": 1}]]></criteria>
+        </aggregate>
+        <aggregate alias="Category" class="sampleCategory" local="category_id" foreign="id" cardinality="one" owner="foreign">
+            <criteria target="foreign"><![CDATA[{"is_active": 1}]]></criteria>
+        </aggregate>
         <!--Indexes-->
         <index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE">
             <column key="collection_id" length="" collation="A" null="false"/>

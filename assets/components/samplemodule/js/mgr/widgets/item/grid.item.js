@@ -37,27 +37,29 @@ SampleModule.grid.item = function (config) {
             this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
         recordActions: {
-            create: {
+            quickCreate: {
                 xtype: 'samplemodule-window-item',
                 action: 'mgr/item/create',
+                collection_id: config.collection_id || 0,
             },
-            update: {
+            quickUpdate: {
                 xtype: 'samplemodule-window-item',
                 action: 'mgr/item/update',
+                collection_id: config.collection_id || 0,
             },
             remove: {
-                action: 'mgr/collection/remove'
+                action: 'mgr/item/remove'
             }
         }
     });
     SampleModule.grid.item.superclass.constructor.call(this, config);
 };
 Ext.extend(SampleModule.grid.item, SampleModule.grid.abstract, {
-    getRowClass: function(record) {
+    getRowClass: function (record) {
         return record.data.is_active && record.data.collection_is_active == '1' ? 'grid-row-active' : 'grid-row-inactive';
     },
 
-    _inactiveCategory: function(value, cell, row) {
+    _inactiveCategory: function (value, cell, row) {
         let is_active = row.get('collection_is_active');
         if (is_active !== '1') {
             cell.css = 'red';

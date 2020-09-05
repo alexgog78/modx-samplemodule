@@ -23,22 +23,20 @@ SampleModule.grid.optiontwo = function (config) {
             this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
         ],
         recordActions: {
-            create: {
+            quickCreate: {
                 xtype: 'samplemodule-window-optiontwo',
                 action: 'mgr/optiontwo/create',
             },
-            update: {
+            quickUpdate: {
                 xtype: 'samplemodule-window-optiontwo',
                 action: 'mgr/optiontwo/update',
             },
             remove: {
-                action: 'mgr/collection/remove'
+                action: 'mgr/optiontwo/remove'
             }
         }
     });
     SampleModule.grid.optiontwo.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.grid.optiontwo, SampleModule.grid.abstract, {
-
-});
+Ext.extend(SampleModule.grid.optiontwo, SampleModule.grid.abstract, {});
 Ext.reg('samplemodule-grid-optiontwo', SampleModule.grid.optiontwo);

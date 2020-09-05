@@ -57,6 +57,11 @@ $xpdo_meta_map['sampleCollectionCategory'] = [
             'foreign' => 'id',
             'cardinality' => 'one',
             'owner' => 'foreign',
+            'criteria' => [
+                'foreign' => [
+                    'is_active' => 1,
+                ],
+            ],
         ],
         'Category' => [
             'class' => 'sampleCategory',
@@ -64,6 +69,11 @@ $xpdo_meta_map['sampleCollectionCategory'] = [
             'foreign' => 'id',
             'cardinality' => 'one',
             'owner' => 'foreign',
+            'criteria' => [
+                'foreign' => [
+                    'is_active' => 1,
+                ],
+            ],
         ],
     ],
 ];

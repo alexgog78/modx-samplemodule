@@ -4,6 +4,7 @@ SampleModule.window.collection = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         url: SampleModule.config.connectorUrl,
+        width: 800,
     });
     SampleModule.window.collection.superclass.constructor.call(this, config);
 };
@@ -11,6 +12,8 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
+    rteLoaded: false,
+    rteElements: 'richtext',
 
     getFields: function(config) {
         return SampleModule.component.tabs([
@@ -39,32 +42,10 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                             ]
                         }]
                     },
+                    this.getFormInput('categoryids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_record_categories')}),
                     this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_record_tags')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
-                    {
-                        html: '<hr />',
-                    },
-                    {
-                        layout: 'column',
-                        defaults: {msgTarget: 'under', border: false, anchor: '100%'},
-                        items: [{
-                            columnWidth: .5,
-                            layout: 'form',
-                            defaults: {msgTarget: 'under', border: false, anchor: '100%'},
-                            items: [
-                                this.getFormInput('created_on', {fieldLabel: _('samplemodule_record_createdon'), readOnly: true}),
-                                this.getFormInput('created_by', {fieldLabel: _('samplemodule_record_createdby'), readOnly: true}),
-                            ]
-                        }, {
-                            columnWidth: .5,
-                            layout: 'form',
-                            defaults: {msgTarget: 'under', border: false, anchor: '100%'},
-                            items: [
-                                this.getFormInput('updated_on', {fieldLabel: _('samplemodule_record_updatedon'), readOnly: true}),
-                                this.getFormInput('updated_by', {fieldLabel: _('samplemodule_record_updatedby'), readOnly: true}),
-                            ]
-                        }]
-                    }
+                    SampleModule.component.logSection(this.record),
                 ],
             }, {
                 title: _('samplemodule_content'),
@@ -78,19 +59,20 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     })
                 ]
             }, {
-                title: _('samplemodule_user_options'),
+                title: _('samplemodule_properties'),
             }
         ]);
     },
 
     beforeshow: function () {
-        MODx.loadRTE('richtext');
+        this.rteLoaded = true;
+        MODx.loadRTE(this.rteElements);
         SampleModule.window.collection.superclass.beforeshow.call(this);
     },
 
     onhide: function () {
         if (tinymce) {
-            tinymce.get('richtext').remove();
+            tinymce.get(this.rteElements).remove();
         }
         SampleModule.window.collection.superclass.onhide.call(this);
     },

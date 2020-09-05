@@ -22,7 +22,7 @@ $xpdo_meta_map['sampleCollection'] = [
         'created_by' => 0,
         'updated_on' => NULL,
         'updated_by' => 0,
-        'options' => NULL,
+        'properties' => NULL,
     ],
     'fieldMeta' => [
         'name' => [
@@ -58,7 +58,7 @@ $xpdo_meta_map['sampleCollection'] = [
             'precision' => '10',
             'attributes' => 'unsigned',
             'phptype' => 'integer',
-            'null' => false,
+            'null' => true,
             'default' => 0,
         ],
         'tags' => [
@@ -107,7 +107,7 @@ $xpdo_meta_map['sampleCollection'] = [
             'null' => false,
             'default' => 0,
         ],
-        'options' => [
+        'properties' => [
             'dbtype' => 'text',
             'phptype' => 'json',
             'null' => true,
@@ -175,7 +175,7 @@ $xpdo_meta_map['sampleCollection'] = [
             'cardinality' => 'many',
             'owner' => 'local',
         ],
-        'CategoriesIds' => [
+        'CategoryIds' => [
             'class' => 'sampleCollectionCategory',
             'local' => 'id',
             'foreign' => 'collection_id',
@@ -190,6 +190,11 @@ $xpdo_meta_map['sampleCollection'] = [
             'foreign' => 'id',
             'cardinality' => 'one',
             'owner' => 'local',
+            'criteria' => [
+                'foreign' => [
+                    'is_active' => 1,
+                ],
+            ],
         ],
         'optionTwo' => [
             'class' => 'sampleOptionTwo',
@@ -197,6 +202,11 @@ $xpdo_meta_map['sampleCollection'] = [
             'foreign' => 'id',
             'cardinality' => 'one',
             'owner' => 'local',
+            'criteria' => [
+                'foreign' => [
+                    'is_active' => 1,
+                ],
+            ],
         ],
     ],
     'validation' => [

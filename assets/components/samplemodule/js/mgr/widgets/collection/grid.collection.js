@@ -20,7 +20,6 @@ SampleModule.grid.collection = function (config) {
             'option_one_id',
             'option_two_id',
             'tags',
-            'tags_combo',
             'menuindex',
             'is_active',
             'created_on',
@@ -28,28 +27,29 @@ SampleModule.grid.collection = function (config) {
             'updated_on',
             'updated_by',
             'options',
+            'categoryids',
         ],
         columns: [
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.6, editor: {xtype: 'textfield'}}),
             this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
-            this.getGridColumn('created_on', {header: _('samplemodule_record_created_on'), width: 0.1}),
-            this.getGridColumn('updated_on', {header: _('samplemodule_record_updated_on'), width: 0.1}),
+            this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
+            this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
         recordActions: {
-            create: {
+            quickCreate: {
                 xtype: 'samplemodule-window-collection',
                 action: 'mgr/collection/create',
-                loadPage: function () {
-                    MODx.loadPage('mgr/collection/create', 'namespace=samplemodule');
-                }
             },
-            update: {
+            quickUpdate: {
                 xtype: 'samplemodule-window-collection',
                 action: 'mgr/collection/update',
-                loadPage: function () {
-                    MODx.loadPage('mgr/collection/update', 'namespace=samplemodule&id=' + this.menu.record.id);
-                }
+            },
+            create: function () {
+                MODx.loadPage('mgr/collection/create', 'namespace=samplemodule');
+            },
+            update: function () {
+                MODx.loadPage('mgr/collection/update', 'namespace=samplemodule&id=' + this.menu.record.id);
             },
             remove: {
                 action: 'mgr/collection/remove'

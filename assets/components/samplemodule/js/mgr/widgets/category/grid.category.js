@@ -23,22 +23,20 @@ SampleModule.grid.category = function (config) {
             this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
         ],
         recordActions: {
-            create: {
+            quickCreate: {
                 xtype: 'samplemodule-window-category',
                 action: 'mgr/category/create',
             },
-            update: {
+            quickUpdate: {
                 xtype: 'samplemodule-window-category',
                 action: 'mgr/category/update',
             },
             remove: {
-                action: 'mgr/collection/remove'
+                action: 'mgr/category/remove'
             }
         }
     });
     SampleModule.grid.category.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.grid.category, SampleModule.grid.abstract, {
-
-});
+Ext.extend(SampleModule.grid.category, SampleModule.grid.abstract, {});
 Ext.reg('samplemodule-grid-category', SampleModule.grid.category);

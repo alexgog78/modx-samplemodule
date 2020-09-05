@@ -19,7 +19,7 @@ $xpdo_meta_map['sampleItem'] = [
         'created_by' => 0,
         'updated_on' => NULL,
         'updated_by' => 0,
-        'options' => NULL,
+        'properties' => NULL,
     ],
     'fieldMeta' => [
         'collection_id' => [
@@ -87,7 +87,7 @@ $xpdo_meta_map['sampleItem'] = [
             'null' => false,
             'default' => 0,
         ],
-        'options' => [
+        'properties' => [
             'dbtype' => 'text',
             'phptype' => 'json',
             'null' => true,
