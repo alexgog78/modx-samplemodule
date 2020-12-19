@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="samplemodule_" version="1.1">
-    <object class="sampleCollection" table="collections" extends="AbstractSimpleObject">
+<model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" tablePrefix="samplemodule_" phpdoc-package="samplemodule" phpdoc-subpackage="" version="1.1">
+    <!--TODO: <field key="editedon" dbtype="timestamp" phptype="timestamp" null="true" default="NULL" attributes="ON UPDATE CURRENT_TIMESTAMP" />-->
+    <object class="sampleCollection" table="collections" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
         <field key="richtext" dbtype="text" phptype="string" null="true"/>
@@ -45,7 +46,7 @@
         </aggregate>
     </object>
 
-    <object class="sampleItem" table="items" extends="AbstractSimpleObject">
+    <object class="sampleItem" table="items" extends="xPDOSimpleObject">
         <field key="collection_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false"/>
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
@@ -76,7 +77,7 @@
         <aggregate alias="Collection" class="sampleCollection" local="collection_id" foreign="id" cardinality="one" owner="foreign"/>
     </object>
 
-    <object class="sampleCategory" table="categories" extends="AbstractSimpleObject">
+    <object class="sampleCategory" table="categories" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
@@ -95,7 +96,7 @@
         <composite alias="CollectionIds" class="sampleCollectionCategory" local="id" foreign="category_id" cardinality="many" owner="local"/>
     </object>
 
-    <object class="sampleCollectionCategory" table="collection_categories" extends="AbstractObject">
+    <object class="sampleCollectionCategory" table="collection_categories" extends="xPDOObject">
         <field key="collection_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
         <field key="category_id" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" index="pk"/>
         <!--Links-->
@@ -112,7 +113,7 @@
         </index>
     </object>
 
-    <object class="sampleOptionOne" table="option_one" extends="AbstractSimpleObject">
+    <object class="sampleOptionOne" table="option_one" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>
@@ -131,7 +132,7 @@
         <composite alias="Collection" class="sampleCollection" local="id" foreign="option_one_id" cardinality="many" owner="local"/>
     </object>
 
-    <object class="sampleOptionTwo" table="option_two" extends="AbstractSimpleObject">
+    <object class="sampleOptionTwo" table="option_two" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="menuindex" dbtype="int" precision="10" attributes="unsigned" phptype="integer" default="0"/>
         <field key="is_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="0"/>

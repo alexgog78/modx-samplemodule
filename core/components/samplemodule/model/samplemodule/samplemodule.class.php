@@ -1,14 +1,43 @@
 <?php
 
-if (!class_exists('AbstractModule')) {
-    /** @noinspection PhpIncludeInspection */
-    require_once MODX_CORE_PATH . 'components/abstractmodule/model/abstractmodule/abstractmodule.class.php';
-}
-
-class SampleModule extends AbstractModule
+class SampleModule
 {
-    /** @var string */
-    protected $tablePrefix = 'samplemodule_';
+    const PKG_VERSION = '1.0.0';
+    const PKG_RELEASE = 'beta';
+    const PKG_NAMESPACE = 'samplemodule';
+    const TABLE_PREFIX = 'samplemodule_';
+
+    /** @var modX */
+    public $modx;
+
+    /** @var array */
+    public $config = [];
+
+    /**
+     * Mailing constructor.
+     *
+     * @param modX $modx
+     * @param array $config
+     */
+    public function __construct(modX $modx, array $config = [])
+    {
+        $this->modx = $modx;
+        $this->config = $this->getConfig($config);
+        $this->modx->addPackage(self::PKG_NAMESPACE, $this->modelPath, self::TABLE_PREFIX);
+        $this->modx->lexicon->load(self::PKG_NAMESPACE . ':default');
+    }
+
+    /**
+     * @param $name
+     * @return mixed|null
+     */
+    public function __get($name)
+    {
+        if (isset($this->config[$name])) {
+            return $this->config[$name];
+        }
+        return null;
+    }
 
     /**
      * @param array $config
@@ -16,7 +45,19 @@ class SampleModule extends AbstractModule
      */
     protected function getConfig($config = [])
     {
-        $config['imageFileSource'] = $this->modx->getOption('samplemodule_image_file_source', [], $this->modx->getOption('default_media_source'), true);
-        return parent::getConfig($config);
+        $corePath = $this->modx->getOption(self::PKG_NAMESPACE . '.core_path', $config, MODX_CORE_PATH . 'components/' . self::PKG_NAMESPACE . '/');
+        $assetsPath = $this->modx->getOption(self::PKG_NAMESPACE . '.assets_path', $config, MODX_ASSETS_PATH . 'components/' . self::PKG_NAMESPACE . '/');
+        $assetsUrl = $this->modx->getOption(self::PKG_NAMESPACE . '.assets_url', $config, MODX_ASSETS_URL . 'components/' . self::PKG_NAMESPACE . '/');
+        return array_merge([
+            'corePath' => $corePath,
+            'assetsPath' => $assetsPath,
+            'modelPath' => $corePath . 'model/',
+            'processorsPath' => $corePath . 'processors/',
+
+            'assetsUrl' => $assetsUrl,
+            'jsUrl' => $assetsUrl . 'js/',
+            'cssUrl' => $assetsUrl . 'css/',
+            'connectorUrl' => $assetsUrl . 'connector.php',
+        ], $config);
     }
 }

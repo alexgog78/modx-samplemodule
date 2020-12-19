@@ -1,23 +1,25 @@
 'use strict';
 
-/*Ext.namespace('JepsPayments.localGrid.payment');
+Ext.namespace('SampleModule.localGrid.collection');
 
-JepsPayments.localGrid.payment.formData = function (config) {
+SampleModule.localGrid.collection.property = function (config) {
     config = config || {};
-    if (!config.id) {
-        config.id = 'jepspayments-localgrid-payment-formdata';
-    }
     Ext.applyIf(config, {
+        id: 'samplemodule-localgrid-collection-property',
         fields: [
             'key',
             'value'
         ],
-        columns: [
-            {header: _('jpayments.field.key'), dataIndex: 'key', sortable: false, width: 0.3},
-            {header: _('jpayments.field.value'), dataIndex: 'value', sortable: false, width: 0.7}
+        _columns: [
+            this.getGridColumn('key'),
+            this.getGridColumn('value'),
+            //{header: _('samplemodule_record_property_key'), dataIndex: 'key', sortable: false, width: 0.3},
+            //{header: _('samplemodule_record_property_value'), dataIndex: 'value', sortable: false, width: 0.7},
         ]
     });
-    JepsPayments.localGrid.payment.formData.superclass.constructor.call(this, config);
+    SampleModule.localGrid.collection.property.superclass.constructor.call(this, config);
 };
-Ext.extend(JepsPayments.localGrid.payment.formData, MODx.grid.LocalGrid, {});
-Ext.reg('jepspayments-localgrid-payment-formdata', JepsPayments.localGrid.payment.formData);*/
+Ext.extend(SampleModule.localGrid.collection.property, SampleModule.localGrid.abstract, {
+
+});
+Ext.reg('samplemodule-localgrid-collection-property', SampleModule.localGrid.collection.property);

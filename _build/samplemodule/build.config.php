@@ -2,14 +2,7 @@
 
 define('PKG_NAME', 'SampleModule');
 define('PKG_NAME_LOWER', 'samplemodule');
-define('PKG_VERSION', '1.0.0');
-define('PKG_RELEASE', 'beta');
-
-define('MODX_CORE_PATH', dirname(dirname(dirname(__FILE__))) . '/core/');
-define('MODX_API_MODE', true);
-
-require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
-$modx = new modX();
-$modx->initialize('mgr');
-$modx->setLogLevel(modX::LOG_LEVEL_INFO);
-$modx->setLogTarget('ECHO');
+define('PKG_PATH', MODX_CORE_PATH . 'components/' . PKG_NAME_LOWER . '/');
+define('DB_TYPE', $modx->getOption('dbtype'));
+define('PKG_MODEL_PATH', PKG_PATH . '/model/');
+define('PKG_SCHEMA_PATH', PKG_PATH . '/model/schema/' . PKG_NAME_LOWER . '.' . DB_TYPE . '.schema.xml');

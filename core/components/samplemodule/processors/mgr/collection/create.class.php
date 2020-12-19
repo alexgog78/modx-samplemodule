@@ -24,7 +24,7 @@ class sampleCollectionCreateProcessor extends AbstractObjectCreateProcessor
 
     private function setCategories()
     {
-        $categoryIds = $this->getProperty('categoryids');
+        $categoryIds = $this->getProperty('categories');
         if (empty($categoryIds)) {
             return;
         }
@@ -34,12 +34,12 @@ class sampleCollectionCreateProcessor extends AbstractObjectCreateProcessor
                 continue;
             }
             $category = $this->modx->newObject('sampleCollectionCategory');
-            $category->fromArray(array(
-                'category_id' => $categoryId
-            ), '', true);
+            $category->fromArray([
+                'category_id' => $categoryId,
+            ], '', true);
             $this->categories[] = $category;
         }
-        if($this->categories) {
+        if ($this->categories) {
             $this->object->addMany($this->categories, 'CategoryIds');
         }
     }

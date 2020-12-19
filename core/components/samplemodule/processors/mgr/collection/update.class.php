@@ -13,6 +13,17 @@ class sampleCollectionUpdateProcessor extends AbstractObjectUpdateProcessor
     /** @var array */
     private $categories = [];
 
+
+    /**
+     * @return mixed
+     */
+    public function beforeSet()
+    {
+        //$this->setBoolean();
+        $this->modx->log(modX::LOG_LEVEL_ERROR, print_r($this->getProperties(), true));
+        return parent::beforeSet();
+    }
+
     /**
      * @return bool
      */
@@ -24,7 +35,7 @@ class sampleCollectionUpdateProcessor extends AbstractObjectUpdateProcessor
 
     private function setCategories()
     {
-        $categoryIds = $this->getProperty('categoryids');
+        $categoryIds = $this->getProperty('categories');
         if (!isset($categoryIds)) {
             return;
         }

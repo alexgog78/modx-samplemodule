@@ -32,7 +32,7 @@ SampleModule.grid.collection = function (config) {
         columns: [
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.6, editor: {xtype: 'textfield'}}),
-            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean'}, renderer: SampleModule.renderer.boolean}),
             this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
             this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
@@ -61,12 +61,12 @@ SampleModule.grid.collection = function (config) {
 Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
     getMenu: function () {
         return [{
-            text: _('quick_update'),
-            handler: this._quickUpdateRecord,
-            scope: this
-        }, {
             text: _('edit'),
             handler: this._updateRecord,
+            scope: this
+        }, {
+            text: _('quick_update'),
+            handler: this._quickUpdateRecord,
             scope: this
         }, '-', {
             text: _('delete'),

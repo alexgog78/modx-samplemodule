@@ -9,7 +9,6 @@ SampleModule.page.collection.create = function (config) {
         formpanel: 'samplemodule-formpanel-collection',
         components: [{
             xtype: 'samplemodule-formpanel-collection',
-            record: null,
         }],
         recordActions: {
             create: {

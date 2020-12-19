@@ -29,8 +29,23 @@ class sampleCollectionGetListProcessor extends AbstractObjectGetListProcessor
         if (!$object->option_two_id) {
             $object->set('option_two_id', null);
         }
+        $this->prepareTags($object);
         $this->getCategories($object);
         return parent::prepareRow($object);
+    }
+
+    /**
+     * @param xPDOObject $object
+     */
+    private function prepareTags(xPDOObject $object)
+    {
+        $tags = [];
+        foreach ($object->get('tags') ?? [] as $value) {
+            $tags[] = [
+                'value' => $value,
+            ];
+        }
+        $object->set('tags', $tags);
     }
 
     /**
@@ -39,7 +54,7 @@ class sampleCollectionGetListProcessor extends AbstractObjectGetListProcessor
     private function getCategories(xPDOObject $object)
     {
         $categories = $object->getCategories();
-        $object->set('categoryids', $categories);
+        $object->set('categories', $categories);
     }
 }
 
