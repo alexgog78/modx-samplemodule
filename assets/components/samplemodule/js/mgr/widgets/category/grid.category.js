@@ -1,12 +1,12 @@
 'use strict';
 
-SampleModule.grid.category = function (config) {
+sampleModule.grid.category = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-grid-category';
     }
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/category/getlist'
         },
@@ -20,7 +20,7 @@ SampleModule.grid.category = function (config) {
         columns: [
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.9, editor: {xtype: 'textfield'}}),
-            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: sampleModule.renderer.boolean}),
         ],
         recordActions: {
             quickCreate: {
@@ -36,7 +36,7 @@ SampleModule.grid.category = function (config) {
             }
         }
     });
-    SampleModule.grid.category.superclass.constructor.call(this, config);
+    sampleModule.grid.category.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.grid.category, SampleModule.grid.abstract, {});
-Ext.reg('samplemodule-grid-category', SampleModule.grid.category);
+Ext.extend(sampleModule.grid.category, sampleModule.grid.abstract, {});
+Ext.reg('samplemodule-grid-category', sampleModule.grid.category);

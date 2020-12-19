@@ -1,8 +1,8 @@
 'use strict';
 
-Ext.namespace('SampleModule.localGrid.collection');
+Ext.namespace('sampleModule.localGrid.collection');
 
-SampleModule.localGrid.collection.property = function (config) {
+sampleModule.localGrid.collection.property = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         id: 'samplemodule-localgrid-collection-property',
@@ -17,9 +17,9 @@ SampleModule.localGrid.collection.property = function (config) {
             //{header: _('samplemodule_record_property_value'), dataIndex: 'value', sortable: false, width: 0.7},
         ]
     });
-    SampleModule.localGrid.collection.property.superclass.constructor.call(this, config);
+    sampleModule.localGrid.collection.property.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.localGrid.collection.property, SampleModule.localGrid.abstract, {
+Ext.extend(sampleModule.localGrid.collection.property, sampleModule.localGrid.abstract, {
 
 });
-Ext.reg('samplemodule-localgrid-collection-property', SampleModule.localGrid.collection.property);
+Ext.reg('samplemodule-localgrid-collection-property', sampleModule.localGrid.collection.property);

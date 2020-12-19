@@ -1,14 +1,11 @@
 <?php
 
-$this->loadClass('AbstractObjectUpdateProcessor', MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/object/', true, true);
+require_once dirname(__DIR__) . '/update.class.php';
 
-class sampleItemUpdateProcessor extends AbstractObjectUpdateProcessor
+class sampleItemUpdateProcessor extends sampleModuleUpdateProcessor
 {
     /** @var string */
     public $classKey = 'sampleItem';
-
-    /** @var string */
-    public $objectType = 'samplemodule';
 }
 
 return 'sampleItemUpdateProcessor';

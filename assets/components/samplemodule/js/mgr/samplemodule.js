@@ -1,10 +1,23 @@
 'use strict';
 
-var SampleModule = function (config) {
+var sampleModule = function (config) {
     config = config || {};
     Ext.applyIf(config, {});
-    SampleModule.superclass.constructor.call(this, config);
+    sampleModule.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule, Ext.Component, AbstractModule);
-Ext.reg('samplemodule', SampleModule);
-SampleModule = new SampleModule();
+Ext.extend(sampleModule, Ext.Component, {
+    config: {},
+    page: {},
+    panel: {},
+    formPanel: {},
+    grid: {},
+    localGrid: {},
+    window: {},
+    tree: {},
+    combo: {},
+    component: {},
+    renderer: {},
+    function: {},
+});
+Ext.reg('samplemodule', sampleModule);
+sampleModule = new sampleModule();

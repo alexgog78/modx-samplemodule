@@ -1,12 +1,12 @@
 'use strict';
 
-SampleModule.grid.collection = function (config) {
+sampleModule.grid.collection = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-grid-collection';
     }
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/collection/getlist'
         },
@@ -28,11 +28,14 @@ SampleModule.grid.collection = function (config) {
             'updated_by',
             'options',
             'categoryids',
+
+            'items_count',
         ],
         columns: [
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.6, editor: {xtype: 'textfield'}}),
-            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('items_count', {header: _('samplemodule_collection_items'), width: 0.1}),
+            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean'}, renderer: sampleModule.renderer.boolean}),
             this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
             this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
@@ -56,9 +59,9 @@ SampleModule.grid.collection = function (config) {
             }
         }
     });
-    SampleModule.grid.collection.superclass.constructor.call(this, config);
+    sampleModule.grid.collection.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
+Ext.extend(sampleModule.grid.collection, sampleModule.grid.abstract, {
     getMenu: function () {
         return [{
             text: _('edit'),
@@ -84,4 +87,4 @@ Ext.extend(SampleModule.grid.collection, SampleModule.grid.abstract, {
         ];
     },
 });
-Ext.reg('samplemodule-grid-collection', SampleModule.grid.collection);
+Ext.reg('samplemodule-grid-collection', sampleModule.grid.collection);

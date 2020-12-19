@@ -1,11 +1,11 @@
 'use strict';
 
-SampleModule.combo.multiSelectRemote.category = function (config) {
+sampleModule.combo.multiSelectRemote.category = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         store: new Ext.data.JsonStore({
             id: (config.id || 'samplemodule-combo-multiselect-category') + '-store',
-            url: SampleModule.config.connectorUrl,
+            url: sampleModule.config.connectorUrl,
             baseParams: {
                 action: 'mgr/category/getlist',
                 combo: true,
@@ -19,7 +19,7 @@ SampleModule.combo.multiSelectRemote.category = function (config) {
         displayField: 'name',
         valueField: 'id',
     });
-    SampleModule.combo.multiSelectRemote.category.superclass.constructor.call(this, config);
+    sampleModule.combo.multiSelectRemote.category.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.combo.multiSelectRemote.category, SampleModule.combo.multiSelectRemote);
-Ext.reg('samplemodule-combo-multiselect-category', SampleModule.combo.multiSelectRemote.category);
+Ext.extend(sampleModule.combo.multiSelectRemote.category, sampleModule.combo.multiSelectRemote);
+Ext.reg('samplemodule-combo-multiselect-category', sampleModule.combo.multiSelectRemote.category);

@@ -1,6 +1,6 @@
 <?php
 
-$prefix = 'setting_samplemodule';
+$prefix = 'setting_samplemodule_';
 
-$_lang[$prefix . '_image_file_source'] = 'Источник изображений по умолчанию';
-$_lang[$prefix . '_image_file_source_desc'] = 'Источник файлов для изображений предметов по умолчанию.';
+$_lang[$prefix . 'file_source'] = 'Источник файлов по умолчанию';
+$_lang[$prefix . 'file_source_desc'] = 'Источник файлов для модуля по умолчанию.';

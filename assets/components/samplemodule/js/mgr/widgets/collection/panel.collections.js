@@ -1,6 +1,6 @@
 'use strict';
 
-SampleModule.panel.collections = function (config) {
+sampleModule.panel.collections = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-panel-collections';
@@ -8,9 +8,9 @@ SampleModule.panel.collections = function (config) {
     Ext.applyIf(config, {
         title: _('samplemodule_collections')
     });
-    SampleModule.panel.collections.superclass.constructor.call(this, config);
+    sampleModule.panel.collections.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.panel.collections, SampleModule.panel.abstract, {
+Ext.extend(sampleModule.panel.collections, sampleModule.panel.abstract, {
     getComponents: function (config) {
         return this.renderPlainPanel([
             this.getDescription(_('samplemodule_collections_management')),
@@ -18,4 +18,4 @@ Ext.extend(SampleModule.panel.collections, SampleModule.panel.abstract, {
         ]);
     }
 });
-Ext.reg('samplemodule-panel-collections', SampleModule.panel.collections);
+Ext.reg('samplemodule-panel-collections', sampleModule.panel.collections);

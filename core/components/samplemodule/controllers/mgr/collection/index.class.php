@@ -1,19 +1,19 @@
 <?php
 
-if (!class_exists('SampleMgrController')) {
-    require_once dirname(__FILE__) . '/manager.class.php';
-}
+require_once dirname(__DIR__) . '/default.class.php';
 
-class SampleModuleMgrCollectionsManagerController extends SampleMgrController
+class sampleModuleMgrCollectionManagerController extends sampleModuleMgrDefaultController
 {
     /** @var bool */
     protected $loadRichText = true;
 
-    /** @return string */
-    public function getPageTitle()
-    {
-        return $this->getLexiconTopic('collections') . ' | ' . $this->modx->lexicon($this->namespace);
-    }
+    /** @var string */
+    protected $pageTitle = 'collection_list';
+
+    /** @var array */
+    protected $languageTopics = [
+        'samplemodule:collection',
+    ];
 
     public function loadCustomCssJs()
     {
@@ -23,6 +23,10 @@ class SampleModuleMgrCollectionsManagerController extends SampleMgrController
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/window.collection.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.property.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/list.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-collection-list"}); });</script>');
+
+        $configJs = $this->modx->toJSON([
+            'xtype' => 'samplemodule-page-collection-list',
+        ]);
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function () {MODx.load(' . $configJs . ');});</script>');
     }
 }

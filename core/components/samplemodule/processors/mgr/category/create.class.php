@@ -1,14 +1,14 @@
 <?php
 
-$this->loadClass('AbstractObjectCreateProcessor', MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/object/', true, true);
+require_once dirname(__DIR__) . '/create.class.php';
 
-class sampleCategoryCreateProcessor extends AbstractObjectCreateProcessor
+class sampleCategoryCreateProcessor extends sampleModuleCreateProcessor
 {
     /** @var string */
     public $classKey = 'sampleCategory';
 
-    /** @var string */
-    public $objectType = 'samplemodule';
+    /** @var bool */
+    protected $softValidate = true;
 }
 
 return 'sampleCategoryCreateProcessor';

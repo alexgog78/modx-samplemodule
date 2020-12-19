@@ -1,9 +1,9 @@
 'use strict';
 
-SampleModule.combo.selectRemote.optionone = function (config) {
+sampleModule.combo.selectRemote.optionone = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/optionone/getlist',
             combo: true,
@@ -12,7 +12,7 @@ SampleModule.combo.selectRemote.optionone = function (config) {
         displayField: 'name',
         valueField: 'id',
     });
-    SampleModule.combo.selectRemote.optionone.superclass.constructor.call(this, config);
+    sampleModule.combo.selectRemote.optionone.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.combo.selectRemote.optionone, SampleModule.combo.selectRemote);
-Ext.reg('samplemodule-combo-select-optionone', SampleModule.combo.selectRemote.optionone);
+Ext.extend(sampleModule.combo.selectRemote.optionone, sampleModule.combo.selectRemote);
+Ext.reg('samplemodule-combo-select-optionone', sampleModule.combo.selectRemote.optionone);

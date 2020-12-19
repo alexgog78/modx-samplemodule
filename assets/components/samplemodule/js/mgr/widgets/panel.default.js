@@ -1,6 +1,6 @@
 'use strict';
 
-SampleModule.panel.default = function (config) {
+sampleModule.panel.default = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-panel-default';
@@ -8,9 +8,9 @@ SampleModule.panel.default = function (config) {
     Ext.applyIf(config, {
         title: _('samplemodule'),
     });
-    SampleModule.panel.default.superclass.constructor.call(this, config);
+    sampleModule.panel.default.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.panel.default, SampleModule.panel.abstract, {
+Ext.extend(sampleModule.panel.default, sampleModule.panel.abstract, {
     getComponents: function (config) {
         return this.renderTabsPanel([{
             title: _('samplemodule_collections'),
@@ -27,4 +27,4 @@ Ext.extend(SampleModule.panel.default, SampleModule.panel.abstract, {
         }]);
     }
 });
-Ext.reg('samplemodule-panel-default', SampleModule.panel.default);
+Ext.reg('samplemodule-panel-default', sampleModule.panel.default);

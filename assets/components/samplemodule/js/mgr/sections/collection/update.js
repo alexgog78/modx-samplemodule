@@ -1,11 +1,11 @@
 'use strict';
 
-Ext.namespace('SampleModule.page.collection');
+Ext.namespace('sampleModule.page.collection');
 
-SampleModule.page.collection.update = function (config) {
+sampleModule.page.collection.update = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         formpanel: 'samplemodule-formpanel-collection',
         components: [{
             xtype: 'samplemodule-formpanel-collection',
@@ -25,9 +25,9 @@ SampleModule.page.collection.update = function (config) {
             }
         },
     });
-    SampleModule.page.collection.update.superclass.constructor.call(this, config);
+    sampleModule.page.collection.update.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.page.collection.update, SampleModule.page.abstract, {
+Ext.extend(sampleModule.page.collection.update, sampleModule.page.abstract, {
     getButtons: function (config) {
         return [
             this.getUpdateButton(config),
@@ -36,4 +36,4 @@ Ext.extend(SampleModule.page.collection.update, SampleModule.page.abstract, {
         ];
     }
 });
-Ext.reg('samplemodule-page-collection-update', SampleModule.page.collection.update);
+Ext.reg('samplemodule-page-collection-update', sampleModule.page.collection.update);

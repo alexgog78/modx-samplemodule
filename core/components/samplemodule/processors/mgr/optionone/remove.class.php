@@ -1,14 +1,11 @@
 <?php
 
-$this->loadClass('AbstractObjectRemoveProcessor', MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/object/', true, true);
+require_once dirname(__DIR__) . '/remove.class.php';
 
-class sampleOptionOneRemoveProcessor extends AbstractObjectRemoveProcessor
+class sampleOptionOneRemoveProcessor extends sampleModuleRemoveProcessor
 {
     /** @var string */
     public $classKey = 'sampleOptionOne';
-
-    /** @var string */
-    public $objectType = 'samplemodule';
 }
 
 return 'sampleOptionOneRemoveProcessor';

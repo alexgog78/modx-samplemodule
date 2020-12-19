@@ -1,7 +1,11 @@
 <?php
 
-class SampleModule
+require_once dirname(dirname(__DIR__)) . '/helpers/log.trait.php';
+
+class sampleModule
 {
+    use sampleModuleHelperLog;
+
     const PKG_VERSION = '1.0.0';
     const PKG_RELEASE = 'beta';
     const PKG_NAMESPACE = 'samplemodule';
@@ -14,7 +18,7 @@ class SampleModule
     public $config = [];
 
     /**
-     * Mailing constructor.
+     * SampleModule constructor.
      *
      * @param modX $modx
      * @param array $config

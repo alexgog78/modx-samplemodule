@@ -1,16 +1,16 @@
 <?php
 
-if (!class_exists('SampleMgrController')) {
-    require_once dirname(__FILE__) . '/manager.class.php';
-}
+require_once dirname(__DIR__) . '/default.class.php';
 
-class SampleModuleMgrItemsManagerController extends SampleMgrController
+class SampleModuleMgrItemManagerController extends sampleModuleMgrDefaultController
 {
-    /** @return string */
-    public function getPageTitle()
-    {
-        return $this->getLexiconTopic('items') . ' | ' . $this->modx->lexicon($this->namespace);
-    }
+    /** @var string */
+    protected $pageTitle = 'item_list';
+
+    /** @var array */
+    protected $languageTopics = [
+        'samplemodule:item',
+    ];
 
     public function loadCustomCssJs()
     {

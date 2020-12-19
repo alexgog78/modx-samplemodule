@@ -1,12 +1,12 @@
 'use strict';
 
-SampleModule.grid.item = function (config) {
+sampleModule.grid.item = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-grid-item';
     }
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/item/getlist',
             collection_id: config.collection_id || 0,
@@ -32,7 +32,7 @@ SampleModule.grid.item = function (config) {
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.4, editor: {xtype: 'textfield'}}),
             this.getGridColumn('collection_name', {header: _('samplemodule_record_collection'), width: 0.2, renderer: this._inactiveCategory}),
-            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: SampleModule.renderer.boolean}),
+            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: sampleModule.renderer.boolean}),
             this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
             this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
         ],
@@ -52,9 +52,9 @@ SampleModule.grid.item = function (config) {
             }
         }
     });
-    SampleModule.grid.item.superclass.constructor.call(this, config);
+    sampleModule.grid.item.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.grid.item, SampleModule.grid.abstract, {
+Ext.extend(sampleModule.grid.item, sampleModule.grid.abstract, {
     getRowClass: function (record) {
         return record.data.is_active && record.data.collection_is_active == '1' ? 'grid-row-active' : 'grid-row-inactive';
     },
@@ -67,4 +67,4 @@ Ext.extend(SampleModule.grid.item, SampleModule.grid.abstract, {
         return value;
     }
 });
-Ext.reg('samplemodule-grid-item', SampleModule.grid.item);
+Ext.reg('samplemodule-grid-item', sampleModule.grid.item);

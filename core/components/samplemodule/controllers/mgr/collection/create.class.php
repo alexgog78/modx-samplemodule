@@ -1,21 +1,19 @@
 <?php
 
-if (!class_exists('SampleMgrController')) {
-    require_once dirname(__DIR__) . '/manager.class.php';
-}
+require_once dirname(__DIR__) . '/create.class.php';
 
-class SampleModuleMgrCollectionCreateManagerController extends SampleMgrController
+class sampleModuleMgrCollectionCreateManagerController extends sampleModuleMgrCreateController
 {
     /** @var bool */
     protected $loadRichText = true;
 
-    /** @return string */
-    public function getPageTitle()
-    {
-        return $this->getLexiconTopic('creating', [
-                'record' => $this->getLexiconTopic('collection'),
-            ]) . ' | ' . $this->modx->lexicon($this->namespace);
-    }
+    /** @var string */
+    protected $pageTitle = 'collection_creating';
+
+    /** @var array */
+    protected $languageTopics = [
+        'samplemodule:collection'
+    ];
 
     public function loadCustomCssJs()
     {

@@ -1,17 +1,17 @@
 'use strict';
 
-SampleModule.formPanel.collection = function (config) {
+sampleModule.formPanel.collection = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-formpanel-collection';
     }
     Ext.apply(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         title: _('samplemodule_collection'),
     });
-    SampleModule.formPanel.collection.superclass.constructor.call(this, config);
+    sampleModule.formPanel.collection.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.formPanel.collection, SampleModule.formPanel.abstract, {
+Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
     defaultValues: {
         is_active: 1,
     },
@@ -20,7 +20,7 @@ Ext.extend(SampleModule.formPanel.collection, SampleModule.formPanel.abstract, {
 
     setValues: function (record) {
         this.setPropertyGrid(record.properties);
-        SampleModule.formPanel.collection.superclass.setValues.call(this, record);
+        sampleModule.formPanel.collection.superclass.setValues.call(this, record);
     },
 
     setPropertyGrid: function (data) {
@@ -37,14 +37,14 @@ Ext.extend(SampleModule.formPanel.collection, SampleModule.formPanel.abstract, {
             this.rteLoaded = true;
             MODx.loadRTE(this.rteElements);
         }.bind(this));
-        SampleModule.formPanel.collection.superclass.onReady.call(this);
+        sampleModule.formPanel.collection.superclass.onReady.call(this);
     },
 
     success: function (o) {
         if (!this.record) {
             MODx.loadPage('mgr/collection/update', 'namespace=samplemodule&id=' + o.result.object.id);
         }
-        return SampleModule.formPanel.collection.superclass.success.call(this, o);
+        return sampleModule.formPanel.collection.superclass.success.call(this, o);
     },
 
     getComponents: function (config) {
@@ -94,7 +94,7 @@ Ext.extend(SampleModule.formPanel.collection, SampleModule.formPanel.abstract, {
     },
 
     getItemsSection: function (config) {
-        let itemsGrid = (config.record) ? {xtype: 'samplemodule-grid-item', collection_id: config.record.id} : SampleModule.component.notice(_('samplemodule_undefined'));
+        let itemsGrid = (config.record) ? {xtype: 'samplemodule-grid-item', collection_id: config.record.id} : sampleModule.component.notice(_('samplemodule_undefined'));
         return [
             this.getDescription(_('samplemodule_items_management')),
             this.getContent(itemsGrid),
@@ -119,9 +119,9 @@ Ext.extend(SampleModule.formPanel.collection, SampleModule.formPanel.abstract, {
                     fieldLabel: _('samplemodule_record_code'),
                     height: 400,
                 }),
-                SampleModule.component.logSection(this.record),
+                sampleModule.component.logSection(this.record),
             ]),*/
         ]);
     },
 });
-Ext.reg('samplemodule-formpanel-collection', SampleModule.formPanel.collection);
+Ext.reg('samplemodule-formpanel-collection', sampleModule.formPanel.collection);

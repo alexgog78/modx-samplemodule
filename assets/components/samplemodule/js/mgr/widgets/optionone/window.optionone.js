@@ -1,13 +1,13 @@
 'use strict';
 
-SampleModule.window.optionone = function (config) {
+sampleModule.window.optionone = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
     });
-    SampleModule.window.optionone.superclass.constructor.call(this, config);
+    sampleModule.window.optionone.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.window.optionone, SampleModule.window.abstract, {
+Ext.extend(sampleModule.window.optionone, sampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
@@ -20,4 +20,4 @@ Ext.extend(SampleModule.window.optionone, SampleModule.window.abstract, {
         ];
     },
 });
-Ext.reg('samplemodule-window-optionone', SampleModule.window.optionone);
+Ext.reg('samplemodule-window-optionone', sampleModule.window.optionone);

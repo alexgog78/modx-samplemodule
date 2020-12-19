@@ -1,19 +1,19 @@
 'use strict';
 
-SampleModule.window.item = function (config) {
+sampleModule.window.item = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
     });
-    SampleModule.window.item.superclass.constructor.call(this, config);
+    sampleModule.window.item.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
+Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
 
     getFields: function(config) {
-        return SampleModule.component.tabs([
+        return sampleModule.component.tabs([
             {
                 title: _('samplemodule_item'),
                 items: [
@@ -23,7 +23,7 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
                     this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_record_description')}),
                     this.getFormInput('image', {xtype: 'samplemodule-combo-browser-image', fieldLabel: _('samplemodule_record_image')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
-                    SampleModule.component.logSection(this.record),
+                    sampleModule.component.logSection(this.record),
                 ],
             }, {
                 title: _('samplemodule_properties'),
@@ -38,4 +38,4 @@ Ext.extend(SampleModule.window.item, SampleModule.window.abstract, {
         return this.getFormInput('collection_id', {xtype: 'ms2colors-combo-select-collection', fieldLabel: _('samplemodule_record_collection')});
     }
 });
-Ext.reg('samplemodule-window-item', SampleModule.window.item);
+Ext.reg('samplemodule-window-item', sampleModule.window.item);

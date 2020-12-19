@@ -1,13 +1,13 @@
 'use strict';
 
-SampleModule.window.category = function (config) {
+sampleModule.window.category = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
     });
-    SampleModule.window.category.superclass.constructor.call(this, config);
+    sampleModule.window.category.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.window.category, SampleModule.window.abstract, {
+Ext.extend(sampleModule.window.category, sampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
@@ -20,4 +20,4 @@ Ext.extend(SampleModule.window.category, SampleModule.window.abstract, {
         ];
     },
 });
-Ext.reg('samplemodule-window-category', SampleModule.window.category);
+Ext.reg('samplemodule-window-category', sampleModule.window.category);

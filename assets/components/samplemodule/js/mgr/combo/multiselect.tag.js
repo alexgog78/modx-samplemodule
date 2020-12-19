@@ -1,6 +1,6 @@
 'use strict';
 
-SampleModule.combo.multiSelectLocal.tag = function (config) {
+sampleModule.combo.multiSelectLocal.tag = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         allowAddNewData: true,
@@ -21,13 +21,13 @@ SampleModule.combo.multiSelectLocal.tag = function (config) {
         //value: 'f,111',
         //value: [['zzz','zzzz'],['xxx','xxx']]
     });
-    SampleModule.combo.multiSelectLocal.tag.superclass.constructor.call(this, config);
+    sampleModule.combo.multiSelectLocal.tag.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.combo.multiSelectLocal.tag, SampleModule.combo.multiSelectLocal, {
+Ext.extend(sampleModule.combo.multiSelectLocal.tag, sampleModule.combo.multiSelectLocal, {
 
     initComponent: function () {
         console.log(this.value);
-        SampleModule.combo.multiSelectLocal.superclass.initComponent.call(this);
+        sampleModule.combo.multiSelectLocal.superclass.initComponent.call(this);
     },
 
 
@@ -78,4 +78,4 @@ Ext.extend(SampleModule.combo.multiSelectLocal.tag, SampleModule.combo.multiSele
     },
 
 });
-Ext.reg('samplemodule-combo-multiselect-tag', SampleModule.combo.multiSelectLocal.tag);
+Ext.reg('samplemodule-combo-multiselect-tag', sampleModule.combo.multiSelectLocal.tag);

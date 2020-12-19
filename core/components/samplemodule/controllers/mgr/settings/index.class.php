@@ -1,16 +1,17 @@
 <?php
 
-if (!class_exists('SampleMgrController')) {
-    require_once dirname(__FILE__) . '/manager.class.php';
-}
+require_once dirname(__DIR__) . '/default.class.php';
 
-class SampleModuleMgrSettingsManagerController extends SampleMgrController
+class sampleModuleMgrSettingsManagerController extends sampleModuleMgrDefaultController
 {
-    /** @return string */
-    public function getPageTitle()
-    {
-        return $this->getLexiconTopic('settings') . ' | ' . $this->modx->lexicon($this->namespace);
-    }
+    /** @var string */
+    protected $pageTitle = 'settings';
+
+    /** @var array */
+    protected $languageTopics = [
+        'samplemodule:category',
+        'samplemodule:option',
+    ];
 
     public function loadCustomCssJs()
     {

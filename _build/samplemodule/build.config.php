@@ -1,6 +1,6 @@
 <?php
 
-define('PKG_NAME', 'SampleModule');
+define('PKG_NAME', 'sampleModule');
 define('PKG_NAME_LOWER', 'samplemodule');
 define('PKG_PATH', MODX_CORE_PATH . 'components/' . PKG_NAME_LOWER . '/');
 define('DB_TYPE', $modx->getOption('dbtype'));

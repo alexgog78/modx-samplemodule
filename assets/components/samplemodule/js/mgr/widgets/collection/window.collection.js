@@ -1,14 +1,14 @@
 'use strict';
 
-SampleModule.window.collection = function (config) {
+sampleModule.window.collection = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         width: 800,
     });
-    SampleModule.window.collection.superclass.constructor.call(this, config);
+    sampleModule.window.collection.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
+Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     defaultValues: {
         is_active: 1,
     },
@@ -16,7 +16,7 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
     rteElements: 'richtext',
 
     getFields: function(config) {
-        return SampleModule.component.tabs([
+        return sampleModule.component.tabs([
             {
                 title: _('samplemodule_collection'),
                 items: [
@@ -45,7 +45,7 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
                     this.getFormInput('categoryids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_record_categories')}),
                     this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_record_tags')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
-                    SampleModule.component.logSection(this.record),
+                    sampleModule.component.logSection(this.record),
                 ],
             }, {
                 title: _('samplemodule_content'),
@@ -67,14 +67,14 @@ Ext.extend(SampleModule.window.collection, SampleModule.window.abstract, {
     beforeshow: function () {
         this.rteLoaded = true;
         MODx.loadRTE(this.rteElements);
-        SampleModule.window.collection.superclass.beforeshow.call(this);
+        sampleModule.window.collection.superclass.beforeshow.call(this);
     },
 
     onhide: function () {
         if (tinymce) {
             tinymce.get(this.rteElements).remove();
         }
-        SampleModule.window.collection.superclass.onhide.call(this);
+        sampleModule.window.collection.superclass.onhide.call(this);
     },
 });
-Ext.reg('samplemodule-window-collection', SampleModule.window.collection);
+Ext.reg('samplemodule-window-collection', sampleModule.window.collection);

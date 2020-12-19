@@ -1,6 +1,6 @@
 'use strict';
 
-SampleModule.panel.items = function (config) {
+sampleModule.panel.items = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-panel-items';
@@ -8,9 +8,9 @@ SampleModule.panel.items = function (config) {
     Ext.applyIf(config, {
         title: _('samplemodule_items')
     });
-    SampleModule.panel.items.superclass.constructor.call(this, config);
+    sampleModule.panel.items.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.panel.items, SampleModule.panel.abstract, {
+Ext.extend(sampleModule.panel.items, sampleModule.panel.abstract, {
     getComponents: function (config) {
         return this.renderPlainPanel([
             this.getDescription(_('samplemodule_items_management')),
@@ -18,4 +18,4 @@ Ext.extend(SampleModule.panel.items, SampleModule.panel.abstract, {
         ]);
     }
 });
-Ext.reg('samplemodule-panel-items', SampleModule.panel.items);
+Ext.reg('samplemodule-panel-items', sampleModule.panel.items);

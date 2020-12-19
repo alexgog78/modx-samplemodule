@@ -1,30 +1,35 @@
 <?php
 
-if (!class_exists('SampleMgrController')) {
-    require_once dirname(__DIR__) . '/manager.class.php';
-}
+require_once dirname(__DIR__) . '/update.class.php';
 
-class SampleModuleMgrCollectionUpdateManagerController extends SampleMgrController
+class sampleModuleMgrCollectionUpdateManagerController extends sampleModuleMgrUpdateController
 {
     /** @var bool */
     protected $loadRichText = true;
 
-    /** @var bool */
-    protected $loadObject = true;
+    /** @var string */
+    protected $pageTitle = 'collection_updating';
+
+    /** @var array */
+    protected $languageTopics = [
+        'samplemodule:collection',
+    ];
 
     /** @var string */
     protected $objectGetProcessorPath = 'mgr/collection/get';
 
+    //protected $objectPrimaryKey = 'id';
+
     /** @var string */
-    protected $objectClassKey = 'sampleCollection';
+    //protected $objectClassKey = 'sampleCollection';
 
     /** @return string */
-    public function getPageTitle()
+    /*public function getPageTitle()
     {
         return $this->getLexiconTopic('editing', [
                 'record' => $this->getLexiconTopic('collection'),
             ]) . ' | ' . $this->modx->lexicon($this->namespace);
-    }
+    }*/
 
     /**
      * @param array $scriptProperties

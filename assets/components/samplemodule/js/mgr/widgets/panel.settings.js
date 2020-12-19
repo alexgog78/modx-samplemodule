@@ -1,6 +1,6 @@
 'use strict';
 
-SampleModule.panel.settings = function (config) {
+sampleModule.panel.settings = function (config) {
     config = config || {};
     if (!config.id) {
         config.id = 'samplemodule-panel-settings';
@@ -8,13 +8,13 @@ SampleModule.panel.settings = function (config) {
     Ext.applyIf(config, {
         title: _('samplemodule_settings')
     });
-    SampleModule.panel.settings.superclass.constructor.call(this, config);
+    sampleModule.panel.settings.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.panel.settings, SampleModule.panel.abstract, {
+Ext.extend(sampleModule.panel.settings, sampleModule.panel.abstract, {
     getComponents: function (config) {
         return this.renderPlainPanel([
             this.getDescription(_('samplemodule_settings_management')),
-            SampleModule.component.verticalTabs([{
+            sampleModule.component.verticalTabs([{
                 title: _('samplemodule_categories'),
                 items: [{xtype: 'samplemodule-grid-category'}]
             }, {
@@ -27,4 +27,4 @@ Ext.extend(SampleModule.panel.settings, SampleModule.panel.abstract, {
         ]);
     }
 });
-Ext.reg('samplemodule-panel-settings', SampleModule.panel.settings);
+Ext.reg('samplemodule-panel-settings', sampleModule.panel.settings);

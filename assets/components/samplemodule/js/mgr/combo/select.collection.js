@@ -1,9 +1,9 @@
 'use strict';
 
-SampleModule.combo.selectRemote.collection = function (config) {
+sampleModule.combo.selectRemote.collection = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        url: SampleModule.config.connectorUrl,
+        url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/collection/getlist',
             combo: true
@@ -12,7 +12,7 @@ SampleModule.combo.selectRemote.collection = function (config) {
         displayField: 'name',
         valueField: 'id',
     });
-    SampleModule.combo.selectRemote.collection.superclass.constructor.call(this, config);
+    sampleModule.combo.selectRemote.collection.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.combo.selectRemote.collection, SampleModule.combo.selectRemote);
-Ext.reg('ms2colors-combo-select-collection', SampleModule.combo.selectRemote.collection);
+Ext.extend(sampleModule.combo.selectRemote.collection, sampleModule.combo.selectRemote);
+Ext.reg('ms2colors-combo-select-collection', sampleModule.combo.selectRemote.collection);

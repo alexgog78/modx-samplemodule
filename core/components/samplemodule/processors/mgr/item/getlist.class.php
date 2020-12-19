@@ -1,14 +1,11 @@
 <?php
 
-$this->loadClass('AbstractObjectGetListProcessor', MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/object/', true, true);
+require_once dirname(__DIR__) . '/getlist.class.php';
 
-class sampleItemGetListProcessor extends AbstractObjectGetListProcessor
+class sampleItemGetListProcessor extends sampleModuleGetListProcessor
 {
     /** @var string */
     public $classKey = 'sampleItem';
-
-    /** @var string */
-    public $objectType = 'samplemodule';
 
     /**
      * @param xPDOQuery $c

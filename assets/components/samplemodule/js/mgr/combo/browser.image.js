@@ -1,11 +1,11 @@
 'use strict';
 
-SampleModule.combo.browser.image = function (config) {
+sampleModule.combo.browser.image = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        source: SampleModule.config.imageFileSource
+        source: sampleModule.config.imageFileSource
     });
-    SampleModule.combo.browser.image.superclass.constructor.call(this, config);
+    sampleModule.combo.browser.image.superclass.constructor.call(this, config);
 };
-Ext.extend(SampleModule.combo.browser.image, SampleModule.combo.browser, {});
-Ext.reg('samplemodule-combo-browser-image', SampleModule.combo.browser.image);
+Ext.extend(sampleModule.combo.browser.image, sampleModule.combo.browser, {});
+Ext.reg('samplemodule-combo-browser-image', sampleModule.combo.browser.image);
