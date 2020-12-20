@@ -15,11 +15,11 @@ abstract class sampleModuleMgrUpdateController extends sampleModuleMgrDefaultCon
 
     /**
      * @param array $scriptProperties
-     * @return mixed
      */
     public function process(array $scriptProperties = [])
     {
         $this->object = $this->getRecord($scriptProperties);
+        parent::process($scriptProperties);
     }
 
     /**

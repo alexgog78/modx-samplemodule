@@ -14,7 +14,7 @@ sampleModule.panel.abstract = function (config) {
 };
 Ext.extend(sampleModule.panel.abstract, MODx.Panel, {
     initComponent: function() {
-        if (this.items.length == 0) {
+        if (this.items.length === 0) {
             if (this.title) {
                 this.items.push(this._getHeader(this.title));
                 this.title = '';

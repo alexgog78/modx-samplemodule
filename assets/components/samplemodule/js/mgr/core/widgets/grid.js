@@ -163,8 +163,7 @@ Ext.extend(sampleModule.grid.abstract, MODx.grid.Grid, {
     },
 
     _filterSearch: function (tf, newValue, oldValue) {
-        let query = newValue || tf.getValue();
-        this.getStore().baseParams.query = query;
+        this.getStore().baseParams.query = newValue || tf.getValue();
         this.getBottomToolbar().changePage(1);
     },
 
