@@ -27,7 +27,7 @@ Ext.extend(sampleModule.formPanel.abstract, MODx.FormPanel, {
     defaultValues: {},
 
     initComponent: function() {
-        if (this.items.length == 0) {
+        if (this.items.length === 0) {
             if (this.title) {
                 this.items.push(this._getHeader(this.title));
                 this.title = '';

@@ -12,6 +12,7 @@ class sampleModule
     const PKG_RELEASE = 'beta';
     const PKG_NAMESPACE = 'samplemodule';
     const TABLE_PREFIX = 'samplemodule_';
+    const DEVELOPER_MODE = false;
 
     /** @var modX */
     public $modx;
@@ -64,7 +65,7 @@ class sampleModule
             'jsUrl' => $assetsUrl . 'js/',
             'cssUrl' => $assetsUrl . 'css/',
             'connectorUrl' => $assetsUrl . 'connector.php',
-            'fileSource' => $this->modx->getOption('samplemodule_file_source'),
+            'fileSource' => $this->modx->getOption(self::PKG_NAMESPACE . '_file_source'),
         ], $config);
     }
 }

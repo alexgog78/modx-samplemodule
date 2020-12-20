@@ -57,7 +57,7 @@ sampleModule.grid.item = function (config) {
 };
 Ext.extend(sampleModule.grid.item, sampleModule.grid.abstract, {
     getRowClass: function (record) {
-        return record.data.is_active && record.data.collection_is_active == '1'
+        return record.data.is_active && record.data.collection_is_active === '1'
             ? 'grid-row-active'
             : 'grid-row-inactive';
     },

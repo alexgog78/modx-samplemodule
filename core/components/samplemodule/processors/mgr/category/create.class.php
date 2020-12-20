@@ -6,9 +6,6 @@ class sampleCategoryCreateProcessor extends sampleModuleCreateProcessor
 {
     /** @var string */
     public $classKey = 'sampleCategory';
-
-    /** @var bool */
-    protected $softValidate = true;
 }
 
 return 'sampleCategoryCreateProcessor';

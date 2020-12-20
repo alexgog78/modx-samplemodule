@@ -58,5 +58,4 @@ trait sampleModuleModelHelperTimestamps
     {
         return $this->updatedByField ?? 'updated_by';
     }
-
 }

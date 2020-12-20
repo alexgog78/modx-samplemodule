@@ -22,7 +22,7 @@ class sampleItem extends xPDOSimpleObject
     /**
      * @return array
      */
-    private function getMenuindexConditions()
+    protected function getMenuindexConditions()
     {
         return [
             'collection_id' => $this->get('collection_id'),

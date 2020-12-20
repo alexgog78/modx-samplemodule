@@ -22,6 +22,7 @@ class sampleModuleMgrCollectionCreateManagerController extends sampleModuleMgrCr
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/formpanel.collection.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/property/grid.collection.property.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/property/window.collection.property.js');
+
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/create.js');
         $configJs = $this->modx->toJSON([
             'xtype' => 'samplemodule-page-collection-create',

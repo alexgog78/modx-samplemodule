@@ -8,7 +8,7 @@ class sampleCollectionUpdateProcessor extends sampleModuleUpdateProcessor
     public $classKey = 'sampleCollection';
 
     /** @var bool */
-    protected $softValidate = true;
+    protected $softValidate = false;
 
     /**
      * @return bool

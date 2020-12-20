@@ -12,7 +12,7 @@ class sampleCollectionGetProcessor extends sampleModuleGetProcessor
         $this->prepareCodeText();
         $this->prepareTagsCombo();
         $this->getCategories();
-        return parent::beforeOutput();
+        parent::beforeOutput();
     }
 
     private function prepareCodeText()

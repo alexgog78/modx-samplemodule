@@ -20,6 +20,7 @@ class SampleModuleMgrItemManagerController extends sampleModuleMgrDefaultControl
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/window.item.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/property/grid.item.property.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/property/window.item.property.js');
+
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/item/list.js');
         $configJs = $this->modx->toJSON([
             'xtype' => 'samplemodule-page-item-list',

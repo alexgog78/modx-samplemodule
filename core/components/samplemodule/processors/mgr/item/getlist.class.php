@@ -31,7 +31,10 @@ class sampleItemGetListProcessor extends sampleModuleGetListProcessor
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
         $c = parent::prepareQueryAfterCount($c);
-        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active',]));
+        $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', [
+            'name',
+            'is_active',
+        ]));
         $c->sortby('collection_id', 'ASC');
         $c->sortby('menuindex', 'ASC');
         return $c;

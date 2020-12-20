@@ -10,9 +10,6 @@ abstract class sampleModuleMgrDefaultController extends modExtraManagerControlle
     use sampleModuleControllerHelperDefaultAssets;
     use sampleModuleControllerHelperRichText;
 
-    /** @var bool */
-    protected $developMode = true;
-
     /** @var string */
     protected $assetsVersion;
 
@@ -44,6 +41,17 @@ abstract class sampleModuleMgrDefaultController extends modExtraManagerControlle
         if ($this->loadRichText) {
             $this->loadRichTextEditor();
         }
+    }
+
+    /**
+     * @return string
+     */
+    protected function getAssetsVersion()
+    {
+        if ($this->service::DEVELOPER_MODE) {
+            return time();
+        }
+        return $this->service::PKG_VERSION . '-' . $this->service::PKG_RELEASE;
     }
 
     /**
@@ -110,16 +118,5 @@ abstract class sampleModuleMgrDefaultController extends modExtraManagerControlle
     {
         $script .= '?' . $this->assetsVersion;
         parent::addLastJavascript($script);
-    }
-
-    /**
-     * @return string
-     */
-    protected function getAssetsVersion()
-    {
-        if ($this->developMode) {
-            return time();
-        }
-        return $this->service::PKG_VERSION . '-' . $this->service::PKG_RELEASE;
     }
 }

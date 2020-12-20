@@ -38,7 +38,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
-        Ext.each(records, function(rec, idx, list) {
+        Ext.each(records, function(rec) {
             properties.push(rec.data);
         }, this);
         this.fp.getForm().setValues({

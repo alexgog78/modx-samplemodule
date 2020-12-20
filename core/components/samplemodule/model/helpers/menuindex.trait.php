@@ -26,7 +26,7 @@ trait sampleModuleModelHelperMenuindex
     /**
      * @return array
      */
-    private function getMenuindexConditions()
+    protected function getMenuindexConditions()
     {
         return [];
     }

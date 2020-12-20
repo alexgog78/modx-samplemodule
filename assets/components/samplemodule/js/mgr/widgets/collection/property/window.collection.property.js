@@ -19,10 +19,7 @@ Ext.extend(sampleModule.window.collection.property, sampleModule.window.abstract
     },
 
     beforeSubmit: function (record) {
-        if (!this.fp.getForm().isValid()) {
-            return false;
-        }
-        return true;
+        return this.fp.getForm().isValid();
     },
 
     submit: function (close) {
