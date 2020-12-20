@@ -26,15 +26,16 @@ sampleModule.grid.item = function (config) {
             'created_by',
             'updated_on',
             'updated_by',
-            'options',
+            'properties',
         ],
         columns: [
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
-            this.getGridColumn('name', {header: _('samplemodule_record_name'), width: 0.4, editor: {xtype: 'textfield'}}),
-            this.getGridColumn('collection_name', {header: _('samplemodule_record_collection'), width: 0.2, renderer: this._inactiveCategory}),
-            this.getGridColumn('is_active', {header: _('samplemodule_record_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: sampleModule.renderer.boolean}),
-            this.getGridColumn('created_on', {header: _('samplemodule_record_createdon'), width: 0.1}),
-            this.getGridColumn('updated_on', {header: _('samplemodule_record_updatedon'), width: 0.1}),
+            this.getGridColumn('name', {header: _('samplemodule_name'), width: 0.2, editor: {xtype: 'textfield'}}),
+            this.getGridColumn('image', {header: _('samplemodule_item_image'), width: 0.2, renderer: sampleModule.renderer.image}),
+            this.getGridColumn('collection_name', {header: _('samplemodule_item_collection'), width: 0.2, renderer: this._inactiveCategory}),
+            this.getGridColumn('is_active', {header: _('samplemodule_active'), width: 0.1, editor: {xtype: 'combo-boolean', renderer: 'boolean'}, renderer: sampleModule.renderer.boolean}),
+            this.getGridColumn('created_on', {header: _('samplemodule_createdon'), width: 0.1}),
+            this.getGridColumn('updated_on', {header: _('samplemodule_updatedon'), width: 0.1}),
         ],
         recordActions: {
             quickCreate: {

@@ -132,4 +132,24 @@ sampleModule.component = {
             }
         });
     },
+
+    progressBarMessage: function (config = {}) {
+        return Ext.Msg.show(Ext.applyIf(config, {
+            title: _('please_wait'),
+            msg: _('saving'),
+            width: 410,
+            progress: true,
+            closable: false,
+        }));
+    },
+
+    waitMessage: function (config = {}) {
+        return Ext.Msg.show(Ext.applyIf(config, {
+            title: _('please_wait'),
+            msg: _('saving'),
+            width: 300,
+            wait: true,
+            closable: false,
+        }));
+    },
 };

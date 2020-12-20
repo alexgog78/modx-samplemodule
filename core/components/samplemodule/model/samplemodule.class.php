@@ -64,6 +64,7 @@ class sampleModule
             'jsUrl' => $assetsUrl . 'js/',
             'cssUrl' => $assetsUrl . 'css/',
             'connectorUrl' => $assetsUrl . 'connector.php',
+            'fileSource' => $this->modx->getOption('samplemodule_file_source'),
         ], $config);
     }
 }

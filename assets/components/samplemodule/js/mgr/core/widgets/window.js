@@ -6,12 +6,12 @@ sampleModule.window.abstract = function (config) {
         //Custom settings
         url: null,
         action: null,
-        record: [],//TODO null
-        fields: [],
+        record: false,
+        fields: this.getFields(config),
         width: config.width || 600,
 
         //Core settings
-        //autoHeight: true,
+        autoHeight: true,
     });
     sampleModule.window.abstract.superclass.constructor.call(this, config);
     this.on('beforeshow', this.beforeshow, this);
@@ -24,22 +24,28 @@ Ext.extend(sampleModule.window.abstract, MODx.Window, {
     defaultValues: {},
 
     renderForm: function () {
-        this.setValues(this.defaultValues);//TODO if record
-        this.setValues(this.record);
+        if (!this.record) {
+            this.setDefaultValues();
+        } else {
+            this.setRecord();
+        }
         sampleModule.window.abstract.superclass.renderForm.call(this);
     },
 
     getFields: function (config) {
-        return this.fields;
+        return [];
     },
 
     getFormInput: function (name, config = {}) {
         return sampleModule.component.inputField(name, config);
     },
 
-    _loadForm: function () {
-        this.config.fields = this.getFields(this.config);
-        sampleModule.window.abstract.superclass._loadForm.call(this);
+    setDefaultValues: function() {
+        this.setValues(this.defaultValues);
+    },
+
+    setRecord: function() {
+        this.setValues(this.record);
     },
 
     beforeshow: function () {

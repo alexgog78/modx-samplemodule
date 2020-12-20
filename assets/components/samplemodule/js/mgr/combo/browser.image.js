@@ -3,7 +3,7 @@
 sampleModule.combo.browser.image = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        source: sampleModule.config.imageFileSource
+        source: sampleModule.config.fileSource
     });
     sampleModule.combo.browser.image.superclass.constructor.call(this, config);
 };

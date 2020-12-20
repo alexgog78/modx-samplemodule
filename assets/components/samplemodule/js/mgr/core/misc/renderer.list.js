@@ -24,7 +24,7 @@ sampleModule.renderer = {
     image: function(value, cell, row) {
         cell.css = 'grid-image';
         if (!/(jpg|png|gif|jpeg)$/i.test(value)) {
-            value = 'assets/components/jepsgames/css/mgr/nophoto.jpg';
+            value = sampleModule.config.cssUrl + 'mgr/nophoto.jpg';
         }
         var src = MODx.config.connectors_url + 'system/phpthumb.php?src=' + value + '&w=70&h=35&zx=1&f=png&bg=ffffff';
         value = '<img src="' + src + '" alt="">';

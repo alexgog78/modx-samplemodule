@@ -27,6 +27,9 @@ class sampleModuleMgrSettingsManagerController extends sampleModuleMgrDefaultCon
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/optiontwo/grid.optiontwo.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/optiontwo/window.optiontwo.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/settings.js');
-        $this->addHtml('<script type="text/javascript">Ext.onReady(function() { MODx.load({xtype: "samplemodule-page-settings"}); });</script>');
+        $configJs = $this->modx->toJSON([
+            'xtype' => 'samplemodule-page-settings',
+        ]);
+        $this->addHtml('<script type="text/javascript">Ext.onReady(function () {MODx.load(' . $configJs . ');});</script>');
     }
 }

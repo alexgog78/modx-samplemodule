@@ -1,27 +1,21 @@
 'use strict';
 
-Ext.namespace('jepsGames.window.test');
+Ext.namespace('sampleModule.window.item');
 
-jepsGames.window.test.property = function (config) {
+sampleModule.window.item.property = function (config) {
     config = config || {};
+    if (!config.id) {
+        config.id = 'samplemodule-window-item-property';
+    }
     Ext.apply(config, {});
-    jepsGames.window.test.property.superclass.constructor.call(this, config);
+    sampleModule.window.item.property.superclass.constructor.call(this, config);
 };
-Ext.extend(jepsGames.window.test.property, jepsGames.window, {
+Ext.extend(sampleModule.window.item.property, sampleModule.window.abstract, {
     getFields: function (config) {
-        return [{
-            xtype: 'textfield',
-            name: 'key',
-            fieldLabel: _('jepsgames_game_property_key'),
-            anchor: '100%',
-            allowBlank: false,
-        }, {
-            xtype: 'textarea',
-            name: 'value',
-            fieldLabel: _('jepsgames_game_property_value'),
-            anchor: '100%',
-            allowBlank: false,
-        }];
+        return [
+            this.getFormInput('key', {fieldLabel: _('samplemodule_property_key'), allowBlank: false}),
+            this.getFormInput('value', {xtype: 'textarea', fieldLabel: _('samplemodule_property_value'), allowBlank: false}),
+        ];
     },
 
     beforeSubmit: function (record) {
@@ -47,4 +41,4 @@ Ext.extend(jepsGames.window.test.property, jepsGames.window, {
         this.close();
     }
 });
-Ext.reg('jepsgames-window-test-property', jepsGames.window.test.property);
+Ext.reg('samplemodule-window-item-property', sampleModule.window.item.property);

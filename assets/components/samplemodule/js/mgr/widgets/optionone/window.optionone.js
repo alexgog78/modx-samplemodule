@@ -15,8 +15,8 @@ Ext.extend(sampleModule.window.optionone, sampleModule.window.abstract, {
     getFields: function(config) {
         return [
             {xtype: 'hidden', name: 'id'},
-            this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
-            this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
+            this.getFormInput('name', {fieldLabel: _('samplemodule_name')}),
+            this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_active')}),
         ];
     },
 });

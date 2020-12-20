@@ -32,6 +32,8 @@ class sampleItemGetListProcessor extends sampleModuleGetListProcessor
     {
         $c = parent::prepareQueryAfterCount($c);
         $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active',]));
+        $c->sortby('collection_id', 'ASC');
+        $c->sortby('menuindex', 'ASC');
         return $c;
     }
 }
