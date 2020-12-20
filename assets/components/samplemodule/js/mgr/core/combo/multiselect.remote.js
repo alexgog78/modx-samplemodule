@@ -22,8 +22,8 @@ sampleModule.combo.multiSelectRemote = function (config) {
         //allowAddNewData: false,
 
         //Core settings
-        name: config.name,
-        dataIndex: config.name,
+        name: config.name || 'multiselect-local',
+        dataIndex: config.name || 'multiselect-local',
         allowAddNewData: true,
         //hiddenName: config.name || 'multiselect-remote',
         mode: 'remote',
@@ -43,30 +43,30 @@ sampleModule.combo.multiSelectRemote = function (config) {
         //lazyInit: false,
         //TODO
         // fix for setValue
-        addValue : function(value){
-            if(Ext.isEmpty(value)){
+        addValue: function (value) {
+            if (Ext.isEmpty(value)) {
                 return;
             }
             var values = value;
-            if(!Ext.isArray(value)){
+            if (!Ext.isArray(value)) {
                 value = '' + value;
                 values = value.split(this.valueDelimiter);
             }
-            Ext.each(values,function(val){
+            Ext.each(values, function (val) {
                 var record = this.findRecord(this.valueField, val);
-                if(record){
+                if (record) {
                     this.addRecord(record);
                 }
                 this.remoteLookup.push(val);
-            },this);
-            if(this.mode === 'remote'){
+            }, this);
+            if (this.mode === 'remote') {
                 var q = this.remoteLookup.join(this.queryValuesDelimiter);
-                this.doQuery(q,false, true);
+                this.doQuery(q, false, true);
             }
         },
         // fix similar queries
-        shouldQuery : function(q){
-            if(this.lastQuery){
+        shouldQuery: function (q) {
+            if (this.lastQuery) {
                 return (q !== this.lastQuery);
             }
             return true;

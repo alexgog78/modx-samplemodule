@@ -40,17 +40,20 @@ Ext.extend(sampleModule.formPanel.abstract, MODx.FormPanel, {
 
     setup: function () {
         if (!this.record) {
-            this.setValues(this.defaultValues);
+            this.setDefaultValues();
         } else {
-            this.setValues(this.record);
+            this.setRecord();
         }
-        console.log(this.record);
         this.fireEvent('ready', this.record);
         MODx.fireEvent('ready');
     },
 
-    setValues: function (record) {
-        this.getForm().setValues(record);
+    setDefaultValues: function() {
+        this.getForm().setValues(this.defaultValues);
+    },
+
+    setRecord: function() {
+        this.getForm().setValues(this.record);
     },
 
     success: function (o) {

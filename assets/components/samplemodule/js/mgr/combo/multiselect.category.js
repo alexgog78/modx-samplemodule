@@ -18,6 +18,7 @@ sampleModule.combo.multiSelectRemote.category = function (config) {
         }),
         displayField: 'name',
         valueField: 'id',
+        dataIndex: 'categories',
     });
     sampleModule.combo.multiSelectRemote.category.superclass.constructor.call(this, config);
 };

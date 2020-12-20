@@ -20,15 +20,15 @@ sampleModule.grid.collection = function (config) {
             'option_one_id',
             'option_two_id',
             'tags',
+            'tags_combo',
             'menuindex',
             'is_active',
             'created_on',
             'created_by',
             'updated_on',
             'updated_by',
-            'options',
-            'categoryids',
-
+            'properties',
+            'categories',
             'items_count',
         ],
         columns: [

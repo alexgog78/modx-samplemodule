@@ -8,6 +8,10 @@ class sampleItem extends xPDOSimpleObject
     use sampleModuleModelHelperMenuindex;
     use sampleModuleModelHelperTimestamps;
 
+    /**
+     * @param null $cacheFlag
+     * @return bool
+     */
     public function save($cacheFlag = null)
     {
         $this->setMenuindex();

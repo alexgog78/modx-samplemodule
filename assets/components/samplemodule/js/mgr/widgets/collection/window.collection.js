@@ -15,6 +15,43 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     rteLoaded: false,
     rteElements: 'richtext',
 
+    setRecord: function() {
+        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let store = grid.getStore();
+        store.removeAll();
+        Ext.each(this.record.properties, function(item) {
+            store.add(new Ext.data.Record(item));
+        }, this);
+        sampleModule.window.collection.superclass.setRecord.call(this);
+    },
+
+    beforeshow: function () {
+        this.rteLoaded = true;
+        MODx.loadRTE(this.rteElements);
+        sampleModule.window.collection.superclass.beforeshow.call(this);
+    },
+
+    onhide: function () {
+        if (tinymce) {
+            tinymce.get(this.rteElements).remove();
+        }
+        sampleModule.window.collection.superclass.onhide.call(this);
+    },
+
+    beforeSubmit: function (record) {
+        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let store = grid.getStore();
+        let records = store.getRange();
+        let properties = [];
+        Ext.each(records, function(rec, idx, list) {
+            properties.push(rec.data);
+        }, this);
+        this.fp.getForm().setValues({
+            properties: Ext.encode(properties)
+        });
+        return sampleModule.window.collection.superclass.beforeSubmit.call(this, record);
+    },
+
     getFields: function(config) {
         return sampleModule.component.tabs([
             {
@@ -42,7 +79,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
                             ]
                         }]
                     },
-                    this.getFormInput('categoryids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_collection_categories')}),
+                    this.getFormInput('category_ids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_collection_categories')}),
                     this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_collection_tags')}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_active')}),
                     sampleModule.component.logSection(this.record),
@@ -50,31 +87,25 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
             }, {
                 title: _('samplemodule_collection_content'),
                 items: [
-                    this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_collection_content')}),
+                    this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_collection_richtext')}),
                     this.getFormInput('code', {
-                        xtype: Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea',
+                        xtype: Ext.ComponentMgr.isRegistered('modx-texteditor')
+                            ? 'modx-texteditor'
+                            : 'textarea',
                         mimeType: 'text/html',
-                        fieldLabel: _('samplemodule_record_code'),
+                        fieldLabel: _('samplemodule_collection_code'),
                         height: 150,
                     })
                 ]
             }, {
                 title: _('samplemodule_properties'),
+                items: [
+                    sampleModule.component.panelDescription(_('samplemodule_properties_management')),
+                    {xtype: 'hidden', name: 'properties'},
+                    {xtype: 'samplemodule-grid-collection-property'},
+                ]
             }
         ]);
-    },
-
-    beforeshow: function () {
-        this.rteLoaded = true;
-        MODx.loadRTE(this.rteElements);
-        sampleModule.window.collection.superclass.beforeshow.call(this);
-    },
-
-    onhide: function () {
-        if (tinymce) {
-            tinymce.get(this.rteElements).remove();
-        }
-        sampleModule.window.collection.superclass.onhide.call(this);
     },
 });
 Ext.reg('samplemodule-window-collection', sampleModule.window.collection);

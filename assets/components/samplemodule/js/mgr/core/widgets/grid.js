@@ -36,6 +36,13 @@ sampleModule.grid.abstract = function (config) {
         paging: true,
         remoteSort: true,
         anchor: '100%',
+        viewConfig: {
+            forceFit: true,
+            enableRowBody: true,
+            scrollOffset: 0,
+            autoFill: true,
+            showPreview: true,
+        },
     });
     sampleModule.grid.abstract.superclass.constructor.call(this, config)
 };
@@ -60,7 +67,9 @@ Ext.extend(sampleModule.grid.abstract, MODx.grid.Grid, {
     },
 
     getRowClass: function (record) {
-        return record.data.is_active ? 'grid-row-active' : 'grid-row-inactive';
+        return record.data.is_active
+            ? 'grid-row-active'
+            : 'grid-row-inactive';
     },
 
     getMenu: function () {

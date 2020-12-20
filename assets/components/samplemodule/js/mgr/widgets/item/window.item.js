@@ -33,6 +33,20 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
         sampleModule.window.item.superclass.setRecord.call(this);
     },
 
+    beforeSubmit: function (record) {
+        let grid = Ext.getCmp('samplemodule-grid-item-property');
+        let store = grid.getStore();
+        let records = store.getRange();
+        let properties = [];
+        Ext.each(records, function(rec, idx, list) {
+            properties.push(rec.data);
+        }, this);
+        this.fp.getForm().setValues({
+            properties: Ext.encode(properties)
+        });
+        return sampleModule.window.item.superclass.beforeSubmit.call(this, record);
+    },
+
     getFields: function (config) {
         return sampleModule.component.tabs([
             {
@@ -66,20 +80,6 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
             xtype: 'ms2colors-combo-select-collection',
             fieldLabel: _('samplemodule_item_collection')
         });
-    },
-
-    beforeSubmit: function (record) {
-        let grid = Ext.getCmp('samplemodule-grid-item-property');
-        let store = grid.getStore();
-        let records = store.getRange();
-        record.properties = [];
-        Ext.each(records, function(rec, idx, list) {
-            record.properties.push(rec.data);
-        }, this);
-        this.fp.getForm().setValues({
-            properties: Ext.encode(record.properties)
-        });
-        return sampleModule.window.item.superclass.beforeSubmit.call(this, record);
     },
 });
 Ext.reg('samplemodule-window-item', sampleModule.window.item);

@@ -51,13 +51,15 @@ sampleModule.grid.item = function (config) {
             remove: {
                 action: 'mgr/item/remove'
             }
-        }
+        },
     });
     sampleModule.grid.item.superclass.constructor.call(this, config);
 };
 Ext.extend(sampleModule.grid.item, sampleModule.grid.abstract, {
     getRowClass: function (record) {
-        return record.data.is_active && record.data.collection_is_active == '1' ? 'grid-row-active' : 'grid-row-inactive';
+        return record.data.is_active && record.data.collection_is_active == '1'
+            ? 'grid-row-active'
+            : 'grid-row-inactive';
     },
 
     _inactiveCategory: function (value, cell, row) {
@@ -66,6 +68,6 @@ Ext.extend(sampleModule.grid.item, sampleModule.grid.abstract, {
             cell.css = 'red';
         }
         return value;
-    }
+    },
 });
 Ext.reg('samplemodule-grid-item', sampleModule.grid.item);

@@ -12,16 +12,17 @@ class sampleModuleMgrCollectionCreateManagerController extends sampleModuleMgrCr
 
     /** @var array */
     protected $languageTopics = [
-        'samplemodule:collection'
+        'samplemodule:collection',
+        'samplemodule:item',
     ];
 
     public function loadCustomCssJs()
     {
         parent::loadCustomCssJs();
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/formpanel.collection.js');
-        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.property.js');
+        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/property/grid.collection.property.js');
+        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/property/window.collection.property.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/create.js');
-
         $configJs = $this->modx->toJSON([
             'xtype' => 'samplemodule-page-collection-create',
         ]);

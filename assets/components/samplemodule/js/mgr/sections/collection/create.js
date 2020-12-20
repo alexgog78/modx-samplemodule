@@ -16,7 +16,7 @@ sampleModule.page.collection.create = function (config) {
             },
             close: {
                 loadPage: function () {
-                    MODx.loadPage('mgr/collections', 'namespace=samplemodule')
+                    MODx.loadPage('mgr/collection', 'namespace=samplemodule')
                 }
             }
         },

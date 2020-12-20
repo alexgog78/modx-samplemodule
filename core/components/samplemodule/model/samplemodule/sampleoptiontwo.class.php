@@ -6,6 +6,10 @@ class sampleOptionTwo extends xPDOSimpleObject
 {
     use sampleModuleModelHelperMenuindex;
 
+    /**
+     * @param null $cacheFlag
+     * @return bool
+     */
     public function save($cacheFlag = null)
     {
         $this->setMenuindex();

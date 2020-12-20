@@ -9,10 +9,38 @@ class sampleCollectionGetProcessor extends sampleModuleGetProcessor
 
     public function beforeOutput()
     {
-        if (!$this->object->get('content')) {
-            $this->object->set('content', '');
-        }
+        $this->prepareCodeText();
+        $this->prepareTagsCombo();
+        $this->getCategories();
         return parent::beforeOutput();
+    }
+
+    private function prepareCodeText()
+    {
+        if (!$this->object->get('code')) {
+            $this->object->set('code', '');
+        }
+    }
+
+    private function prepareTagsCombo()
+    {
+        $tags = [];
+        foreach ($this->object->get('tags') ?? [] as $value) {
+            $tags[] = [
+                'value' => $value,
+            ];
+        }
+        $this->object->set('tags_combo', $tags);
+    }
+
+    private function getCategories()
+    {
+        $collection = $this->object->getCategories();
+        $categories = [];
+        foreach ($collection as $category) {
+            $categories[] = $category->toArray();
+        }
+        $this->object->set('categories', $categories);
     }
 }
 

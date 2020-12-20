@@ -20,6 +20,43 @@ class sampleCollectionGetListProcessor extends sampleModuleGetListProcessor
         return $c;
     }
 
+    /**
+     * @param xPDOObject $object
+     * @return array
+     */
+    public function prepareRow(xPDOObject $object)
+    {
+        $this->prepareTagsCombo($object);
+        $this->getCategories($object);
+        return parent::prepareRow($object);
+    }
+
+    /**
+     * @param xPDOObject $object
+     */
+    private function prepareTagsCombo(xPDOObject $object)
+    {
+        $tags = [];
+        foreach ($object->get('tags') ?? [] as $value) {
+            $tags[] = [
+                'value' => $value,
+            ];
+        }
+        $object->set('tags_combo', $tags);
+    }
+
+    /**
+     * @param xPDOObject $object
+     */
+    private function getCategories(xPDOObject $object)
+    {
+        $collection = $object->getCategories();
+        $categories = [];
+        foreach ($collection as $category) {
+            $categories[] = $category->toArray();
+        }
+        $object->set('categories', $categories);
+    }
 }
 
 return 'sampleCollectionGetListProcessor';

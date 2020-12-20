@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * TODO
+ * issue after deleting not last
+ */
 trait sampleModuleModelHelperMenuindex
 {
     private function setMenuindex()

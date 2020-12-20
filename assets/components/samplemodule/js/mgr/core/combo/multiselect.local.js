@@ -14,8 +14,8 @@ sampleModule.combo.multiSelectLocal = function (config) {
         allowAddNewData: false,
 
         //Core settings
-        name: config.name,
-        dataIndex: config.name,
+        name: config.name || 'multiselect-local',
+        dataIndex: config.name || 'multiselect-local',
         mode: 'local',
         minChars: 1,
         allowBlank: true,
@@ -42,21 +42,5 @@ sampleModule.combo.multiSelectLocal = function (config) {
     config.name += '[]';
     config.hiddenName += '[]';
     sampleModule.combo.multiSelectLocal.superclass.constructor.call(this, config);
-
-    this.on('additem', function(zzz, xxx, ccc) {
-        console.log(xxx);
-        console.log(ccc);
-    });
-
 };
-Ext.extend(sampleModule.combo.multiSelectLocal, Ext.ux.form.SuperBoxSelect, {
-    //TODO
-    /*initComponent: function () {
-        console.log(this);
-        console.log(this.initialConfig);
-        console.log(this.dataIndex);
-        console.log(this.initialConfig.dataIndex);
-        console.log(this.value);
-        sampleModule.combo.multiSelectLocal.superclass.initComponent.call(this);
-    },*/
-});
+Ext.extend(sampleModule.combo.multiSelectLocal, Ext.ux.form.SuperBoxSelect);

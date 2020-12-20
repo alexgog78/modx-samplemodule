@@ -15,13 +15,13 @@ Ext.extend(sampleModule.panel.default, sampleModule.panel.abstract, {
         return this.renderTabsPanel([{
             title: _('samplemodule_collections'),
             items: [
-                this.getDescription(_('samplemodule_collections_management')),
+                this.getDescription(_('samplemodule_collection_list_management')),
                 this.getContent([{xtype: 'samplemodule-grid-collection'}])
             ]
         }, {
             title: _('samplemodule_items'),
             items: [
-                this.getDescription(_('samplemodule_items_management')),
+                this.getDescription(_('samplemodule_item_list_management')),
                 this.getContent([{xtype: 'samplemodule-grid-item'}])
             ]
         }]);
