@@ -1,71 +1,60 @@
 'use strict';
 
-sampleModule.localGrid.abstract = function (config) {
+sampleModule.localGrid = function (config) {
     config = config || {};
     Ext.applyIf(config, {
-        /*fields: [
-            'key',
-            'value'
-        ],
-        columns: [
-            {header: _('jpayments.field.key'), dataIndex: 'key', sortable: false, width: 0.3},
-            {header: _('jpayments.field.value'), dataIndex: 'value', sortable: false, width: 0.7}
-        ]*/
-
-        //Custom settings
+        deferredRender: true,
+        autoHeight: true,
+        anchor: '100%',
         fields: [],
         columns: [],
-
-        //Core settings
-        tbar: [],
-        //anchor: '100%',
     });
-    sampleModule.localGrid.abstract.superclass.constructor.call(this, config);
+    sampleModule.localGrid.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.localGrid.abstract, MODx.grid.LocalGrid, {
-
-
+Ext.extend(sampleModule.localGrid, MODx.grid.LocalGrid, {
     initComponent: function () {
-        this.columns = this._getGridColumns();
         this.tbar = this.getToolbar();
-        /*this.viewConfig = Ext.applyIf(this.config.viewConfig, {
-            getRowClass: this.getRowClass
-        });*/
-        sampleModule.localGrid.abstract.superclass.initComponent.call(this);
+        sampleModule.localGrid.superclass.initComponent.call(this);
+    },
+
+    getGridColumn: function (name, config = {}) {
+        return Ext.applyIf(config, {
+            dataIndex: name,
+            header: name,
+        });
     },
 
     getToolbar: function () {
         return [
-            this.getCreateButton(),
-            '->',
-            //this.getSearchPanel()
+            this._getCreateButton(),
         ];
     },
 
+    getMenu: function () {
+        return [{
+            text: _('edit'),
+            handler: this.updateRecord,
+            scope: this
+        }, '-', {
+            text: _('delete'),
+            handler: this.removeRecord,
+            scope: this
+        }];
+    },
 
-
-    getCreateButton: function (config = {}) {
-        return Ext.applyIf(config, {
-            text: _('add'),
-            cls: 'primary-button',
-            //handler: this._quickCreateRecord,
+    _getCreateButton: function (config = {}) {
+        return this._getButton(_('add'), {
+            handler: this.createRecord,
             scope: this
         });
     },
 
-    getGridColumn: function (name, config = {}) {
-        return sampleModule.component.gridColumn(name, config);
+    _getButton: function (text, config = {}) {
+        return Ext.applyIf(config, {
+            xtype: 'button',
+            text: text,
+            cls: 'primary-button',
+            scope: this
+        });
     },
-
-    _getGridColumns: function () {
-        if (this.config.columns.length > 0) {
-            return this.config.columns;
-        }
-        Ext.each(this.config.fields, function (field) {
-            this.config.columns.push(this.getGridColumn(field));
-        }, this);
-        return this.config.columns;
-    },
-
-
 });

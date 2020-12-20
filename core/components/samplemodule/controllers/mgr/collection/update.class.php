@@ -4,19 +4,19 @@ require_once dirname(__DIR__) . '/update.class.php';
 
 class sampleModuleMgrCollectionUpdateManagerController extends sampleModuleMgrUpdateController
 {
+    /** @var string */
+    protected $objectGetProcessorPath = 'mgr/collection/get';
+
     /** @var bool */
     protected $loadRichText = true;
 
     /** @var string */
-    protected $pageTitle = 'collection_updating';
+    protected $pageTitle = 'samplemodule_collection_editing';
 
     /** @var array */
     protected $languageTopics = [
         'samplemodule:collection',
     ];
-
-    /** @var string */
-    protected $objectGetProcessorPath = 'mgr/collection/get';
 
     //protected $objectPrimaryKey = 'id';
 

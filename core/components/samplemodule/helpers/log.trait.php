@@ -11,6 +11,9 @@ trait sampleModuleHelperLog
         if ($data instanceof xPDOObject) {
             $data = $data->toArray('', false, true, true);
         }
+        if ($data instanceof xPDOCriteria) {
+            $data = $data->prepare()->queryString;
+        }
         if (is_array($data)) {
             $data = print_r($data, true);
         }

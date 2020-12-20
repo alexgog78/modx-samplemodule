@@ -4,7 +4,7 @@ return [
     [
         'text' => 'samplemodule',
         'description' => 'samplemodule_desc',
-        'action' => 'mgr/default',
+        'action' => 'mgr/main',
     ],
     [
         'text' => 'samplemodule_collections',

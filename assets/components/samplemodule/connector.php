@@ -13,8 +13,8 @@ require_once MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
  */
 require_once MODX_CONNECTORS_PATH . 'index.php';
 
-/** @var sampleModule $service */
-$service = $modx->getService(PKG_NAME_LOWER, PKG_NAME, MODX_CORE_PATH . 'components/' . PKG_NAME_LOWER . '/model/' . PKG_NAME_LOWER . '/');
+/** @var object $service */
+$service = $modx->getService(PKG_NAME_LOWER, PKG_NAME, MODX_CORE_PATH . 'components/' . PKG_NAME_LOWER . '/model/');
 $modx->lexicon->load(PKG_NAME_LOWER . ':default');
 
 /** @var modConnectorRequest $request */

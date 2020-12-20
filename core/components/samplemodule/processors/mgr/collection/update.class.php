@@ -6,6 +6,9 @@ class sampleCollectionUpdateProcessor extends sampleModuleUpdateProcessor
 {
     /** @var string */
     public $classKey = 'sampleCollection';
+
+    /** @var bool */
+    protected $softValidate = true;
 }
 
 return 'sampleCollectionUpdateProcessor';

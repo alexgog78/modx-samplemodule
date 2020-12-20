@@ -18,11 +18,11 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     getFields: function(config) {
         return sampleModule.component.tabs([
             {
-                title: _('samplemodule_collection'),
+                title: _('samplemodule_collection_data'),
                 items: [
                     {xtype: 'hidden', name: 'id'},
-                    this.getFormInput('name', {fieldLabel: _('samplemodule_record_name')}),
-                    this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_record_description')}),
+                    this.getFormInput('name', {fieldLabel: _('samplemodule_name')}),
+                    this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_description')}),
                     {
                         layout: 'column',
                         defaults: {msgTarget: 'under', border: false, anchor: '100%'},
@@ -31,26 +31,26 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
                             layout: 'form',
                             defaults: {msgTarget: 'under', border: false, anchor: '100%'},
                             items: [
-                                this.getFormInput('option_one_id', {xtype: 'samplemodule-combo-select-optionone', fieldLabel: _('samplemodule_record_optionone')})
+                                this.getFormInput('option_one_id', {xtype: 'samplemodule-combo-select-optionone', fieldLabel: _('samplemodule_collection_optionone')})
                             ]
                         }, {
                             columnWidth: .5,
                             layout: 'form',
                             defaults: {msgTarget: 'under', border: false, anchor: '100%'},
                             items: [
-                                this.getFormInput('option_two_id', {xtype: 'samplemodule-combo-select-optiontwo', fieldLabel: _('samplemodule_record_optiontwo')})
+                                this.getFormInput('option_two_id', {xtype: 'samplemodule-combo-select-optiontwo', fieldLabel: _('samplemodule_collection_optiontwo')})
                             ]
                         }]
                     },
-                    this.getFormInput('categoryids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_record_categories')}),
-                    this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_record_tags')}),
-                    this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_record_active')}),
+                    this.getFormInput('categoryids', {xtype: 'samplemodule-combo-multiselect-category', fieldLabel: _('samplemodule_collection_categories')}),
+                    this.getFormInput('tags', {xtype: 'samplemodule-combo-multiselect-tag', fieldLabel: _('samplemodule_collection_tags')}),
+                    this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_active')}),
                     sampleModule.component.logSection(this.record),
                 ],
             }, {
-                title: _('samplemodule_content'),
+                title: _('samplemodule_collection_content'),
                 items: [
-                    this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_record_content')}),
+                    this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_collection_content')}),
                     this.getFormInput('code', {
                         xtype: Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea',
                         mimeType: 'text/html',

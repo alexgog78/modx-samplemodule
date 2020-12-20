@@ -1,2 +1,5 @@
 <?php
-class sampleCollectionCategory extends xPDOObject {}
+
+class sampleCollectionCategory extends xPDOObject
+{
+}

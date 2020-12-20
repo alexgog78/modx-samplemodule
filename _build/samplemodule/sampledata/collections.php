@@ -18,8 +18,6 @@ foreach ($data as $string) {
         'tags' => $modx->fromJSON($csv[6]),
         'options' => $modx->fromJSON($csv[7]),
         'is_active' => 1,
-        'created_on' => time(),
-        'created_by' => 1,
     ];
     $item = $modx->newObject($model);
     $item->fromArray($modelData, '', true);

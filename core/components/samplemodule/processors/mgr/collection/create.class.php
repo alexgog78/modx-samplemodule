@@ -6,6 +6,9 @@ class sampleCollectionCreateProcessor extends sampleModuleCreateProcessor
 {
     /** @var string */
     public $classKey = 'sampleCollection';
+
+    /** @var bool */
+    protected $softValidate = false;
 }
 
 return 'sampleCollectionCreateProcessor';

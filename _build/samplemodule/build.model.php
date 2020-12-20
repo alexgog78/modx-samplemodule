@@ -23,7 +23,7 @@ if (!$status) {
 /**
  * Create DB tables
  */
-$service = $modx->getService(PKG_NAME_LOWER, PKG_NAME, PKG_MODEL_PATH . PKG_NAME_LOWER . '/');
+$service = $modx->getService(PKG_NAME_LOWER, PKG_NAME, PKG_MODEL_PATH);
 $mapFile = $service->modelPath . $service::PKG_NAMESPACE . '/metadata.' . DB_TYPE . '.php';
 include $mapFile;
 foreach ($xpdo_meta_map as $baseClass => $extends) {

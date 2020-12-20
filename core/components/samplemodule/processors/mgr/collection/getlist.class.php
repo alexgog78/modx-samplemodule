@@ -13,11 +13,13 @@ class sampleCollectionGetListProcessor extends sampleModuleGetListProcessor
      */
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
+        $c = parent::prepareQueryAfterCount($c);
         $c->select([
             'items_count' => '(SELECT COUNT(*) FROM ' . $this->modx->getTableName('sampleItem') . ' WHERE collection_id = ' . $this->classKey . '.' . $this->primaryKeyField . ')',
         ]);
-        return parent::prepareQueryAfterCount($c);
+        return $c;
     }
+
 }
 
 return 'sampleCollectionGetListProcessor';

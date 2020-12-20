@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model package="samplemodule" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" tablePrefix="samplemodule_" phpdoc-package="samplemodule" phpdoc-subpackage="" version="1.1">
-    <!--TODO: <field key="editedon" dbtype="timestamp" phptype="timestamp" null="true" default="NULL" attributes="ON UPDATE CURRENT_TIMESTAMP" />-->
     <object class="sampleCollection" table="collections" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="true"/>
         <field key="description" dbtype="text" phptype="string" null="true"/>
@@ -33,7 +32,6 @@
         <validation>
             <rule field="name" name="preventBlank" type="xPDOValidationRule" rule="xPDOMinLengthValidationRule" value="1" message="field_required"/>
             <rule field="option_one_id" name="checkOptionOne" type="xPDOValidationRule" rule="xPDOForeignKeyConstraint" foreign="id" local="option_one_id" alias="optionOne" class="sampleOptionOne" message="no_records_found"/>
-            <!--TODO: <rule field="name" name="unique" type="xPDOValidationRule" rule="validation.ms2ExtendValidatorUnique" excludeFields="" message="ms2extend.err_ae"/>-->
         </validation>
         <!--Links-->
         <composite alias="Items" class="sampleItem" local="id" foreign="collection_id" cardinality="many" owner="local"/>

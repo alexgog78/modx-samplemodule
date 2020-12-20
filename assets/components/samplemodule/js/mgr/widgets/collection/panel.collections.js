@@ -6,14 +6,14 @@ sampleModule.panel.collections = function (config) {
         config.id = 'samplemodule-panel-collections';
     }
     Ext.applyIf(config, {
-        title: _('samplemodule_collections')
+        title: _('samplemodule_collection_list')
     });
     sampleModule.panel.collections.superclass.constructor.call(this, config);
 };
 Ext.extend(sampleModule.panel.collections, sampleModule.panel.abstract, {
     getComponents: function (config) {
         return this.renderPlainPanel([
-            this.getDescription(_('samplemodule_collections_management')),
+            this.getDescription(_('samplemodule_collection_list_management')),
             this.getContent([{xtype: 'samplemodule-grid-collection'}]),
         ]);
     }

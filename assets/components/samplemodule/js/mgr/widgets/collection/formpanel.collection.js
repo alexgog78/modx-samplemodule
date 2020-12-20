@@ -110,7 +110,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
 
     getContentSection: function (config) {
         return this.renderPlainPanel([
-            /*this.getDescription(_('samplemodule_content')),
+            this.getDescription(_('samplemodule_content')),
             this.getContent([
                 this.getFormInput('richtext', {xtype: 'textarea', id: 'richtext', fieldLabel: _('samplemodule_record_content'), height: 400}),
                 this.getFormInput('code', {
@@ -120,7 +120,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
                     height: 400,
                 }),
                 sampleModule.component.logSection(this.record),
-            ]),*/
+            ]),
         ]);
     },
 });

@@ -29,7 +29,14 @@ Ext.extend(sampleModule.combo.browser, MODx.combo.Browser, {
                 'select': {
                     fn: function (data) {
                         this.setValue(data.fullRelativeUrl);
-                        this.fireEvent('select', data);
+                        if (this.config.id) {
+                            var field = Ext.getCmp(this.config.id + '-preview');
+                        } else {
+                            var field = Ext.getCmp(this.config.name + '-preview');
+                        }
+                        if (field) {
+                            field.setValue('<img src="/connectors/system/phpthumb.php?&h=100&aoe=0&far=0&src=' + data.fullRelativeUrl + '" alt="">');
+                        }
                     }, scope: this
                 }
             }

@@ -8,7 +8,7 @@ class sampleModuleMgrCollectionManagerController extends sampleModuleMgrDefaultC
     protected $loadRichText = true;
 
     /** @var string */
-    protected $pageTitle = 'collection_list';
+    protected $pageTitle = 'samplemodule_collection_list';
 
     /** @var array */
     protected $languageTopics = [
@@ -21,7 +21,7 @@ class sampleModuleMgrCollectionManagerController extends sampleModuleMgrDefaultC
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/panel.collections.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.collection.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/window.collection.js');
-        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.property.js');
+        //$this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/grid.property.js');
         $this->addLastJavascript($this->service->jsUrl . 'mgr/sections/collection/list.js');
 
         $configJs = $this->modx->toJSON([

@@ -35,11 +35,11 @@ sampleModule.renderer = {
         return '<div style="width: 30px; height: 20px; border-radius: 3px; background: #' + value + '">&nbsp;</div>';
     },
 
-    user: function(value, cell, row) {
+    user: function (value, cell, row) {
         if (!value) {
             return '';
         }
-        var id = row.get('id');
+        var id = row.get('user_id');
         if (!id) {
             return value;
         }
@@ -48,5 +48,5 @@ sampleModule.renderer = {
             id,
             value
         );
-    }
+    },
 };

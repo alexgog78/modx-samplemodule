@@ -17,10 +17,23 @@ abstract class sampleModuleGetListProcessor extends modObjectGetListProcessor
     /** @var string */
     public $defaultSortDirection = 'ASC';
 
+    /** @var object */
+    protected $service;
+
     /** @var array */
     protected $searchableFields = [
         'name',
     ];
+
+    /**
+     * @param modX $modx
+     * @param array $properties
+     */
+    public function __construct(modX &$modx, array $properties = [])
+    {
+        parent::__construct($modx, $properties);
+        $this->service = $this->modx->{$this->objectType};
+    }
 
     /**
      * @param xPDOQuery $c
@@ -28,11 +41,12 @@ abstract class sampleModuleGetListProcessor extends modObjectGetListProcessor
      */
     public function prepareQueryBeforeCount(xPDOQuery $c)
     {
+        $c = parent::prepareQueryBeforeCount($c);
         if ($this->isComboQuery()) {
-            $this->comboQuery($c);
+            $c = $this->comboQuery($c);
         }
-        $this->searchQuery($c);
-        return parent::prepareQueryBeforeCount($c);
+        $c = $this->searchQuery($c);
+        return $c;
     }
 
     /**

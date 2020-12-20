@@ -14,8 +14,6 @@ foreach ($data as $string) {
         'description' => $csv[2],
         'options' => $modx->fromJSON($csv[3]),
         'is_active' => 1,
-        'created_on' => time(),
-        'created_by' => 1,
     ];
     $item = $modx->newObject($model);
     $item->fromArray($modelData, '', true);

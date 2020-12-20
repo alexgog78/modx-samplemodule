@@ -1,10 +1,12 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . '/helpers/log.trait.php';
+require_once dirname(__DIR__) . '/helpers/log.trait.php';
+require_once dirname(__DIR__) . '/helpers/event.trait.php';
 
 class sampleModule
 {
     use sampleModuleHelperLog;
+    use sampleModuleHelperEvent;
 
     const PKG_VERSION = '1.0.0';
     const PKG_RELEASE = 'beta';

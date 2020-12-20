@@ -8,7 +8,7 @@ class sampleModuleMgrCollectionCreateManagerController extends sampleModuleMgrCr
     protected $loadRichText = true;
 
     /** @var string */
-    protected $pageTitle = 'collection_creating';
+    protected $pageTitle = 'samplemodule_collection_creating';
 
     /** @var array */
     protected $languageTopics = [

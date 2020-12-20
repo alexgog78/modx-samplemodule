@@ -18,6 +18,9 @@ $_lang[$prefix . '_optionsone_desc'] = 'Управление опциями';
 $_lang[$prefix . '_optionstwo'] = 'Опции 2';
 $_lang[$prefix . '_optionstwo_desc'] = 'Управление опциями';
 
+$_lang[$prefix . '_properties'] = 'Пользовательские опции';
+$_lang[$prefix . '_properties_management'] = 'Управляйте вашими настройками здесь. Вы можете изменять их двойным щелчком по необходимому полю или щелчком правой кнопки мыши по необходимому ряду.<br><b>Каждая настройка будет доступна через плейсхолдер [[+key]].</b>';
+
 $_lang[$prefix . '_name'] = 'Название';
 $_lang[$prefix . '_description'] = 'Описание';
 $_lang[$prefix . '_active'] = 'Активный';

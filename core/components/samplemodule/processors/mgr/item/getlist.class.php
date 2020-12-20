@@ -13,6 +13,7 @@ class sampleItemGetListProcessor extends sampleModuleGetListProcessor
      */
     public function prepareQueryBeforeCount(xPDOQuery $c)
     {
+        $c = parent::prepareQueryBeforeCount($c);
         $collectionId = $this->getProperty('collection_id');
         if ($collectionId) {
             $c->where([
@@ -20,7 +21,7 @@ class sampleItemGetListProcessor extends sampleModuleGetListProcessor
             ]);
         }
         $c->leftJoin('sampleCollection', 'Collection');
-        return parent::prepareQueryBeforeCount($c);
+        return $c;
     }
 
     /**
@@ -29,8 +30,9 @@ class sampleItemGetListProcessor extends sampleModuleGetListProcessor
      */
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
+        $c = parent::prepareQueryAfterCount($c);
         $c->select($this->modx->getSelectColumns('sampleCollection', 'Collection', 'collection_', ['name', 'is_active',]));
-        return parent::prepareQueryAfterCount($c);
+        return $c;
     }
 }
 
