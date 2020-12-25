@@ -1,13 +1,13 @@
 <?php
 
 require_once dirname(__DIR__) . '/helpers/service.trait.php';
-require_once dirname(__DIR__) . '/helpers/defaultassets.trait.php';
+require_once dirname(__DIR__) . '/helpers/assets.trait.php';
 require_once dirname(__DIR__) . '/helpers/richtext.trait.php';
 
 abstract class sampleModuleMgrDefaultController extends modExtraManagerController
 {
     use sampleModuleControllerHelperService;
-    use sampleModuleControllerHelperDefaultAssets;
+    use sampleModuleControllerHelperAssets;
     use sampleModuleControllerHelperRichText;
 
     /** @var string */
@@ -75,16 +75,8 @@ abstract class sampleModuleMgrDefaultController extends modExtraManagerControlle
 
     public function loadCustomCssJs()
     {
-        $this->addCss($this->service->cssUrl . 'mgr/default.css');
-        $this->addJavascript($this->service->jsUrl . 'mgr/' . $this->service::PKG_NAMESPACE . '.js');
-        $configJs = $this->modx->toJSON($this->service->config ?? []);
-        $this->addHtml('<script type="text/javascript">' . get_class($this->service) . '.config = ' . $configJs . ';</script>');
-
+        $this->loadCoreCssJs();
         $this->loadDefaultCssJs();
-
-        $this->addJavascript($this->service->jsUrl . 'mgr/misc/component.list.js');
-        $this->addJavascript($this->service->jsUrl . 'mgr/misc/renderer.list.js');
-
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/browser.image.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/select.collection.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/combo/select.optionone.js');

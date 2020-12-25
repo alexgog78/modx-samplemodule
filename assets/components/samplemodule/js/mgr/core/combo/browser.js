@@ -1,13 +1,15 @@
 'use strict';
 
-sampleModule.combo.browser = function (config) {
+Ext.namespace('sampleModule.combo.browser');
+
+sampleModule.combo.browser.abstract = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         source: config.source || MODx.config.default_media_source
     });
-    sampleModule.combo.browser.superclass.constructor.call(this, config);
+    sampleModule.combo.browser.abstract.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.browser, MODx.combo.Browser, {
+Ext.extend(sampleModule.combo.browser.abstract, MODx.combo.Browser, {
     onTriggerClick: function (btn) {
         if (this.disabled) {
             return false;

@@ -40,11 +40,11 @@ Ext.extend(sampleModule.window.abstract, MODx.Window, {
         return sampleModule.component.inputField(name, config);
     },
 
-    setDefaultValues: function() {
+    setDefaultValues: function () {
         this.setValues(this.defaultValues);
     },
 
-    setRecord: function() {
+    setRecord: function () {
         this.setValues(this.record);
     },
 

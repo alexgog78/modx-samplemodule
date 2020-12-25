@@ -14,5 +14,5 @@ sampleModule.combo.selectRemote.optiontwo = function (config) {
     });
     sampleModule.combo.selectRemote.optiontwo.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.selectRemote.optiontwo, sampleModule.combo.selectRemote);
+Ext.extend(sampleModule.combo.selectRemote.optiontwo, sampleModule.combo.selectRemote.abstract);
 Ext.reg('samplemodule-combo-select-optiontwo', sampleModule.combo.selectRemote.optiontwo);

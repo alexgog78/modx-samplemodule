@@ -15,11 +15,11 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     rteLoaded: false,
     rteElements: 'richtext',
 
-    setRecord: function() {
+    setRecord: function () {
         let grid = Ext.getCmp('samplemodule-grid-collection-property');
         let store = grid.getStore();
         store.removeAll();
-        Ext.each(this.record.properties, function(item) {
+        Ext.each(this.record.properties, function (item) {
             store.add(new Ext.data.Record(item));
         }, this);
         sampleModule.window.collection.superclass.setRecord.call(this);
@@ -43,7 +43,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
-        Ext.each(records, function(rec) {
+        Ext.each(records, function (rec) {
             properties.push(rec.data);
         }, this);
         this.fp.getForm().setValues({
@@ -52,7 +52,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
         return sampleModule.window.collection.superclass.beforeSubmit.call(this, record);
     },
 
-    getFields: function(config) {
+    getFields: function (config) {
         return sampleModule.component.tabs([
             {
                 title: _('samplemodule_collection_data'),

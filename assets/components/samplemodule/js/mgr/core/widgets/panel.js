@@ -13,7 +13,7 @@ sampleModule.panel.abstract = function (config) {
     sampleModule.panel.abstract.superclass.constructor.call(this, config);
 };
 Ext.extend(sampleModule.panel.abstract, MODx.Panel, {
-    initComponent: function() {
+    initComponent: function () {
         if (this.items.length === 0) {
             if (this.title) {
                 this.items.push(this._getHeader(this.title));

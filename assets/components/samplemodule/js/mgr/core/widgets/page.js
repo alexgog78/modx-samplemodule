@@ -43,7 +43,7 @@ Ext.extend(sampleModule.page.abstract, MODx.Component, {
         return this.config.buttons;
     },
 
-    getCreateButton: function(config) {
+    getCreateButton: function (config) {
         return {
             text: _('save'),
             process: config.recordActions.create.action,

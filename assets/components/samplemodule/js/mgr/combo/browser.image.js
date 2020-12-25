@@ -7,5 +7,5 @@ sampleModule.combo.browser.image = function (config) {
     });
     sampleModule.combo.browser.image.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.browser.image, sampleModule.combo.browser, {});
+Ext.extend(sampleModule.combo.browser.image, sampleModule.combo.browser.abstract);
 Ext.reg('samplemodule-combo-browser-image', sampleModule.combo.browser.image);

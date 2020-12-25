@@ -26,7 +26,7 @@ sampleModule.formPanel.abstract = function (config) {
 Ext.extend(sampleModule.formPanel.abstract, MODx.FormPanel, {
     defaultValues: {},
 
-    initComponent: function() {
+    initComponent: function () {
         if (this.items.length === 0) {
             if (this.title) {
                 this.items.push(this._getHeader(this.title));
@@ -48,11 +48,11 @@ Ext.extend(sampleModule.formPanel.abstract, MODx.FormPanel, {
         MODx.fireEvent('ready');
     },
 
-    setDefaultValues: function() {
+    setDefaultValues: function () {
         this.getForm().setValues(this.defaultValues);
     },
 
-    setRecord: function() {
+    setRecord: function () {
         this.getForm().setValues(this.record);
     },
 

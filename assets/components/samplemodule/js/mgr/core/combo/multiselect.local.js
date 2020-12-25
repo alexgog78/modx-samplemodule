@@ -1,6 +1,8 @@
 'use strict';
 
-sampleModule.combo.multiSelectLocal = function (config) {
+Ext.namespace('sampleModule.combo.multiSelectLocal');
+
+sampleModule.combo.multiSelectLocal.abstract = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         //Custom settings
@@ -41,6 +43,6 @@ sampleModule.combo.multiSelectLocal = function (config) {
     }
     config.name += '[]';
     config.hiddenName += '[]';
-    sampleModule.combo.multiSelectLocal.superclass.constructor.call(this, config);
+    sampleModule.combo.multiSelectLocal.abstract.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.multiSelectLocal, Ext.ux.form.SuperBoxSelect);
+Ext.extend(sampleModule.combo.multiSelectLocal.abstract, Ext.ux.form.SuperBoxSelect);

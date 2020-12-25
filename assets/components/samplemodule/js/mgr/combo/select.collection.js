@@ -14,5 +14,5 @@ sampleModule.combo.selectRemote.collection = function (config) {
     });
     sampleModule.combo.selectRemote.collection.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.selectRemote.collection, sampleModule.combo.selectRemote);
+Ext.extend(sampleModule.combo.selectRemote.collection, sampleModule.combo.selectRemote.abstract);
 Ext.reg('ms2colors-combo-select-collection', sampleModule.combo.selectRemote.collection);

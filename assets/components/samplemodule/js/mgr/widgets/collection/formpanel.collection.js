@@ -20,11 +20,11 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
     rteLoaded: false,
     rteElements: 'richtext',
 
-    setRecord: function() {
+    setRecord: function () {
         let grid = Ext.getCmp('samplemodule-grid-collection-property');
         let store = grid.getStore();
         store.removeAll();
-        Ext.each(this.record.properties, function(item) {
+        Ext.each(this.record.properties, function (item) {
             store.add(new Ext.data.Record(item));
         }, this);
         sampleModule.formPanel.collection.superclass.setRecord.call(this);
@@ -43,7 +43,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
-        Ext.each(records, function(rec, idx, list) {
+        Ext.each(records, function (rec, idx, list) {
             properties.push(rec.data);
         }, this);
         o.form.setValues({

@@ -1,7 +1,7 @@
 'use strict';
 
 sampleModule.renderer = {
-    boolean: function(value, cell, row) {
+    boolean: function (value, cell, row) {
         switch (value) {
             case 0:
             case '0':
@@ -21,17 +21,17 @@ sampleModule.renderer = {
         }
     },
 
-    image: function(value, cell, row) {
+    image: function (value, cell, row) {
         cell.css = 'grid-image';
         if (!/(jpg|png|gif|jpeg)$/i.test(value)) {
-            value = sampleModule.config.cssUrl + 'mgr/nophoto.jpg';
+            value = sampleModule.config.cssUrl + 'mgr/core/no-photo.png';
         }
         var src = MODx.config.connectors_url + 'system/phpthumb.php?src=' + value + '&w=70&h=35&zx=1&f=png&bg=ffffff';
         value = '<img src="' + src + '" alt="">';
         return value;
     },
 
-    color: function(value, cell, row) {
+    color: function (value, cell, row) {
         return '<div style="width: 30px; height: 20px; border-radius: 3px; background: #' + value + '">&nbsp;</div>';
     },
 

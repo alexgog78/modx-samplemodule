@@ -12,7 +12,7 @@ Ext.extend(sampleModule.window.optiontwo, sampleModule.window.abstract, {
         is_active: 1,
     },
 
-    getFields: function(config) {
+    getFields: function (config) {
         return [
             {xtype: 'hidden', name: 'id'},
             this.getFormInput('name', {fieldLabel: _('samplemodule_name')}),

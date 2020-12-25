@@ -1,6 +1,8 @@
 'use strict';
 
-sampleModule.combo.selectLocal = function (config) {
+Ext.namespace('sampleModule.combo.selectLocal');
+
+sampleModule.combo.selectLocal.abstract = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         //Custom settings
@@ -20,6 +22,6 @@ sampleModule.combo.selectLocal = function (config) {
     if (!config.hiddenName) {
         config.hiddenName = config.name;
     }
-    sampleModule.combo.selectLocal.superclass.constructor.call(this, config);
+    sampleModule.combo.selectLocal.abstract.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.selectLocal, MODx.combo.ComboBox);
+Ext.extend(sampleModule.combo.selectLocal.abstract, MODx.combo.ComboBox);

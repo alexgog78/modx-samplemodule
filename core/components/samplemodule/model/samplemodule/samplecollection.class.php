@@ -2,11 +2,13 @@
 
 require_once dirname(__DIR__) . '/helpers/menuindex.trait.php';
 require_once dirname(__DIR__) . '/helpers/timestamps.trait.php';
+require_once dirname(__DIR__) . '/helpers/json.trait.php';
 
 class sampleCollection extends xPDOSimpleObject
 {
     use sampleModuleModelHelperMenuindex;
     use sampleModuleModelHelperTimestamps;
+    use sampleModuleModelHelperJson;
 
     /**
      * @param null $cacheFlag
@@ -16,7 +18,7 @@ class sampleCollection extends xPDOSimpleObject
     {
         $this->setMenuindex();
         $this->setTimestamps();
-        $this->setTags();
+        $this->setJsonFields();
         $this->saveCategories();
         return parent::save($cacheFlag);
     }
@@ -27,23 +29,6 @@ class sampleCollection extends xPDOSimpleObject
     public function getCategories()
     {
         return $this->xpdo->getCollectionGraph('sampleCategory', '{"CollectionIds":{}}', ['CollectionIds.collection_id' => $this->get('id')]);
-    }
-
-    private function setTags()
-    {
-        $tagsData = $this->get('tags');
-        if (!isset($tagsData)) {
-            return;
-        }
-
-        $tags = [];
-        foreach ($tagsData as $tag) {
-            if ($tag === '') {
-                continue;
-            }
-            $tags[] = $tag;
-        }
-        $this->set('tags', $tags);
     }
 
     /**

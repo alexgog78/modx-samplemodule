@@ -22,5 +22,5 @@ sampleModule.combo.multiSelectRemote.category = function (config) {
     });
     sampleModule.combo.multiSelectRemote.category.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.multiSelectRemote.category, sampleModule.combo.multiSelectRemote);
+Ext.extend(sampleModule.combo.multiSelectRemote.category, sampleModule.combo.multiSelectRemote.abstract);
 Ext.reg('samplemodule-combo-multiselect-category', sampleModule.combo.multiSelectRemote.category);

@@ -16,18 +16,18 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
         sampleModule.window.item.superclass.renderForm.call(this);
 
         let imagePreviewField = Ext.getCmp('image-item-preview');
-        let src = sampleModule.config.cssUrl + 'mgr/nophoto.jpg';
+        let src = sampleModule.config.cssUrl + 'mgr/core/no-photo.png';
         if (this.record.image) {
             src = this.record.image;
         }
         imagePreviewField.setValue('<img src="' + MODx.config.connectors_url + 'system/phpthumb.php?&src=' + src + '&h=100&aoe=0&far=0" alt="">');
     },
 
-    setRecord: function() {
+    setRecord: function () {
         let grid = Ext.getCmp('samplemodule-grid-item-property');
         let store = grid.getStore();
         store.removeAll();
-        Ext.each(this.record.properties, function(item) {
+        Ext.each(this.record.properties, function (item) {
             store.add(new Ext.data.Record(item));
         }, this);
         sampleModule.window.item.superclass.setRecord.call(this);
@@ -38,7 +38,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
-        Ext.each(records, function(rec) {
+        Ext.each(records, function (rec) {
             properties.push(rec.data);
         }, this);
         this.fp.getForm().setValues({

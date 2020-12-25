@@ -8,5 +8,5 @@ sampleModule.combo.multiSelectLocal.tag = function (config) {
     });
     sampleModule.combo.multiSelectLocal.tag.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.multiSelectLocal.tag, sampleModule.combo.multiSelectLocal);
+Ext.extend(sampleModule.combo.multiSelectLocal.tag, sampleModule.combo.multiSelectLocal.abstract);
 Ext.reg('samplemodule-combo-multiselect-tag', sampleModule.combo.multiSelectLocal.tag);
