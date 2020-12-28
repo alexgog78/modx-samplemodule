@@ -15,7 +15,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
     renderForm: function () {
         sampleModule.window.item.superclass.renderForm.call(this);
 
-        let imagePreviewField = Ext.getCmp('image-item-preview');
+        let imagePreviewField = Ext.getCmp('item-image-preview');
         let src = sampleModule.config.cssUrl + 'mgr/core/no-photo.png';
         if (this.record.image) {
             src = this.record.image;
@@ -56,8 +56,8 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
                     this.getFormInput('name', {fieldLabel: _('samplemodule_name')}),
                     this.getCollectionIdField(config),
                     this.getFormInput('description', {xtype: 'textarea', fieldLabel: _('samplemodule_description')}),
-                    this.getFormInput('image', {xtype: 'samplemodule-combo-browser-image', fieldLabel: _('samplemodule_item_image'), id: 'image-item'}),
-                    this.getFormInput('image_preview', {xtype: 'displayfield', cls: 'formpanel-image', id: 'image-item-preview', fieldLabel: ''}),
+                    this.getFormInput('image', {xtype: 'samplemodule-combo-browser-image', fieldLabel: _('samplemodule_item_image'), id: 'item-image'}),
+                    this.getFormInput('image_preview', {xtype: 'displayfield', cls: 'formpanel-image', id: 'item-image-preview', fieldLabel: ''}),
                     this.getFormInput('is_active', {xtype: 'combo-boolean', fieldLabel: _('samplemodule_active')}),
                     sampleModule.component.logSection(this.record),
                 ],
