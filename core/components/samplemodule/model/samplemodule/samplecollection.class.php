@@ -1,34 +1,17 @@
 <?php
 
-require_once dirname(__DIR__) . '/helpers/menuindex.trait.php';
-require_once dirname(__DIR__) . '/helpers/timestamps.trait.php';
-require_once dirname(__DIR__) . '/helpers/json.trait.php';
+$this->loadClass('abstractSimpleObject', MODX_CORE_PATH . 'components/abstractmodule/model/abstractmodule/', true, true);
 
-class sampleCollection extends xPDOSimpleObject
+class sampleCollection extends abstractSimpleObject
 {
-    use sampleModuleModelHelperMenuindex;
-    use sampleModuleModelHelperTimestamps;
-    use sampleModuleModelHelperJson;
-
     /**
      * @param null $cacheFlag
      * @return bool
      */
     public function save($cacheFlag = null)
     {
-        $this->setMenuindex();
-        $this->setTimestamps();
-        $this->setJsonFields();
         $this->saveCategories();
         return parent::save($cacheFlag);
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getCategories()
-    {
-        return $this->xpdo->getCollectionGraph('sampleCategory', '{"CollectionIds":{}}', ['CollectionIds.collection_id' => $this->get('id')]);
     }
 
     /**
@@ -64,5 +47,13 @@ class sampleCollection extends xPDOSimpleObject
         }
         $this->addMany($categories, 'CategoryIds');
         return $categories;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getCategories()
+    {
+        return $this->xpdo->getCollectionGraph('sampleCategory', '{"CollectionIds":{}}', ['CollectionIds.collection_id' => $this->get('id')]);
     }
 }

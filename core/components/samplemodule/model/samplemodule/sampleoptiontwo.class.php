@@ -1,18 +1,9 @@
 <?php
 
-require_once dirname(__DIR__) . '/helpers/menuindex.trait.php';
+$this->loadClass('abstractSimpleObject', MODX_CORE_PATH . 'components/abstractmodule/model/abstractmodule/', true, true);
 
-class sampleOptionTwo extends xPDOSimpleObject
+class sampleOptionTwo extends abstractSimpleObject
 {
-    use sampleModuleModelHelperMenuindex;
-
-    /**
-     * @param null $cacheFlag
-     * @return bool
-     */
-    public function save($cacheFlag = null)
-    {
-        $this->setMenuindex();
-        return parent::save($cacheFlag);
-    }
+    /** @var bool */
+    protected $timestamps = false;
 }

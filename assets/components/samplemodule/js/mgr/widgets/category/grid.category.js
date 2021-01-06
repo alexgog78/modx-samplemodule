@@ -34,7 +34,7 @@ sampleModule.grid.category = function (config) {
             remove: {
                 action: 'mgr/category/remove'
             }
-        }
+        },
     });
     sampleModule.grid.category.superclass.constructor.call(this, config);
 };

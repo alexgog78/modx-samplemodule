@@ -4,7 +4,7 @@ $xpdo_meta_map['sampleOptionTwo'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
     'table' => 'option_two',
-    'extends' => 'xPDOSimpleObject',
+    'extends' => 'abstractSimpleObject',
     'tableMeta' => [
         'engine' => 'InnoDB',
     ],

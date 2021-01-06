@@ -1,6 +1,6 @@
 'use strict';
 
-sampleModule.combo.selectRemote.optionone = function (config) {
+sampleModule.combo.select.remote.optionone = function (config) {
     config = config || {};
     Ext.applyIf(config, {
         url: sampleModule.config.connectorUrl,
@@ -12,7 +12,7 @@ sampleModule.combo.selectRemote.optionone = function (config) {
         displayField: 'name',
         valueField: 'id',
     });
-    sampleModule.combo.selectRemote.optionone.superclass.constructor.call(this, config);
+    sampleModule.combo.select.remote.optionone.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.combo.selectRemote.optionone, sampleModule.combo.selectRemote.abstract);
-Ext.reg('samplemodule-combo-select-optionone', sampleModule.combo.selectRemote.optionone);
+Ext.extend(sampleModule.combo.select.remote.optionone, sampleModule.combo.select.remote.abstract);
+Ext.reg('samplemodule-combo-select-optionone', sampleModule.combo.select.remote.optionone);

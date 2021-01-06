@@ -4,7 +4,7 @@ $xpdo_meta_map['sampleCategory'] = [
     'package' => 'samplemodule',
     'version' => '1.1',
     'table' => 'categories',
-    'extends' => 'xPDOSimpleObject',
+    'extends' => 'abstractSimpleObject',
     'tableMeta' => [
         'engine' => 'InnoDB',
     ],

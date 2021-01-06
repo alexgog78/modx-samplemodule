@@ -1,11 +1,20 @@
 <?php
 
-require_once dirname(__DIR__) . '/get.class.php';
+/** @noinspection PhpIncludeInspection */
+require_once MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/get.class.php';
 
-class sampleCollectionGetProcessor extends sampleModuleGetProcessor
+class sampleCollectionGetProcessor extends abstractModuleGetProcessor
 {
     /** @var string */
+    public $objectType = 'samplemodule';
+
+    /** @var string */
     public $classKey = 'sampleCollection';
+
+    /** @var array */
+    public $languageTopics = [
+        'samplemodule:status',
+    ];
 
     public function beforeOutput()
     {

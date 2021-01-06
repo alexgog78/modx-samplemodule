@@ -1,9 +1,13 @@
 <?php
 
-require_once dirname(__DIR__) . '/getlist.class.php';
+/** @noinspection PhpIncludeInspection */
+require_once MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/getlist.class.php';
 
-class sampleItemGetListProcessor extends sampleModuleGetListProcessor
+class sampleItemGetListProcessor extends abstractModuleGetListProcessor
 {
+    /** @var string */
+    public $objectType = 'samplemodule';
+
     /** @var string */
     public $classKey = 'sampleItem';
 

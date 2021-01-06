@@ -1,11 +1,20 @@
 <?php
 
-require_once dirname(__DIR__) . '/update.class.php';
+/** @noinspection PhpIncludeInspection */
+require_once MODX_CORE_PATH . 'components/abstractmodule/processors/mgr/update.class.php';
 
-class sampleCollectionUpdateProcessor extends sampleModuleUpdateProcessor
+class sampleCollectionUpdateProcessor extends abstractModuleUpdateProcessor
 {
     /** @var string */
+    public $objectType = 'samplemodule';
+
+    /** @var string */
     public $classKey = 'sampleCollection';
+
+    /** @var array */
+    public $languageTopics = [
+        'samplemodule:status',
+    ];
 
     /** @var bool */
     protected $softValidate = false;

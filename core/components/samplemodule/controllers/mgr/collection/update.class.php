@@ -1,9 +1,13 @@
 <?php
 
-require_once dirname(__DIR__) . '/update.class.php';
+/** @noinspection PhpIncludeInspection */
+require_once MODX_CORE_PATH . 'components/abstractmodule/controllers/mgr/update.class.php';
+require_once dirname(dirname(__DIR__)) . '/helpers/assets.trait.php';
 
-class sampleModuleMgrCollectionUpdateManagerController extends sampleModuleMgrUpdateController
+class sampleModuleMgrCollectionUpdateManagerController extends abstractModuleMgrUpdateController
 {
+    use sampleModuleControllerHelperAssets;
+
     /** @var string */
     protected $objectGetProcessorPath = 'mgr/collection/get';
 

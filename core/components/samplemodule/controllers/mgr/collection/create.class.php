@@ -1,9 +1,13 @@
 <?php
 
-require_once dirname(__DIR__) . '/create.class.php';
+/** @noinspection PhpIncludeInspection */
+require_once MODX_CORE_PATH . 'components/abstractmodule/controllers/mgr/create.class.php';
+require_once dirname(dirname(__DIR__)) . '/helpers/assets.trait.php';
 
-class sampleModuleMgrCollectionCreateManagerController extends sampleModuleMgrCreateController
+class sampleModuleMgrCollectionCreateManagerController extends abstractModuleMgrCreateController
 {
+    use sampleModuleControllerHelperAssets;
+
     /** @var bool */
     protected $loadRichText = true;
 

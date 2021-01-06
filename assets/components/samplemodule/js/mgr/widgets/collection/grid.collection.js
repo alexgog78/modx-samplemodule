@@ -5,6 +5,10 @@ sampleModule.grid.collection = function (config) {
     if (!config.id) {
         config.id = 'samplemodule-grid-collection';
     }
+
+    //TODO
+    this.sm = new Ext.grid.CheckboxSelectionModel();
+
     Ext.applyIf(config, {
         url: sampleModule.config.connectorUrl,
         baseParams: {
@@ -32,8 +36,10 @@ sampleModule.grid.collection = function (config) {
             'items_count',
         ],
         columns: [
+            this.sm,
+
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
-            this.getGridColumn('name', {header: _('samplemodule_name'), width: 0.6, editor: {xtype: 'textfield'}}),
+            this.getGridColumn('name', {header: _('samplemodule_name'), width: 0.5, editor: {xtype: 'textfield'}}),
             this.getGridColumn('items_count', {header: _('samplemodule_collection_items'), width: 0.1}),
             this.getGridColumn('is_active', {header: _('samplemodule_active'), width: 0.1, editor: {xtype: 'combo-boolean'}, renderer: sampleModule.renderer.boolean}),
             this.getGridColumn('created_on', {header: _('samplemodule_createdon'), width: 0.1}),
@@ -57,7 +63,20 @@ sampleModule.grid.collection = function (config) {
             remove: {
                 action: 'mgr/collection/remove'
             }
-        }
+        },
+
+        enableDragDrop: true,
+        multi_select: true,
+        sm: this.sm,
+        plugins: [
+            new Ext.ux.dd.GridDragDropRowOrder({
+                copy: false // false by default
+                ,scrollable: true // enable scrolling support (default is false)
+                ,targetCfg: {}
+                ,listeners: {
+                    'afterrowmove': {fn:this.onAfterRowMove,scope:this}
+                }
+            })]
     });
     sampleModule.grid.collection.superclass.constructor.call(this, config);
 };
@@ -82,9 +101,34 @@ Ext.extend(sampleModule.grid.collection, sampleModule.grid.abstract, {
         return [
             this.getCreateButton(),
             this.getQuickCreateButton({text: _('quick_create'), cls: ''}),
+
+            {
+                text: _('bulk_actions')
+                ,menu: [{
+                    text: _('selected_activate')
+                    ,handler: this.activateSelected
+                    ,scope: this
+                },{
+                    text: _('selected_deactivate')
+                    ,handler: this.deactivateSelected
+                    ,scope: this
+                },{
+                    text: _('selected_remove')
+                    ,handler: this.removeSelected
+                    ,scope: this
+                }]
+            },
+
             '->',
             this.getSearchPanel()
         ];
+    },
+
+    onAfterRowMove: function(dt, sri, ri, sels) {
+        console.log(dt);
+        console.log(sri);
+        console.log(ri);
+        console.log(sels);
     },
 });
 Ext.reg('samplemodule-grid-collection', sampleModule.grid.collection);
