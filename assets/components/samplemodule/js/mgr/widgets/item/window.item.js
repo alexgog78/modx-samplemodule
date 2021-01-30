@@ -16,7 +16,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
         sampleModule.window.item.superclass.renderForm.call(this);
 
         let imagePreviewField = Ext.getCmp('item-image-preview');
-        let src = sampleModule.config.cssUrl + 'mgr/core/no-photo.png';
+        let src = abstractModule.config.cssUrl + 'mgr/no-photo.png';
         if (this.record.image) {
             src = this.record.image;
         }

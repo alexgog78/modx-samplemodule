@@ -29,10 +29,14 @@ require_once PKG_BUILD_TRANSPORT_PATH . 'settings.inc.php';
 /** modMenu */
 require_once PKG_BUILD_TRANSPORT_PATH . 'menus.inc.php';
 
+/** modMediaSource */
+require_once PKG_BUILD_TRANSPORT_PATH . 'sources.inc.php';
+
 /** Resolvers */
 require_once PKG_BUILD_TRANSPORT_PATH . 'resolvers.inc.php';
 
 /** Create .zip file */
 $builder->pack();
 $modx->log(modX::LOG_LEVEL_INFO, 'Package transport  zip created');
+
 exit();

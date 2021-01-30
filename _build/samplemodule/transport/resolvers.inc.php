@@ -5,7 +5,16 @@
  * @var modPackageBuilder $builder
  */
 
-$source = PKG_BUILD_TRANSPORT_RESOLVERS_PATH . 'modmediasources.php';
+$source = PKG_BUILD_TRANSPORT_RESOLVERS_PATH . 'settings.php';
+$vehicle = $builder->createVehicle([
+    'source' => $source,
+], [
+    'vehicle_class' => 'xPDOScriptVehicle',
+]);
+$builder->putVehicle($vehicle);
+$modx->log(modX::LOG_LEVEL_INFO, 'Added resolver: ' . $source);
+
+$source = PKG_BUILD_TRANSPORT_RESOLVERS_PATH . 'sampledata.php';
 $vehicle = $builder->createVehicle([
     'source' => $source,
 ], [

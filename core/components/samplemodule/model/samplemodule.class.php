@@ -16,6 +16,6 @@ class sampleModule extends abstractModule
     protected function setConfig($config = [])
     {
         parent::setConfig($config);
-        $this->config['fileSource'] = $this->modx->getOption($this::PKG_NAMESPACE . '_file_source');
+        $this->config['sampleDataPath'] = $this->corePath . 'sampledata/';
     }
 }
