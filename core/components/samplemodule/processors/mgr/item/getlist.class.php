@@ -40,7 +40,7 @@ class sampleItemGetListProcessor extends abstractModuleGetListProcessor
             'is_active',
         ]));
         $c->sortby('collection_id', 'ASC');
-        $c->sortby('menuindex', 'ASC');
+        $c->sortby('sort_order', 'ASC');
         return $c;
     }
 }

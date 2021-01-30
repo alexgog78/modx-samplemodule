@@ -8,7 +8,7 @@ sampleModule.combo.multiSelect.remote.category = function (config) {
             url: sampleModule.config.connectorUrl,
             baseParams: {
                 action: 'mgr/category/getlist',
-                combo: true,
+                combo: 1,
             },
             fields: ['id', 'name'],
             root: 'results',

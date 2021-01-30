@@ -10,11 +10,6 @@ class sampleOptionOneUpdateProcessor extends abstractModuleUpdateProcessor
 
     /** @var string */
     public $classKey = 'sampleOptionOne';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleOptionOneUpdateProcessor';

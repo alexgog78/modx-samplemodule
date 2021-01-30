@@ -10,11 +10,6 @@ class sampleOptionTwoUpdateProcessor extends abstractModuleUpdateProcessor
 
     /** @var string */
     public $classKey = 'sampleOptionTwo';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleOptionTwoUpdateProcessor';

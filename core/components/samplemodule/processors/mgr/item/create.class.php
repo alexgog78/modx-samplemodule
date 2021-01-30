@@ -11,11 +11,6 @@ class sampleItemCreateProcessor extends abstractModuleCreateProcessor
     /** @var string */
     public $classKey = 'sampleItem';
 
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
-
     /** @var bool */
     protected $softValidate = false;
 }

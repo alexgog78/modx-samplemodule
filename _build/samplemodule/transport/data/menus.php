@@ -24,7 +24,7 @@ return [
         'text' => 'samplemodule_settings',
         'description' => 'samplemodule_settings_desc',
         'parent' => 'samplemodule',
-        'menuindex' => 1,
+        'menuindex' => 2,
         'action' => 'mgr/settings',
     ],
 ];

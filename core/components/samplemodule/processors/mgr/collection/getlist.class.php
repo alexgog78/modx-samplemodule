@@ -15,6 +15,20 @@ class sampleCollectionGetListProcessor extends abstractModuleGetListProcessor
      * @param xPDOQuery $c
      * @return xPDOQuery
      */
+    public function prepareQueryBeforeCount(xPDOQuery $c)
+    {
+        $c = parent::prepareQueryBeforeCount($c);
+        $categoryId = $this->getProperty('category_id');
+        if ($categoryId) {
+            $c->innerJoin('sampleCollectionCategory', 'sampleCollectionCategory', $this->classKey . '.' . $this->primaryKeyField . ' = sampleCollectionCategory.collection_id && sampleCollectionCategory.category_id = ' . $categoryId);
+        }
+        return $c;
+    }
+
+    /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
     public function prepareQueryAfterCount(xPDOQuery $c)
     {
         $c = parent::prepareQueryAfterCount($c);
@@ -22,6 +36,22 @@ class sampleCollectionGetListProcessor extends abstractModuleGetListProcessor
             'items_count' => '(SELECT COUNT(*) FROM ' . $this->modx->getTableName('sampleItem') . ' WHERE collection_id = ' . $this->classKey . '.' . $this->primaryKeyField . ')',
         ]);
         return $c;
+    }
+
+    /**
+     * @param array $list
+     * @return array
+     */
+    public function beforeIteration(array $list)
+    {
+        $isFilter = $this->getProperty('filter') ? true : false;
+        if ($isFilter) {
+            $list[] = [
+                'id' => 0,
+                'name' => '(' . $this->modx->lexicon($this->objectType . '_all') . ')',
+            ];
+        }
+        return parent::beforeIteration($list);
     }
 
     /**

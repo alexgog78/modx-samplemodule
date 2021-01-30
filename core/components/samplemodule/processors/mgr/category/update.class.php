@@ -10,11 +10,6 @@ class sampleCategoryUpdateProcessor extends abstractModuleUpdateProcessor
 
     /** @var string */
     public $classKey = 'sampleCategory';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleCategoryUpdateProcessor';

@@ -31,6 +31,7 @@ class sampleModuleMgrCollectionUpdateManagerController extends abstractModuleMgr
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/property/window.collection.property.js');
 
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/grid.item.js');
+        $this->addJavascript($this->service->jsUrl . 'mgr/widgets/collection/item/grid.collection.item.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/window.item.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/property/grid.item.property.js');
         $this->addJavascript($this->service->jsUrl . 'mgr/widgets/item/property/window.item.property.js');

@@ -20,7 +20,7 @@ sampleModule.grid.item = function (config) {
             'name',
             'description',
             'image',
-            'menuindex',
+            'sort_order',
             'is_active',
             'created_on',
             'created_by',
@@ -62,12 +62,45 @@ Ext.extend(sampleModule.grid.item, sampleModule.grid.abstract, {
             : 'grid-row-inactive';
     },
 
+    getSearchPanel: function () {
+        return [
+            this._getSearchByCollectionField(),
+            this._getSearchField(),
+            this._getClearSearchButton()
+        ];
+    },
+
+    _getSearchByCollectionField() {
+        return {
+            xtype: 'samplemodule-combo-select-collection',
+            emptyText: _('samplemodule_collection'),
+            filter: 1,
+            id: this.config.id + '-filter-collection',
+            width: 200,
+            listeners: {
+                'select': {fn: this._filterByCollection, scope: this}
+            }
+        };
+    },
+
     _inactiveCategory: function (value, cell, row) {
         let is_active = row.get('collection_is_active');
         if (is_active !== '1') {
             cell.css = 'red';
         }
         return value;
+    },
+
+    _filterByCollection: function (cb, nv, ov) {
+        this.getStore().baseParams.collection_id = Ext.isEmpty(nv) || Ext.isObject(nv) ? cb.getValue() : nv;
+        this.getBottomToolbar().changePage(1);
+        return true;
+    },
+
+    _filterClear: function () {
+        this.getStore().baseParams.collection_id = 0;
+        Ext.getCmp(this.config.id + '-filter-collection').reset();
+        sampleModule.grid.item.superclass._filterClear.call(this);
     },
 });
 Ext.reg('samplemodule-grid-item', sampleModule.grid.item);

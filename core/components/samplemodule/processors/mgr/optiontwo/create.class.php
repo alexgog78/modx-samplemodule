@@ -10,11 +10,6 @@ class sampleOptionTwoCreateProcessor extends abstractModuleCreateProcessor
 
     /** @var string */
     public $classKey = 'sampleOptionTwo';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleOptionTwoCreateProcessor';

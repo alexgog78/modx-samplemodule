@@ -7,7 +7,7 @@ class sampleItem extends abstractSimpleObject
     /**
      * @return array
      */
-    protected function getMenuindexConditions()
+    protected function getSortOrderConditions()
     {
         return [
             'collection_id' => $this->get('collection_id'),

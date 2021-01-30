@@ -10,11 +10,6 @@ class sampleOptionTwoRemoveProcessor extends abstractModuleRemoveProcessor
 
     /** @var string */
     public $classKey = 'sampleOptionTwo';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleOptionTwoRemoveProcessor';

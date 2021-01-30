@@ -107,7 +107,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
 
     getItemsSection: function (config) {
         let itemsGrid = (config.record)
-            ? {xtype: 'samplemodule-grid-item', collection_id: config.record.id}
+            ? {xtype: 'samplemodule-grid-collection-item', collection_id: config.record.id}
             : sampleModule.component.notice(_('samplemodule_undefined'));
         return [
             this.getDescription(_('samplemodule_item_list_management')),

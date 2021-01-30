@@ -10,11 +10,6 @@ class sampleCollectionRemoveProcessor extends abstractModuleRemoveProcessor
 
     /** @var string */
     public $classKey = 'sampleCollection';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleCollectionRemoveProcessor';

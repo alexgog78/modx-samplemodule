@@ -8,5 +8,5 @@ class sampleCollectionCategory extends abstractObject
     protected $timestamps = false;
 
     /** @var bool */
-    protected $menuindex = false;
+    protected $sortOrder = false;
 }

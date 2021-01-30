@@ -1,11 +1,20 @@
 <?php
 
+/**
+ * @var modX $modx
+ */
+
 $model = 'sampleCollection';
-$sourceFile = 'collections.csv';
+$sourceFile = PKG_BUILD_SAMPLEDATA_SOURCES_PATH . 'collections.csv';
 
-Helpers::resetTable($model);
+$sql = 'TRUNCATE ' . $modx->getTableName($model);
+$stmt = $modx->prepare($sql);
+if (!$stmt->execute()) {
+    $modx->log(modX::LOG_LEVEL_ERROR, print_r($stmt->errorInfo(), true));
+    exit();
+}
 
-$data = file(__DIR__ . '/sources/' . $sourceFile);
+$data = file($sourceFile);
 foreach ($data as $string) {
     $csv = str_getcsv($string, ';');
     $modelData = [
@@ -22,7 +31,7 @@ foreach ($data as $string) {
     $item = $modx->newObject($model);
     $item->fromArray($modelData, '', true);
     if (!$item->save()) {
-        Helpers::log('Error saving: ' . $model);
+        $modx->log(modX::LOG_LEVEL_ERROR, 'Error saving: ' . $model);
     }
 }
-Helpers::log('Test models (' . $model . ') created');
+$modx->log(modX::LOG_LEVEL_ERROR, 'Test ' . $model . ' created');

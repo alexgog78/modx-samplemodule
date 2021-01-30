@@ -14,7 +14,7 @@ sampleModule.grid.optionone = function (config) {
         fields: [
             'id',
             'name',
-            'menuindex',
+            'sort_order',
             'is_active',
         ],
         columns: [

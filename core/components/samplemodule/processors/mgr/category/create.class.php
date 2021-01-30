@@ -10,11 +10,6 @@ class sampleCategoryCreateProcessor extends abstractModuleCreateProcessor
 
     /** @var string */
     public $classKey = 'sampleCategory';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleCategoryCreateProcessor';

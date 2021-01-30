@@ -11,11 +11,6 @@ class sampleCollectionGetProcessor extends abstractModuleGetProcessor
     /** @var string */
     public $classKey = 'sampleCollection';
 
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
-
     public function beforeOutput()
     {
         $this->prepareCodeText();

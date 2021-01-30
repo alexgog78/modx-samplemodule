@@ -1,8 +1,6 @@
 <?php
 
-if (!$this->loadClass('abstractModule', MODX_CORE_PATH . 'components/abstractmodule/model/', true, true)) {
-    return false;
-}
+$this->loadClass('abstractModule', MODX_CORE_PATH . 'components/abstractmodule/model/', true, true);
 
 class sampleModule extends abstractModule
 {
@@ -14,13 +12,10 @@ class sampleModule extends abstractModule
 
     /**
      * @param array $config
-     * @return array
      */
-    protected function getConfig($config = [])
+    protected function setConfig($config = [])
     {
-        $config = parent::getConfig($config);
-        return array_merge([
-            'fileSource' => $this->modx->getOption($this::PKG_NAMESPACE . '_file_source'),
-        ], $config);
+        parent::setConfig($config);
+        $this->config['fileSource'] = $this->modx->getOption($this::PKG_NAMESPACE . '_file_source');
     }
 }

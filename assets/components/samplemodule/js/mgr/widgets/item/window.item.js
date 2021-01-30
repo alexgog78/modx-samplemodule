@@ -77,7 +77,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
             return {xtype: 'hidden', name: 'collection_id', value: config.collection_id};
         }
         return this.getFormInput('collection_id', {
-            xtype: 'ms2colors-combo-select-collection',
+            xtype: 'samplemodule-combo-select-collection',
             fieldLabel: _('samplemodule_item_collection')
         });
     },

@@ -10,11 +10,6 @@ class sampleItemRemoveProcessor extends abstractModuleRemoveProcessor
 
     /** @var string */
     public $classKey = 'sampleItem';
-
-    /** @var array */
-    public $languageTopics = [
-        'samplemodule:status',
-    ];
 }
 
 return 'sampleItemRemoveProcessor';

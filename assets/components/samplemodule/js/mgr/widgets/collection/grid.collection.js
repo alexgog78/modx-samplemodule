@@ -5,11 +5,9 @@ sampleModule.grid.collection = function (config) {
     if (!config.id) {
         config.id = 'samplemodule-grid-collection';
     }
-
-    //TODO
     this.sm = new Ext.grid.CheckboxSelectionModel();
-
     Ext.applyIf(config, {
+        sm: this.sm,
         url: sampleModule.config.connectorUrl,
         baseParams: {
             action: 'mgr/collection/getlist'
@@ -25,7 +23,7 @@ sampleModule.grid.collection = function (config) {
             'option_two_id',
             'tags',
             'tags_combo',
-            'menuindex',
+            'sort_order',
             'is_active',
             'created_on',
             'created_by',
@@ -37,7 +35,6 @@ sampleModule.grid.collection = function (config) {
         ],
         columns: [
             this.sm,
-
             this.getGridColumn('id', {header: _('id'), width: 0.05}),
             this.getGridColumn('name', {header: _('samplemodule_name'), width: 0.5, editor: {xtype: 'textfield'}}),
             this.getGridColumn('items_count', {header: _('samplemodule_collection_items'), width: 0.1}),
@@ -64,19 +61,6 @@ sampleModule.grid.collection = function (config) {
                 action: 'mgr/collection/remove'
             }
         },
-
-        enableDragDrop: true,
-        multi_select: true,
-        sm: this.sm,
-        plugins: [
-            new Ext.ux.dd.GridDragDropRowOrder({
-                copy: false // false by default
-                ,scrollable: true // enable scrolling support (default is false)
-                ,targetCfg: {}
-                ,listeners: {
-                    'afterrowmove': {fn:this.onAfterRowMove,scope:this}
-                }
-            })]
     });
     sampleModule.grid.collection.superclass.constructor.call(this, config);
 };
@@ -101,34 +85,130 @@ Ext.extend(sampleModule.grid.collection, sampleModule.grid.abstract, {
         return [
             this.getCreateButton(),
             this.getQuickCreateButton({text: _('quick_create'), cls: ''}),
-
-            {
-                text: _('bulk_actions')
-                ,menu: [{
-                    text: _('selected_activate')
-                    ,handler: this.activateSelected
-                    ,scope: this
-                },{
-                    text: _('selected_deactivate')
-                    ,handler: this.deactivateSelected
-                    ,scope: this
-                },{
-                    text: _('selected_remove')
-                    ,handler: this.removeSelected
-                    ,scope: this
-                }]
-            },
-
+            this.getBulkActions(),
             '->',
             this.getSearchPanel()
         ];
     },
 
-    onAfterRowMove: function(dt, sri, ri, sels) {
-        console.log(dt);
-        console.log(sri);
-        console.log(ri);
-        console.log(sels);
+    getBulkActions: function () {
+        return {
+            text: _('bulk_actions'),
+            menu: [{
+                text: _('selected_activate'),
+                handler: this._activateSelected,
+                scope: this,
+            }, {
+                text: _('selected_deactivate'),
+                handler: this._deactivateSelected,
+                scope: this,
+            }, {
+                text: _('selected_remove'),
+                handler: this._removeSelected,
+                scope: this,
+            }]
+        };
+    },
+
+    getSearchPanel: function () {
+        return [
+            this._getSearchByCategoryField(),
+            this._getSearchField(),
+            this._getClearSearchButton(),
+        ];
+    },
+
+    _activateSelected: function () {
+        var selected = this.getSelectedAsList();
+        if (selected === false) {
+            return false;
+        }
+        this._updateSelected(selected, {is_active: 1})
+        return true;
+    },
+
+    _deactivateSelected: function () {
+        var selected = this.getSelectedAsList();
+        if (selected === false) {
+            return false;
+        }
+        this._updateSelected(selected, {is_active: 0})
+        return true;
+    },
+
+    _updateSelected(records, fields) {
+        MODx.Ajax.request({
+            url: this.config.url,
+            params: {
+                action: 'mgr/collection/updatemultiple',
+                records: records,
+                fields: Ext.encode(fields),
+            },
+            listeners: {
+                'success': {
+                    fn: function (r) {
+                        this.getSelectionModel().clearSelections(true);
+                        this.refresh();
+                    }, scope: this
+                },
+                'failure': {
+                    fn: function (r) {
+                    }, scope: this
+                },
+            }
+        });
+    },
+
+    _removeSelected: function () {
+        var selected = this.getSelectedAsList();
+        if (selected === false) {
+            return false;
+        }
+        MODx.Ajax.request({
+            url: this.config.url,
+            params: {
+                action: 'mgr/collection/removemultiple',
+                records: selected,
+            },
+            listeners: {
+                'success': {
+                    fn: function (r) {
+                        this.getSelectionModel().clearSelections(true);
+                        this.refresh();
+                    }, scope: this
+                },
+                'failure': {
+                    fn: function (r) {
+                    }, scope: this
+                },
+            }
+        });
+        return true;
+    },
+
+    _getSearchByCategoryField: function () {
+        return {
+            xtype: 'samplemodule-combo-select-category',
+            emptyText: _('samplemodule_category'),
+            filter: 1,
+            id: this.config.id + '-filter-category',
+            width: 200,
+            listeners: {
+                'select': {fn: this._filterByCategory, scope: this},
+            }
+        };
+    },
+
+    _filterByCategory: function (cb, nv, ov) {
+        this.getStore().baseParams.category_id = Ext.isEmpty(nv) || Ext.isObject(nv) ? cb.getValue() : nv;
+        this.getBottomToolbar().changePage(1);
+        return true;
+    },
+
+    _filterClear: function () {
+        this.getStore().baseParams.category_id = 0;
+        Ext.getCmp(this.config.id + '-filter-category').reset();
+        sampleModule.grid.collection.superclass._filterClear.call(this);
     },
 });
 Ext.reg('samplemodule-grid-collection', sampleModule.grid.collection);
