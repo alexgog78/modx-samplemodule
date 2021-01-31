@@ -9,7 +9,6 @@ $source = MODX_CORE_PATH . 'components/' . PKG_NAME_LOWER;
 $vehicle = $builder->createVehicle([
     'source' => $source,
     'target' => "return MODX_CORE_PATH . 'components/';",
-    'copy_exclude_patterns' => array('#test#i', '#^__#')
 ], [
     'vehicle_class' => 'xPDOFileVehicle',
 ]);

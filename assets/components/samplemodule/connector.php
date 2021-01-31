@@ -1,7 +1,7 @@
 <?php
 
 define('PKG_NAME', 'sampleModule');
-define('PKG_NAME_LOWER', 'samplemodule');
+define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
 /** @noinspection PhpIncludeInspection */
 require_once dirname(dirname(dirname(__DIR__))) . '/config.core.php';

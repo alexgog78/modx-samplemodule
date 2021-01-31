@@ -16,7 +16,7 @@ foreach ($settings as $data) {
 
     $vehicle = $builder->createVehicle($setting, [
         xPDOTransport::PRESERVE_KEYS => true,
-        xPDOTransport::UPDATE_OBJECT => false,
+        xPDOTransport::UPDATE_OBJECT => true,
         xPDOTransport::UNIQUE_KEY => 'text',
     ]);
     $builder->putVehicle($vehicle);

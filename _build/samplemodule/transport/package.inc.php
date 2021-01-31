@@ -13,9 +13,6 @@ $builder->setPackageAttributes([
     'license' => file_get_contents(PKG_PATH . 'docs/license.txt'),
     'readme' => file_get_contents(PKG_PATH . 'docs/readme.txt'),
     'requires' => [
-        'php' => '>=7.0',
-        'modx' => '>=2.4',
         'abstractModule' => '>=1.1.0',
     ],
-    'copy_exclude_patterns' => array('#test#i', '#^__#')
 ]);
