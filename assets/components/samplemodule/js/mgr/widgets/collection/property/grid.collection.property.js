@@ -1,11 +1,9 @@
 'use strict';
 
-Ext.namespace('sampleModule.grid.collection');
-
-sampleModule.grid.collection.property = function (config) {
+sampleModule.grid.collectionProperty = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'samplemodule-grid-collection-property';
+        config.id = 'samplemodule-grid-collectionproperty';
     }
     Ext.apply(config, {
         fields: [
@@ -17,10 +15,10 @@ sampleModule.grid.collection.property = function (config) {
             this.getGridColumn('value', {header: _('samplemodule_property_value')}),
         ],
         editWindow: {
-            xtype: 'samplemodule-window-collection-property',
+            xtype: 'samplemodule-window-collectionproperty',
         },
     });
-    sampleModule.grid.collection.property.superclass.constructor.call(this, config);
+    sampleModule.grid.collectionProperty.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.grid.collection.property, sampleModule.localGrid, {});
-Ext.reg('samplemodule-grid-collection-property', sampleModule.grid.collection.property);
+Ext.extend(sampleModule.grid.collectionProperty, sampleModule.localGrid, {});
+Ext.reg('samplemodule-grid-collectionproperty', sampleModule.grid.collectionProperty);

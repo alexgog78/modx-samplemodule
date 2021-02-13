@@ -1,16 +1,14 @@
 'use strict';
 
-Ext.namespace('sampleModule.window.item');
-
-sampleModule.window.item.property = function (config) {
+sampleModule.window.itemProperty = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'samplemodule-window-item-property';
+        config.id = 'samplemodule-window-itemproperty';
     }
     Ext.apply(config, {});
-    sampleModule.window.item.property.superclass.constructor.call(this, config);
+    sampleModule.window.itemProperty.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.window.item.property, sampleModule.window.abstract, {
+Ext.extend(sampleModule.window.itemProperty, sampleModule.window.abstract, {
     getFields: function (config) {
         return [
             this.getFormInput('key', {fieldLabel: _('samplemodule_property_key'), allowBlank: false}),
@@ -41,4 +39,4 @@ Ext.extend(sampleModule.window.item.property, sampleModule.window.abstract, {
         this.close();
     }
 });
-Ext.reg('samplemodule-window-item-property', sampleModule.window.item.property);
+Ext.reg('samplemodule-window-itemproperty', sampleModule.window.itemProperty);

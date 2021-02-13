@@ -21,7 +21,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
     rteElements: 'richtext',
 
     setRecord: function () {
-        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let grid = Ext.getCmp('samplemodule-grid-collectionproperty');
         let store = grid.getStore();
         store.removeAll();
         Ext.each(this.record.properties, function (item) {
@@ -39,7 +39,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
     },
 
     beforeSubmit: function (o) {
-        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let grid = Ext.getCmp('samplemodule-grid-collectionproperty');
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
@@ -107,7 +107,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
 
     getItemsSection: function (config) {
         let itemsGrid = (config.record)
-            ? {xtype: 'samplemodule-grid-collection-item', collection_id: config.record.id}
+            ? {xtype: 'samplemodule-grid-collectionitem', collection_id: config.record.id}
             : sampleModule.component.notice(_('samplemodule_undefined'));
         return [
             this.getDescription(_('samplemodule_item_list_management')),
@@ -120,7 +120,7 @@ Ext.extend(sampleModule.formPanel.collection, sampleModule.formPanel.abstract, {
             this.getDescription(_('samplemodule_properties_management')),
             this.getContent([
                 {xtype: 'hidden', name: 'properties'},
-                {xtype: 'samplemodule-grid-collection-property'},
+                {xtype: 'samplemodule-grid-collectionproperty'},
             ])
         ];
     },

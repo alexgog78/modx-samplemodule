@@ -1,19 +1,17 @@
 'use strict';
 
-Ext.namespace('sampleModule.grid.collection');
-
-sampleModule.grid.collection.item = function (config) {
+sampleModule.grid.collectionItem = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'samplemodule-grid-collection-item';
+        config.id = 'samplemodule-grid-collectionitem';
     }
     Ext.applyIf(config, {});
-    sampleModule.grid.collection.item.superclass.constructor.call(this, config);
+    sampleModule.grid.collectionItem.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.grid.collection.item, sampleModule.grid.item, {
+Ext.extend(sampleModule.grid.collectionItem, sampleModule.grid.item, {
     initComponent: function () {
         this.baseParams.collection_id = this.config.collection_id;
-        sampleModule.grid.collection.item.superclass.initComponent.call(this);
+        sampleModule.grid.collectionItem.superclass.initComponent.call(this);
     },
 
     getSearchPanel: function () {
@@ -28,4 +26,4 @@ Ext.extend(sampleModule.grid.collection.item, sampleModule.grid.item, {
         sampleModule.grid.item.superclass._filterClear.call(this);
     },
 });
-Ext.reg('samplemodule-grid-collection-item', sampleModule.grid.collection.item);
+Ext.reg('samplemodule-grid-collectionitem', sampleModule.grid.collectionItem);

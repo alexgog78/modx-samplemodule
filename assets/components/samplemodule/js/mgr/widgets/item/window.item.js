@@ -24,7 +24,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
     },
 
     setRecord: function () {
-        let grid = Ext.getCmp('samplemodule-grid-item-property');
+        let grid = Ext.getCmp('samplemodule-grid-itemproperty');
         let store = grid.getStore();
         store.removeAll();
         Ext.each(this.record.properties, function (item) {
@@ -34,7 +34,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
     },
 
     beforeSubmit: function (record) {
-        let grid = Ext.getCmp('samplemodule-grid-item-property');
+        let grid = Ext.getCmp('samplemodule-grid-itemproperty');
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
@@ -66,7 +66,7 @@ Ext.extend(sampleModule.window.item, sampleModule.window.abstract, {
                 items: [
                     sampleModule.component.panelDescription(_('samplemodule_properties_management')),
                     {xtype: 'hidden', name: 'properties'},
-                    {xtype: 'samplemodule-grid-item-property'},
+                    {xtype: 'samplemodule-grid-itemproperty'},
                 ]
             }
         ]);

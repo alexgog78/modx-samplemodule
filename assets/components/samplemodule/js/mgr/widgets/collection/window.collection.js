@@ -16,7 +16,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     rteElements: 'richtext',
 
     setRecord: function () {
-        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let grid = Ext.getCmp('samplemodule-grid-collectionproperty');
         let store = grid.getStore();
         store.removeAll();
         Ext.each(this.record.properties, function (item) {
@@ -39,7 +39,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
     },
 
     beforeSubmit: function (record) {
-        let grid = Ext.getCmp('samplemodule-grid-collection-property');
+        let grid = Ext.getCmp('samplemodule-grid-collectionproperty');
         let store = grid.getStore();
         let records = store.getRange();
         let properties = [];
@@ -102,7 +102,7 @@ Ext.extend(sampleModule.window.collection, sampleModule.window.abstract, {
                 items: [
                     sampleModule.component.panelDescription(_('samplemodule_properties_management')),
                     {xtype: 'hidden', name: 'properties'},
-                    {xtype: 'samplemodule-grid-collection-property'},
+                    {xtype: 'samplemodule-grid-collectionproperty'},
                 ]
             }
         ]);

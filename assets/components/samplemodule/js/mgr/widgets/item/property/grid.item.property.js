@@ -1,11 +1,9 @@
 'use strict';
 
-Ext.namespace('sampleModule.grid.item');
-
-sampleModule.grid.item.property = function (config) {
+sampleModule.grid.itemProperty = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'samplemodule-grid-item-property';
+        config.id = 'samplemodule-grid-itemproperty';
     }
     Ext.apply(config, {
         fields: [
@@ -17,10 +15,10 @@ sampleModule.grid.item.property = function (config) {
             this.getGridColumn('value', {header: _('samplemodule_property_value')}),
         ],
         editWindow: {
-            xtype: 'samplemodule-window-item-property',
+            xtype: 'samplemodule-window-itemproperty',
         },
     });
-    sampleModule.grid.item.property.superclass.constructor.call(this, config);
+    sampleModule.grid.itemProperty.superclass.constructor.call(this, config);
 };
-Ext.extend(sampleModule.grid.item.property, sampleModule.localGrid, {});
-Ext.reg('samplemodule-grid-item-property', sampleModule.grid.item.property);
+Ext.extend(sampleModule.grid.itemProperty, sampleModule.localGrid, {});
+Ext.reg('samplemodule-grid-itemproperty', sampleModule.grid.itemProperty);

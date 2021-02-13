@@ -1,5 +1,3 @@
 'use strict';
 
-Ext.apply(sampleModule.renderer, {
-
-});
+Ext.apply(sampleModule.renderer, {});
