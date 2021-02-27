@@ -15,6 +15,7 @@ $vehicle = $builder->createVehicle([
 $builder->putVehicle($vehicle);
 $modx->log(modX::LOG_LEVEL_INFO, 'Added files: ' . $source);
 
+
 $source = MODX_ASSETS_PATH . 'components/' . PKG_NAME_LOWER;
 $vehicle = $builder->createVehicle([
     'source' => $source,
@@ -24,6 +25,7 @@ $vehicle = $builder->createVehicle([
 ]);
 $builder->putVehicle($vehicle);
 $modx->log(modX::LOG_LEVEL_INFO, 'Added files: ' . $source);
+
 
 $source = MODX_ASSETS_PATH . 'media/' . PKG_NAME_LOWER;
 $vehicle = $builder->createVehicle([
